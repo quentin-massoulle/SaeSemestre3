@@ -55,12 +55,6 @@ html, body {
   /*transition: bottom 0.5s;*/
 }
 
-.réseau-sociaux {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
 .réseau-sociaux img {
   width: 100%;
   height: auto;
@@ -116,4 +110,24 @@ html, body {
   width: 90%;
   height: auto;
   border-radius: 15px;
+}
+
+.elementfooter{
+  text-align: left;
+}
+
+a{
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.resau{
+  display: flex;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

@@ -41,38 +41,25 @@
     </div>
   </div>
 </body>
-
 <footer>
   <div class="bottomfooter">
-    <div>
-      <a>Pages</a>
-      <ul>
-        <li>Page d’accueil</li>
-        <li>Mon profil</li>
-        <li>Annonces</li>
-        <li>Photos</li>
-      </ul>
+    <div class="elementfooter">
+      <p>Pages légales</p>
+       <a href=""> Mentions légale</a> 
+       <a href="">Politique de confidentialité</a>
+       <a href="">Préférence des cookies</a> 
     </div>
-    <div>
-      <a>Pages légales</a>
-      <ul>
-        <li>Mentions légale</li>
-        <li>Politique de confidentialité</li>
-        <li>Préférence des cookies</li>
-      </ul>
-    </div>
-    <div class="réseau-sociaux">
-      <div class="logo">
-        <img src="logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="logo lorem ipsum.avif" alt="Logo">
+    <div class="elementfooter">
+      <p>reseau sociaux</p>
+      <div class="resau">
+        <div class="logo">
+          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
+          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
+        </div>
+        <div class="logo">
+          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
+          <a href="" class = "reseau"><img src="logo lorem ipsum.avif" alt="Logo"></a>
+        </div>
       </div>
     </div>
     <div class="logo">
