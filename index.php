@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="PageCSS/index.css" rel="stylesheet" type="text/css" />
+  <title>cercle des informaticiens dispersés</title>
+  <link href="style/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
