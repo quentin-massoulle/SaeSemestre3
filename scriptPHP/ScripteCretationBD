@@ -7,7 +7,7 @@ $mot_de_passe = "";
 $nomBaseDeDonnees = "BaseCID";
 
 // Connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
+$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe);
 
 // Vérifier la connexion
 if ($connexion->connect_error) {
@@ -16,12 +16,19 @@ if ($connexion->connect_error) {
 
 // Création de la base de données
 $sqlCreationDB = "CREATE DATABASE IF NOT EXISTS $nomBaseDeDonnees";
+
 if ($connexion->query($sqlCreationDB) === TRUE) {
     echo "Base de données créée avec succès\n";
 } else {
     echo "Erreur lors de la création de la base de données : " . $connexion->error . "\n";
 }
+// Connexion à la base de données
+$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
 
+// Vérifier la connexion
+if ($connexion->connect_error) {
+    die("Échec de la connexion à la base de données : " . $connexion->connect_error);
+}
 // Utilisation de la base de données
 $connexion->select_db($nomBaseDeDonnees);
 
@@ -120,7 +127,7 @@ foreach ($sqlCreationTable as $requete) {
     if ($connexion->multi_query($requete)) {
         echo "Table créée avec succès.";
     } else {
-        echo "Erreur lors de la création de la table : " . $connexion->error .;
+        echo "Erreur lors de la création de la table : " . $connexion->error;
     }
 }
 

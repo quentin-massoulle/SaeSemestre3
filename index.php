@@ -1,54 +1,9 @@
 <?php
-
-session_start(); // Démarrez la session
-
-$error_message = ""; // Initialisation du message d'erreur à une chaîne vide
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "BaseCID";
-
-    // Connexion à la base de données
-    $connexion = new mysqli($servername, $username, $password, $dbname);
-
-    // Vérification de la connexion
-    if ($connexion->connect_error) {
-        die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-    }
-
-    // Récupération des données du formulaire
-    $email_connexion = $_POST['email_connexion'];
-    $password_connexion = $_POST['password_connexion'];
-
-    // Requête SQL avec une requête préparée
-    $requete = $connexion->prepare("SELECT * FROM utilisateur WHERE mails=? AND mdp=?");
-    $requete->bind_param("ss", $email_connexion, $password_connexion);
-
-    // Exécution de la requête
-    $requete->execute();
-
-    // Récupération des résultats
-    $resultat = $requete->get_result();
-
-    // Vérification de l'authentification
-    if ($resultat->num_rows > 0) {
-      $row = $resultat->fetch_assoc();
-
-      $success_message = "success";
-      
-      header("Location: ./gggg.php");
-      exit(); // Assurez-vous de terminer le script après la redirection
-    } else {
-      $error_message = "information eroner";
-    }
-
-    // Fermer la requête préparée
-    $requete->close();
-
-    // Fermer la connexion à la base de données
-    $connexion->close();
+function envoyerEmail() {
+  $to = "destinataire@example.com";
+  $subject = "Sujet du message";
+  $message = "Corps du message";
+  $headers = "De : expéditeur@example.com";
 }
 ?>
 
@@ -123,12 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
-  <div id="popup2" class="popup">
+<div id="popup2" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopupBtn2">&times;</span>
-        <!-- Formulaire de connexion -->
         <h2>Formulaire de connexion</h2>
-        <form id="connexionForm" method="post">
+        <form id="connexionForm" method="post" action="./scriptPHP/autentification.php">
             <label for="email_connexion">Email:</label>
             <input type="email" id="email_connexion" name="email_connexion" required>
             <label for="password_connexion">Mot de passe:</label>
@@ -138,13 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="connexionPopupBtn" id="connexionPopupBtn" type="submit">Se connecter</button>
         </form>
     </div>
-  </div>
+</div>
 
   <div id="popup3" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopupBtn3">&times;</span>
         <h2>Réinitialisation du mot de passe</h2>
-            <form id="resetPasswordForm">
+            <form id="resetPasswordForm"  method="post"action="./scriptPHP/mdpoublier.php">
             <label for="resetEmail">Email:</label>
             <input type="email" id="resetEmail" name="resetEmail" required>
             <button type="submit" class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>

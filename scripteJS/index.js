@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("popup2").style.display = "none";
       }
     
-     document.getElementById("connexionBtn").addEventListener("click", openConnexionPopup);
+      document.getElementById("connexionBtn").addEventListener("click", openConnexionPopup);
       document.getElementById("closePopupBtn2").addEventListener("click", closeConnexionPopup);
       document.getElementById("inscriptionLink").addEventListener("click", openInscriptionPopup);
 

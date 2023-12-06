@@ -132,7 +132,7 @@ footer{
   width: 100%;
 }
 
-/* popup conecxtion */
+/* style des popup de conection inscription et mdp oublier */
 .popup {
   display: none;
   position: fixed;
@@ -201,4 +201,3 @@ footer{
   background-color: #ffd700;
   color: black;
 }
-/* popup inscription */
