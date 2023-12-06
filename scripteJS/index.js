@@ -11,36 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("popup2").style.display = "none";
       }
     
-      // Fonction pour soumettre le formulaire de connexion
-      function submitConnexionForm() {
-        // Récupère les valeurs des champs du formulaire de connexion
-        var email = document.getElementById('email_connexion').value;
-        var password = document.getElementById('password_connexion').value;
-    
-        // Vérifie si tous les champs sont remplis
-        if (email === '' || password === '') {
-          alert("Veuillez remplir tous les champs du formulaire de connexion.");
-          return;
-        }
-    
-        // Affiche les valeurs dans la console (peut être utilisé pour vérifier les informations d'authentification)
-        console.log("Email (connexion):", email);
-        console.log("Mot de passe (connexion):", password);
-    
-        // Ferme la popup de connexion
-        closeConnexionPopup();
-      }
-
-
-      document.getElementById("connexionBtn").addEventListener("click", openConnexionPopup);
-      document.getElementById("connexionPopupBtn").addEventListener("click", submitConnexionForm);
+     document.getElementById("connexionBtn").addEventListener("click", openConnexionPopup);
       document.getElementById("closePopupBtn2").addEventListener("click", closeConnexionPopup);
+      document.getElementById("inscriptionLink").addEventListener("click", openInscriptionPopup);
 
 
       // ------------------------ Popup d'Inscription ------------------------
 
   // Fonction pour ouvrir la popup d'inscription
   function openInscriptionPopup() {
+    closeConnexionPopup();
     document.getElementById("popup1").style.display = "block";
   }
 
@@ -78,6 +58,40 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("inscriptionBtn").addEventListener("click", openInscriptionPopup);
    document.getElementById("inscriptionPopupBtn").addEventListener("click", submitInscriptionForm);
    document.getElementById("closePopupBtn1").addEventListener("click", closeInscriptionPopup);
+
+
+// ------------------------ Popup de Réinitialisation du Mot de Passe ------------------------
+
+  // Fonction pour ouvrir la popup de réinitialisation du mot de passe
+  function openForgotPasswordPopup() {
+    closeConnexionPopup();
+    document.getElementById("popup3").style.display = "block";
+  }
+
+  // Fonction pour fermer la popup de réinitialisation du mot de passe
+  function closeResetPasswordPopup() {
+    document.getElementById("popup3").style.display = "none";
+  }
+
+  // Fonction pour soumettre le formulaire de réinitialisation du mot de passe
+  function submitResetPasswordForm() {
+    var resetEmail = document.getElementById('resetEmail').value;
+
+    if (resetEmail === '') {
+      alert("Veuillez remplir l'email !");
+      return;
+    }
+
+    // Ajoutez ici la logique pour réinitialiser le mot de passe (envoyer un email, etc.)
+    alert("Fonctionnalité de réinitialisation du mot de passe à implémenter.");
+
+    closeResetPasswordPopup();
+  }
+
+
+   document.getElementById("forgotPassword").addEventListener("click", openForgotPasswordPopup);
+  document.getElementById("closePopupBtn3").addEventListener("click", closeResetPasswordPopup);
+  document.getElementById("resetPasswordBtn").addEventListener("click", submitResetPasswordForm);
 
 });
 

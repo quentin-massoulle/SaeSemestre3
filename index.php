@@ -1,3 +1,57 @@
+<?php
+
+session_start(); // Démarrez la session
+
+$error_message = ""; // Initialisation du message d'erreur à une chaîne vide
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "BaseCID";
+
+    // Connexion à la base de données
+    $connexion = new mysqli($servername, $username, $password, $dbname);
+
+    // Vérification de la connexion
+    if ($connexion->connect_error) {
+        die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+    }
+
+    // Récupération des données du formulaire
+    $email_connexion = $_POST['email_connexion'];
+    $password_connexion = $_POST['password_connexion'];
+
+    // Requête SQL avec une requête préparée
+    $requete = $connexion->prepare("SELECT * FROM utilisateur WHERE mails=? AND mdp=?");
+    $requete->bind_param("ss", $email_connexion, $password_connexion);
+
+    // Exécution de la requête
+    $requete->execute();
+
+    // Récupération des résultats
+    $resultat = $requete->get_result();
+
+    // Vérification de l'authentification
+    if ($resultat->num_rows > 0) {
+      $row = $resultat->fetch_assoc();
+
+      $success_message = "success";
+      
+      header("Location: ./gggg.php");
+      exit(); // Assurez-vous de terminer le script après la redirection
+    } else {
+      $error_message = "information eroner";
+    }
+
+    // Fermer la requête préparée
+    $requete->close();
+
+    // Fermer la connexion à la base de données
+    $connexion->close();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -62,26 +116,33 @@
     </div>
   </div>
 
-      <div id="popup2" class="popup2">
-        <div class="popup-content">
-          <span class="close" id="closePopupBtn2">&times;</span>
-          <!-- Formulaire de connexion -->
-          <h2>Formulaire de connexion</h2>
-          
+  <div id="popup2" class="popup2">
+    <div class="popup-content">
+        <span class="close" id="closePopupBtn2">&times;</span>
+        <!-- Formulaire de connexion -->
+        <h2>Formulaire de connexion</h2>
+        <form id="connexionForm" method="post">
+            <label for="email_connexion">Email:</label>
+            <input type="email" id="email_connexion" name="email_connexion" required>
+            <label for="password_connexion">Mot de passe:</label>
+            <input type="password" id="password_connexion" name="password_connexion" required>
+            <a href="#" id="forgotPassword" class="forgot-password">Mot de passe oublié ?</a>
+            <a href="#" id="inscriptionLink">Vous n’avez pas de compte ? S’inscrire</a>
+            <button class="connexionPopupBtn" id="connexionPopupBtn" type="submit">Se connecter</button>
+        </form>
+    </div>
+  </div>
 
-          <label for="email_connexion">Email:</label>
-          <input type="email" id="email_connexion" name="email_connexion" required>
 
-          
-          <label for="password_connexion">Mot de passe:</label>
-          <input type="password" id="password_connexion" name="password_connexion" required>
-          <a href="#" id="forgotPassword" class="forgot-password">Mot de passe oublié ?</a>
-          <a href="#" id="inscriptionLink">Vous n’avez pas de compte ? S’inscrire</a> 
-          <button class="connexionPopupBtn"     
-            id="connexionPopupBtn">Se connecter</button>
-        </div>
-        
-      </div>
+  <div id="popup3" class="popup3">
+    <div class="popup-content">
+      <span class="close" id="closePopupBtn3">&times;</span>
+      <h2>Réinitialisation du mot de passe</h2>
+      <label for="resetEmail">Email:</label>
+      <input type="email" id="resetEmail" name="resetEmail" required>
+      <button class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>
+    </div>
+  </div>
 </body>
 <footer>
   <div class="bottomfooter">
