@@ -97,24 +97,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 
 
-<div id="popup1" class="popup1">
+  <div id="popup1" class="popup1">
     <div class="popup-content">
-      <span class="close" id="closePopupBtn1">&times;</span>
-      <!-- Formulaire d'inscription -->
-      <h2>Formulaire d'inscription</h2>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="prenom">Prénom:</label>
-      <input type="text" id="prenom" name="prenom" required>
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" name="nom" required>
-      <label for="promo">Promo:</label>
-      <input type="text" id="promo" name="promo" required>
-      <label for="telephone">Téléphone:</label>
-      <input type="tel" id="telephone" name="telephone" required>
-      <button class="inscriptionPopupBtn" id="inscriptionPopupBtn">Créer un compte</button>
+        <span class="close" id="closePopupBtn1">&times;</span>
+        <!-- Formulaire d'inscription -->
+        <h2>Formulaire d'inscription</h2>
+        <form id="inscriptionForm" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+            
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+            
+            <label for="promo">Promo:</label>
+            <input type="text" id="promo" name="promo" required>
+            
+            <label for="telephone">Téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" required>
+            
+            <button class="inscriptionPopupBtn" id="inscriptionPopupBtn" type="submit">Créer un compte</button>
+        </form>
     </div>
-  </div>
+</div>
 
   <div id="popup2" class="popup2">
     <div class="popup-content">
