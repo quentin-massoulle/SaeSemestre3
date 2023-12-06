@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 
 
-  <div id="popup1" class="popup1">
+  <div id="popup1" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopupBtn1">&times;</span>
         <!-- Formulaire d'inscription -->
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
-  <div id="popup2" class="popup2">
+  <div id="popup2" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopupBtn2">&times;</span>
         <!-- Formulaire de connexion -->
@@ -140,16 +140,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 
-
-  <div id="popup3" class="popup3">
+  <div id="popup3" class="popup">
     <div class="popup-content">
-      <span class="close" id="closePopupBtn3">&times;</span>
-      <h2>Réinitialisation du mot de passe</h2>
-      <label for="resetEmail">Email:</label>
-      <input type="email" id="resetEmail" name="resetEmail" required>
-      <button class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>
+        <span class="close" id="closePopupBtn3">&times;</span>
+        <h2>Réinitialisation du mot de passe</h2>
+            <form id="resetPasswordForm">
+            <label for="resetEmail">Email:</label>
+            <input type="email" id="resetEmail" name="resetEmail" required>
+            <button type="submit" class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>
+        </form>
     </div>
-  </div>
+</div>
 </body>
 <footer>
   <div class="bottomfooter">
