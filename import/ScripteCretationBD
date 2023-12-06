@@ -1,0 +1,130 @@
+<?php
+
+// Paramètres de connexion à la base de données
+$serveur = "localhost";
+$utilisateur = "root";
+$mot_de_passe = "";
+$nomBaseDeDonnees = "BaseCID";
+
+// Connexion à la base de données
+$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
+
+// Vérifier la connexion
+if ($connexion->connect_error) {
+    die("Échec de la connexion à la base de données : " . $connexion->connect_error);
+}
+
+// Création de la base de données
+$sqlCreationDB = "CREATE DATABASE IF NOT EXISTS $nomBaseDeDonnees";
+if ($connexion->query($sqlCreationDB) === TRUE) {
+    echo "Base de données créée avec succès\n";
+} else {
+    echo "Erreur lors de la création de la base de données : " . $connexion->error . "\n";
+}
+
+// Utilisation de la base de données
+$connexion->select_db($nomBaseDeDonnees);
+
+// Création de la table
+$sqlCreationTable = ["CREATE TABLE IF NOT EXISTS utilisateur (
+    ID_Utilisateur INT,
+    Mails VARCHAR(320) NOT NULL,
+    mdp VARCHAR(50) NOT NULL,
+    Identifiant VARCHAR(50) NOT NULL,
+    Prénom VARCHAR(50),
+    nom VARCHAR(50),
+    Statu VARCHAR(50),
+    PRIMARY KEY(ID_Utilisateur)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS Promo (
+    ID_promo INT,
+    nom_diplome VARCHAR(50),
+    Optention BOOLEAN,
+    PRIMARY KEY(ID_promo)
+);
+
+-- Créer la table si elle n'existe pas et remplacer s'il y a un conflit (à éviter généralement)
+CREATE TABLE IF NOT EXISTS Annonce (
+    IDPoste INT,
+    Contenue VARCHAR(500),
+    DatePoste DATE,
+    Description VARCHAR(100),
+    ID_Utilisateur INT NOT NULL,
+    PRIMARY KEY(IDPoste),
+    UNIQUE(Contenue),
+    FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS Adhérent (
+    Id_Adhérent INT AUTO_INCREMENT,
+    Date_naiss DATE,
+    etre_visible BOOLEAN,
+    ID_Utilisateur INT NOT NULL UNIQUE,
+    PRIMARY KEY(Id_Adhérent),
+    FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS Photo (
+    IDPhoto INT,
+    Contenue VARCHAR(500),
+    DatePoste DATE,
+    Description VARCHAR(100),
+    IDPoste INT,
+    ID_Utilisateur INT NOT NULL,
+    PRIMARY KEY(IDPhoto),
+    UNIQUE(IDPoste),
+    UNIQUE(Contenue),
+    FOREIGN KEY(IDPoste) REFERENCES Annonce(IDPoste),
+    FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS Evenement (
+    Id_Evenement_ VARCHAR(50),
+    DateEvenement_ DATE,
+    Description VARCHAR(50),
+    Titre VARCHAR(50),
+    Valider BOOLEAN,
+    IDPhoto INT,
+    PRIMARY KEY(Id_Evenement_),
+    UNIQUE(IDPhoto),
+    FOREIGN KEY(IDPhoto) REFERENCES Photo(IDPhoto)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS OptentionDiplome (
+    ID_promo INT,
+    Id_Adhérent INT,
+    DateDiplome DATE,
+    PRIMARY KEY(ID_promo, Id_Adhérent),
+    FOREIGN KEY(ID_promo) REFERENCES Promo(ID_promo),
+    FOREIGN KEY(Id_Adhérent) REFERENCES Adhérent(Id_Adhérent)
+);
+
+-- Créer la table si elle n'existe pas
+CREATE TABLE IF NOT EXISTS PaticipeEvenement (
+    ID_Utilisateur INT,
+    Id_Evenement_ VARCHAR(50),
+    Participe VARCHAR(50),
+    PRIMARY KEY(ID_Utilisateur, Id_Evenement_),
+    FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur),
+    FOREIGN KEY(Id_Evenement_) REFERENCES évenement_(Id_Evenement_)
+);
+ "];
+
+foreach ($sqlCreationTable as $requete) {
+    if ($connexion->multi_query($requete)) {
+        echo "Table créée avec succès.";
+    } else {
+        echo "Erreur lors de la création de la table : " . $connexion->error .;
+    }
+}
+
+// Fermer la connexion
+$connexion->close();
+
+?>
