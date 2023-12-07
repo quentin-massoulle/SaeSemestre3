@@ -57,7 +57,7 @@ function envoyerEmail() {
         <span class="close" id="closePopupBtn1">&times;</span>
         <!-- Formulaire d'inscription -->
         <h2>Formulaire d'inscription</h2>
-        <form id="inscriptionForm" method="post">
+        <form id="inscriptionForm" method="post" action="./scriptPHP/inscription.php">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
@@ -67,11 +67,8 @@ function envoyerEmail() {
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" required>
             
-            <label for="promo">Promo:</label>
+            <label for="promo d'optention diplome">Promo:</label>
             <input type="text" id="promo" name="promo" required>
-            
-            <label for="telephone">Téléphone:</label>
-            <input type="tel" id="telephone" name="telephone" required>
             
             <button class="inscriptionPopupBtn" id="inscriptionPopupBtn" type="submit">Créer un compte</button>
         </form>
