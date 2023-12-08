@@ -55,8 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ./gggg.php");
         exit();
     } else {
-        // Rediriger l'utilisateur vers la page précédente
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        header("Location: ../accueil.html");
         // Afficher un message d'erreur si l'authentification échoue
         $error_message = "Échec de l'authentification. Veuillez vérifier vos informations.";
         // Vous pouvez gérer cette erreur comme vous le souhaitez (par exemple, l'afficher dans votre formulaire)
