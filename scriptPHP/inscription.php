@@ -142,14 +142,14 @@ function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) 
 
                     // Extraire le nom et le prénom
                     if (count($mots) >= 2) {
-                        $nom = trim($mots[0]); // Correction : le nom est le premier élément
+                        $nom = trim($mots[0]);
                         $prenom = trim($mots[1]);
                        
 
                         // Vérifier si le nom et le prénom correspondent
                         if (stripos($nom, $nomRecherche) !== false && stripos($prenom, $prenomRecherche) !== false) {
                             // Afficher le nom et le prénom
-                            echo "Nom : $nom, Prénom : $prenom";
+                            echo "Nom : $nom, Prénom : $prenom ,  ";
 
                             // Fermer le fichier et retourner true si l'utilisateur est trouvé
                             fclose($fichier);
