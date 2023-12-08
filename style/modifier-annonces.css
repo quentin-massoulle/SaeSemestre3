@@ -40,7 +40,7 @@ h1 {
   color: #f2f2f2;
 }
 
-h2 {
+.admin {
   color: #f2f2f2;
   background-color: #ffd700;
   display: inline-block;
@@ -170,7 +170,7 @@ button:hover {
   margin-right: 10px;
 }
 
-.Importer {
+.supprimer {
   display: flex;
   justify-content: end;
 }
@@ -187,6 +187,7 @@ button:hover {
 }
 
 /* Style pour la boîte de dialogue de confirmation */
+
 .confirmation-popup {
   display: none;
   position: fixed;
@@ -203,6 +204,7 @@ button:hover {
 
 .confirmation-popup h2 {
   text-align: center;
+  color: yellow;
 }
 
 .confirmation-popup .buttons {
@@ -229,7 +231,6 @@ button:hover {
   color: white;
 }
 
-/* Style pour l'arrière-plan sombre lors de l'affichage de la boîte de dialogue */
 .overlay {
   display: none;
   position: fixed;
@@ -241,3 +242,15 @@ button:hover {
   z-index: 1;
 }
 
+
+/* Style pour le bouton de suppression au survol */
+.supprimer button:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+/* Style pour les boutons de confirmation au survol */
+.confirmation-popup button:hover {
+  background-color: #ffd700;
+  color: black;
+}

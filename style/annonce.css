@@ -1,0 +1,118 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #053f5e;
+}
+
+.topnav {
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+/* Style the logo */
+.topnav .logo img {
+  height: 30px;
+  /* Ajustez la hauteur du logo selon vos besoins */
+  margin: 10px;
+}
+
+.bottomfooter .logo img {
+  height: 30px;
+  /* Ajustez la hauteur du logo selon vos besoins */
+  margin: 10px;
+}
+
+.bottomfooter {
+  margin-top: 20px;
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  padding: 5px;
+  width: 100% auto;
+  color: white;
+  /*transition: bottom 0.5s;
+  flex-shrink: 0;*/
+}
+
+.réseau-sociaux {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.réseau-sociaux img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  height: 50%;
+  background-color: #115173;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 0;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container .content {
+  text-align: left;
+  padding-left: 20px;
+  overflow-wrap: break-word;
+  max-width: 3000px;
+}
+
+.contenue {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .content p {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 25px;
+  word-wrap: break-word;
+  max-width: 3200px;
+  /* Ajustez la largeur maximale selon vos besoins */
+}
+
+.image {
+  width: 20px;
+  height: 30px;
+
+}

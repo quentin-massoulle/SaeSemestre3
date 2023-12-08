@@ -1,0 +1,615 @@
+/* Style général */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #053f5e;
+}
+
+/* Barre de navigation */
+.topnav {
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+.topnav .logo img {
+  height: 30px;
+  margin: 10px;
+}
+
+/* Contenu principal */
+.container {
+  width: 80%;
+  height: 50%;
+  background-color: #115173;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 0;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container .content {
+  text-align: left;
+  padding-left: 20px;
+  overflow-wrap: break-word;
+  max-width: 3000px;
+}
+
+.contenue {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .content p {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 25px;
+  word-wrap: break-word;
+  max-width: 3200px;
+}
+
+/* Barre de pied de page */
+.bottomfooter {
+  margin-top: 20px;
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  padding: 5px;
+  width: 100% auto;
+  color: white;
+}
+
+.réseau-sociaux {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.réseau-sociaux img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bottomfooter .logo img {
+  height: 30px;
+  margin: 10px;
+}
+
+
+
+
+
+/* popup Inscription Rayan */
+
+.popup1 {
+  display: none;
+  /* Cache initialement la popup */
+  position: fixed;
+  /* Position fixe pour rester en place même en faisant défiler la page */
+  top: 0;
+  /* Position en haut de la fenêtre */
+  left: 0;
+  /* Position à gauche de la fenêtre */
+  width: 100%;
+  /* Largeur de 100% de la fenêtre */
+  height: 100%;
+  /* Hauteur de 100% de la fenêtre */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fond semi-transparent noir */
+  z-index: 1;
+  /* Positionnement z pour être au-dessus du reste du contenu */
+}
+
+
+.popup-content {
+  background-color: #043550;
+  /* Couleur de fond de la popup */
+  margin: 10% auto;
+  /* Marge supérieure de 10%, centrée horizontalement */
+  padding: 20px;
+  /* Espacement intérieur de la popup */
+  border: 1px solid #115173;
+  /* Bordure de la popup */
+  width: 70%;
+  /* Largeur de la popup */
+  color: white;
+  /* Couleur du texte de la popup */
+  display: grid;
+  /* Utilise un affichage de grille pour organiser les éléments */
+  grid-template-columns: repeat(2, 1fr);
+  /* Crée deux colonnes de largeur égale */
+  gap: 12px;
+  /* Espacement entre les éléments de la grille */
+  position: relative;
+  /* Position relative pour positionner les éléments enfants */
+  border-radius: 15px; /* Ajoutez cette ligne pour arrondir le contour */
+}
+
+
+.popup-content h2 {
+  text-align: center;
+  /* Centre le texte du titre */
+  grid-column: span 2;
+  /* Étend le titre sur les deux colonnes */
+  color: #ffd700;
+}
+
+
+.popup-content .close {
+  position: absolute;
+  /* Position absolue pour positionner par rapport au conteneur parent */
+  top: 0;
+  /* Position en haut du conteneur parent */
+  right: 0;
+  /* Position à droite du conteneur parent */
+  color: #aaa;
+  /* Couleur du texte du bouton de fermeture */
+  font-size: 28px;
+  /* Taille de la police du bouton de fermeture */
+  font-weight: bold;
+  /* Texte en gras pour le bouton de fermeture */
+  cursor: pointer;
+  margin-right:8px;
+}
+
+
+.popup-content label {
+  display: block;
+  /* Affiche les étiquettes sur une nouvelle ligne */
+  margin-bottom: 10px;
+  /* Marge inférieure entre les étiquettes */
+}
+
+.popup-content input {
+  width: 150%;
+  /* Largeur de 130% pour donner un peu plus d'espace aux champs de saisie */
+  padding: 6px;
+  /* Espacement intérieur des champs de saisie */
+  box-sizing: border-box;
+  /* Inclut le rembourrage et la bordure dans la largeur totale */
+  margin-bottom: 5px; /* Ajout d'une marge en bas pour l'espacement */
+  margin-left:-50%;
+  border-radius: 10px; /* Ajoutez cette ligne pour des coins arrondis */
+}
+
+
+
+
+.popup-content button {
+  grid-column: span 2;
+  /* Occupe les deux colonnes de la grille */
+  background-color: #115173;
+  /* Couleur de fond du bouton */
+  color: white;
+  /* Couleur du texte du bouton */
+  padding: 15px;
+  /* Espacement intérieur du bouton */
+  border: none;
+  /* Aucune bordure pour le bouton */
+  cursor: pointer;
+  /* Curseur pointeur pour indiquer que le bouton est cliquable */
+  border-radius: 15px; 
+  justify-self: center; /* Centrer le bouton horizontalement */
+}
+
+.popup-content button:hover {
+  background-color: #ffd700;
+  /* Couleur de fond au survol du bouton */
+  color: black;
+  /* Couleur du texte au survol du bouton */
+}
+
+
+
+
+
+
+/* ... Popup de connexion ... */
+
+.popup2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup2 .popup-content {
+  background-color: #043550;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #115173;
+  width: 80%;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  position: relative;
+  border-radius: 15px;
+}
+
+/* Centrer le texte dans la grille sur 3 colonnes */
+.popup2 .popup-content h2 {
+  text-align: center; /* Centre le texte horizontalement */
+  grid-column: span 3; /* Étend le texte sur trois colonnes de la grille */
+  color: #ffd700; /* Couleur du texte */
+}
+
+/* Styles pour les libellés */
+.popup2 .popup-content label {
+  display: block; /* Affiche le libellé sur une nouvelle ligne */
+  margin-bottom: 10px; /* Marge inférieure entre les libellés */
+  grid-column: span 1; /* Étend le libellé sur une colonne de la grille */
+}
+
+/* Styles pour les champs de saisie */
+.popup2 .popup-content input {
+  width: 110%; /* Largeur égale à 100% moins 20 pixels pour l'espacement */
+  padding: 5px; /* Espacement intérieur du champ de saisie */
+  box-sizing: border-box; /* Inclut la bordure et le rembourrage dans la largeur totale */
+  margin-bottom: 5px; /* Marge inférieure entre les champs de saisie */
+  border-radius: 10px; /* Coins arrondis */
+  grid-column: span 2; /* Étend le champ de saisie sur deux colonnes de la grille */
+  margin-left: -15%;
+}
+
+/* Groupe d'entrées (label + input) */
+.popup2 .popup-content .input-group {
+  display: grid; /* Utilise un affichage de grille pour organiser les éléments du groupe */
+  gap: 8px; /* Espacement entre les éléments du groupe */
+  grid-template-columns: 1fr 2fr; /* Crée deux colonnes dans le groupe, la première occupant 1 fraction et la deuxième 2 fractions de largeur */
+  grid-column: span 3; /* Étend le groupe sur trois colonnes de la grille */
+
+}
+
+/* Styles pour le bouton */
+.popup2 .popup-content button {
+  grid-column: span 3; /* Étend le bouton sur trois colonnes de la grille */
+  background-color: #115173; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte du bouton */
+  padding: 15px; /* Espacement intérieur du bouton */
+  border: none; /* Pas de bordure pour le bouton */
+  cursor: pointer; /* Curseur pointeur pour indiquer que le bouton est cliquable */
+  border-radius: 15px; /* Coins arrondis */
+  justify-self: center; /* Centre le bouton horizontalement */
+  margin-top: 10px; /* Marge supérieure du bouton */
+}
+
+/* Styles pour le lien "Mot de passe oublié" */
+.popup2 .popup-content a {
+  color: #ffd700; /* Couleur du texte du lien */
+  text-decoration: none; /* Pas de soulignement pour le lien */
+  font-size: 14px; /* Taille du texte */
+  display: block; /* Affiche le lien sur une nouvelle ligne */
+  text-align: center; /* Centre le lien horizontalement */
+  margin-top: 10px; /* Marge supérieure du lien */
+  grid-column: span 3; /* Étend le lien sur trois colonnes de la grille */
+}
+.popup2 .popup-content button:hover {
+  background-color: #ffd700; /* Nouvelle couleur de fond au survol */
+  color: black; /* Nouvelle couleur du texte au survol */
+}
+
+
+
+
+
+/*Popup Mots de pass oublié*/
+/* Popup de Réinitialisation du Mot de Passe */
+.popup3 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup3 .popup-content {
+  background-color: #043550;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #115173;
+  width: 50%; /* Ajustez la largeur de la popup selon vos besoins */
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  position: relative;
+  border-radius: 15px;
+}
+
+/* Centrer le texte dans la grille sur 2 colonnes */
+.popup3 .popup-content h2 {
+  text-align: center;
+  grid-column: span 2;
+  color: #ffd700;
+}
+
+/* Styles pour les libellés */
+.popup3 .popup-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Styles pour les champs de saisie */
+.popup3 .popup-content input {
+  width: 130%;
+  padding: 3px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+/* Styles pour le bouton de réinitialisation */
+.popup3 .popup-content button {
+  grid-column: span 2;
+  background-color: #115173;
+  color: white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  justify-self: center;
+  margin-top: 10px;
+}
+
+/* Styles pour le bouton au survol */
+.popup3 .popup-content button:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+/* Styles pour le bouton de fermeture */
+.popup3 .popup-content .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Styles pour les groupes d'entrées (label + input) */
+.popup3 .popup-content .input-group {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  grid-column: span 2;
+}
+
+/* Styles pour le lien "Mot de passe oublié" */
+.popup3 .popup-content a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  grid-column: span 2;
+}
+
+/* Styles pour le bouton au survol */
+.popup3 .popup-content a:hover {
+  text-decoration: underline;
+}
+
+
+/*code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #053f5e;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main h1 {
+  color: #ffff;
+  margin-bottom: 50px;
+}
+
+.container-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Pour les tablettes : 2 éléments par ligne */
+@media only screen and (max-width: 1150px) {
+  .container-item {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 35px;
+  }
+}
+
+/* Pour les téléphones : 1 élément par ligne */
+@media only screen and (max-width: 750px) {
+  .container-item {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 50px;
+  }
+}
+
+.item {
+  background-color: #115173;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffff;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.item .container-img {
+  height: 50%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.item .container-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item .container-info {
+  height: 50%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.item .containter-info .info {
+  padding: 10px;
+}
+
+.item .container-info .info .date-poste {
+  text-align: center;
+}
+
+.item .container-info .info .titre-poste {
+  font-size: 18px;
+}
+.item .container-info .info .auteur-poste {
+  font-size: 17px;
+}
+
+.item .containter-info .info .description-poste {
+  text-align: justify;
+}
+
+.item .container-info .see-more-poste {
+  padding: 10px 20px;
+  text-align: center;
+  border: 0;
+  background-color: #226c94;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-style: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.item .container-info .see-more-poste:hover {
+  background-color: #3092c6;
+}
+
+.create-annonce {
+  padding: 20px 30px;
+  font-size: 20px;
+  font-style: bold;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: 0;
+  color: #ffff;
+  background-color: #226c94;
+  transition: 0.3s ease-in-out;
+}
+
+.create-annonce:hover {
+  background-color: #3092c6;
+}
+
+
+
+/* Popup Notification*/
+
+#popup-notification {
+  width: 250px;
+  height: auto;
+  background-color: #115173; /* Couleur de fond */
+  border: 1px solid #ffd700; /* Bordure légère */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet de flottaison */
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  overflow: hidden;
+  color: #fff; /* Couleur du texte */
+}
+
+#popup-notification h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 2px; /* Marge en bas du titre */
+}
+
+#popup-notification p {
+  text-align: center;
+}
+
+#closePopupNotification {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  color: #ccc; /* Couleur du bouton de fermeture */
+  font-size: 30px; /* Taille de police du bouton de fermeture */
+}
+
+

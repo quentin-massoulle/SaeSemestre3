@@ -1,0 +1,168 @@
+/* Style général */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #053f5e;
+}
+h1{
+  color: white;
+}
+
+/* Barre de navigation */
+.topnav {
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+.topnav .logo img {
+  height: 30px;
+  margin: 10px;
+}
+
+
+
+
+
+/* Contenu principal */
+.container {
+  width: auto;
+  max-width: 60%;
+  height: auto;
+  background-color: #115173;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+
+}
+
+
+button {
+  cursor:pointer;
+  margin: 5px;
+  color: #f2f2f2;
+  background-color: #226C94;
+  border: none;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  min-width: 200px;
+}
+button:hover{
+  background-color: #ffd700;
+  color: black;
+}
+.container h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container .content {
+  text-align: left;
+  padding-left: 20px;
+  overflow-wrap: break-word;
+  max-width: 3000px;
+
+}
+
+.contenue {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.container .content p {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 25px;
+  word-wrap: break-word;
+  max-width: 3200px;
+}
+
+.bio{
+  color: white;
+  font-size: 14px;
+  word-wrap: break-word;
+  max-width: 3200px;
+}
+
+.modifier-profil{
+  display: flex;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.info-utilisateur{
+  background-color: #115173;
+  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.info-utilisateur img{
+  padding-right: 10px;
+}
+@media screen and (max-width: 600px) {
+.modifier-profil {
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 90%;
+}}
+
+
+
+/* Barre de pied de page */
+.bottomfooter {
+  margin-top: 20px;
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  padding: 5px;
+  width: 100% auto;
+  color: white;
+}
+
+.réseau-sociaux {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.réseau-sociaux img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bottomfooter .logo img {
+  height: 30px;
+  margin: 10px;
+}
+
+
