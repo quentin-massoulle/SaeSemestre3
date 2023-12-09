@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
-  <link href="modifier-annonces.css" rel="stylesheet" type="text/css" />
+  <link href="./style/modifier-annonces.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

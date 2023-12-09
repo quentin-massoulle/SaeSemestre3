@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.2.1, created on 2023-12-09 18:51:12
+  from 'C:\laragon\www\cours\Sae3\templates\liste-adherent.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_6574b720086b47_85101124',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '70c146799dd71d1e710f6539f5cf494140b5303a' => 
+    array (
+      0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\liste-adherent.tpl',
+      1 => 1702147536,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6574b720086b47_85101124 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
 
 <head>
@@ -10,7 +33,9 @@
 
 <body>
 
-  <script src="script.js"></script>
+  <?php echo '<script'; ?>
+ src="script.js"><?php echo '</script'; ?>
+>
   <div class="topnav">
     <div class="logo">
       <img src="images/logo lorem ipsum.avif" alt="Logo">
@@ -145,4 +170,5 @@
   </div>
 </footer>
 
-</html>
+</html><?php }
+}

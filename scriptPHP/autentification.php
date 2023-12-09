@@ -27,6 +27,19 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
 
     // Vérification de l'authentification
     if ($resultat->num_rows > 0) {
+        // Récupération de la première ligne de résultats
+        $utilisateur = $resultat->fetch_assoc();
+
+        // Vérification du statut de l'utilisateur
+        if($utilisateur['Statu'] == 'admin') {
+            // Redirection vers la page d'administration
+            header("Location: ../administration.html");
+            exit(); // Assurez-vous de quitter le script après la redirection
+        }
+        else{
+            header("Location: ../accueil.html");
+        }
+
         // Fermer la requête préparée
         $requete->close();
 
@@ -40,8 +53,8 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
 
         // Fermer la connexion à la base de données
         $connexion->close();
-
-        return false;
+        header("Location: ../index.php");
+        exit(); 
     }
 }
 
@@ -50,16 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password_connexion = $_POST['password_connexion'];
 
     // Appeler la fonction d'authentification
-    if (authentifierUtilisateur($email_connexion, $password_connexion)) {
-        // Rediriger l'utilisateur vers la page souhaitée après la connexion
-        header("Location: ./gggg.php");
-        exit();
-    } else {
-        header("Location: ../accueil.html");
-        // Afficher un message d'erreur si l'authentification échoue
-        $error_message = "Échec de l'authentification. Veuillez vérifier vos informations.";
-        // Vous pouvez gérer cette erreur comme vous le souhaitez (par exemple, l'afficher dans votre formulaire)
-        exit();
-    }
+    authentifierUtilisateur($email_connexion, $password_connexion);
 }
 ?>

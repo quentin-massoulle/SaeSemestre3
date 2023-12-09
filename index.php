@@ -95,7 +95,7 @@ function envoyerEmail() {
     <div class="popup-content">
         <span class="close" id="closePopupBtn3">&times;</span>
         <h2>Réinitialisation du mot de passe</h2>
-            <form id="resetPasswordForm"  method="post"action="./scriptPHP/mdpoublier.php">
+            <form id="resetPasswordForm"  method="post" action="./scriptPHP/mdpoublier.php">
             <label for="resetEmail">Email:</label>
             <input type="email" id="resetEmail" name="resetEmail" required>
             <button type="submit" class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>

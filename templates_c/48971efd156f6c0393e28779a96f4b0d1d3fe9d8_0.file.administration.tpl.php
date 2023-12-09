@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.2.1, created on 2023-12-09 18:51:10
+  from 'C:\laragon\www\cours\Sae3\templates\administration.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_6574b71e997e04_32397456',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '48971efd156f6c0393e28779a96f4b0d1d3fe9d8' => 
+    array (
+      0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\administration.tpl',
+      1 => 1702147863,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6574b71e997e04_32397456 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
 
 <head>
@@ -10,7 +33,9 @@
 
 <body>
 
-  <script src="script.js"></script>
+  <?php echo '<script'; ?>
+ src="script.js"><?php echo '</script'; ?>
+>
   <div class="topnav">
     <div class="logo">
       <img src="images/logo lorem ipsum.avif" alt="Logo">
@@ -89,4 +114,5 @@
   </div>
 </footer>
 
-</html>  
+</html>  <?php }
+}
