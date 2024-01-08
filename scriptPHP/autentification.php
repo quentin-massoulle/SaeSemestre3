@@ -16,7 +16,7 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
     }
 
     // Requête SQL avec une requête préparée
-    $requete = $connexion->prepare("SELECT * FROM utilisateur WHERE mails=? AND mdp=?");
+    $requete = $connexion->prepare("SELECT * FROM Utilisateur WHERE mail=? AND mot_de_passe=?");
     $requete->bind_param("ss", $email_connexion, $password_connexion);
 
     // Exécution de la requête
@@ -30,14 +30,18 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         // Récupération de la première ligne de résultats
         $utilisateur = $resultat->fetch_assoc();
 
+        $_SESSION['login'] = true;
+
         // Vérification du statut de l'utilisateur
-        if($utilisateur['Statu'] == 'admin') {
+        if($utilisateur['statut_admin'] == true) {
             // Redirection vers la page d'administration
-            header("Location: ../administration.html");
+            $_SESSION['admin'] = true;
+            header("Location: ../administration");
             exit(); // Assurez-vous de quitter le script après la redirection
         }
         else{
-            header("Location: ../accueil.html");
+            header("Location: ../accueil");
+            exit();
         }
 
         // Fermer la requête préparée
@@ -53,7 +57,7 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
 
         // Fermer la connexion à la base de données
         $connexion->close();
-        header("Location: ../index.php");
+        header("Location: ../");
         exit(); 
     }
 }

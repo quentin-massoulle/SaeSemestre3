@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -17,8 +16,8 @@
       <img src="logo lorem ipsum.avif" alt="Logo">
     </div>
     <div>
-      <a href="#" id="inscriptionBtn">Inscription</a>
-      <a href="#" id="connexionBtn">Connexion</a>
+      <button id="inscriptionBtn">Inscription</a>
+      <button id="connexionBtn">Connexion</a>
     </div>
   </div>
 
@@ -42,7 +41,13 @@
     </div>
   </div>
   
+  <div id="overlay"></div>
 
+  <div id="popup-erreur" class="popup">
+    <span class="close" id="closePopup-erreur">&times;</span>
+    <h2>Erreur de connexion</h2>
+    <p id="erreur">Code de l'erreur/explication</p>
+  </div>
 
   <div id="popup1" class="popup">
     <div class="popup-content">

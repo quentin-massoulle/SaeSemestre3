@@ -36,80 +36,76 @@ $connexion->select_db($nomBaseDeDonnees);
 
 // Création de la table
 $sqlCreationTable = [
-    "CREATE TABLE IF NOT EXISTS utilisateur (
-        ID_Utilisateur INT AUTO_INCREMENT,
-        Mails VARCHAR(320) NOT NULL,
-        mdp VARCHAR(50) NOT NULL,
-        Prénom VARCHAR(50),
-        nom VARCHAR(50),
-        Statu VARCHAR(50),
-         PRIMARY KEY(ID_Utilisateur)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS Promo (
-        ID_promo INT,
-        nom_diplome VARCHAR(50),
-        DateDiplome DATE,
-        PRIMARY KEY(ID_promo)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS Annonce (
-        IDPoste INT,
-        Contenue VARCHAR(500),
-        DatePoste DATE,
-        Description VARCHAR(100),
-        ID_Utilisateur INT NOT NULL,
-        PRIMARY KEY(IDPoste),
-        UNIQUE(Contenue),
-        FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS Adhérent (
-        Id_Adhérent INT AUTO_INCREMENT,
-        Date_naiss DATE,
-        etre_visible BOOLEAN,
-        ID_promo INT NOT NULL,
-        ID_Utilisateur INT NOT NULL,
-        PRIMARY KEY(Id_Adhérent),
-        UNIQUE(ID_Utilisateur),
-        FOREIGN KEY(ID_promo) REFERENCES Promo(ID_promo),
-        FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS Photo (
-        IDPhoto INT,
-        Contenue VARCHAR(500),
-        DatePoste DATE,
-        Description VARCHAR(100),
-        IDPoste INT,
-        ID_Utilisateur INT NOT NULL,
-        PRIMARY KEY(IDPhoto),
-        UNIQUE(IDPoste),
-        UNIQUE(Contenue),
-        FOREIGN KEY(IDPoste) REFERENCES Annonce(IDPoste),
-        FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS évenement_ (
-        Id_Evenement_ VARCHAR(50),
-        DateEvenement_ DATE,
-        Description VARCHAR(50),
-        Titre VARCHAR(50),
-        Valide BOOLEAN,
-        IDPhoto INT,
-        PRIMARY KEY(Id_Evenement_),
-        UNIQUE(IDPhoto),
-        FOREIGN KEY(IDPhoto) REFERENCES Photo(IDPhoto)
-    )",
-
-    "CREATE TABLE IF NOT EXISTS participationEvenement (
-        ID_Utilisateur INT,
-        Id_Evenement_ VARCHAR(50),
-        Participe VARCHAR(50),
-        PRIMARY KEY(ID_Utilisateur, Id_Evenement_),
-        FOREIGN KEY(ID_Utilisateur) REFERENCES utilisateur(ID_Utilisateur),
-        FOREIGN KEY(Id_Evenement_) REFERENCES évenement_(Id_Evenement_)
-    )",
+    "CREATE TABLE IF NOT EXISTS Utilisateur(
+        id_utilisateur INT AUTO_INCREMENT,
+        mail VARCHAR(320) NOT NULL,
+        mot_de_passe VARCHAR(50) NOT NULL,
+        prenom VARCHAR(50) NOT NULL,
+        nom VARCHAR(50) NOT NULL,
+        statut_admin BOOLEAN NOT NULL,
+        CONSTRAINT pk_utilisateur PRIMARY KEY(id_utilisateur)
+     );",
+     
+     "CREATE TABLE IF NOT EXISTS Promo(
+        id_promo INT AUTO_INCREMENT,
+        nom_diplome VARCHAR(100) NOT NULL,
+        date_diplome DATE NOT NULL,
+        CONSTRAINT pk_promo PRIMARY KEY(id_promo)
+     );",
+     
+     "CREATE TABLE IF NOT EXISTS Adherent(
+        id_adherent INT AUTO_INCREMENT,
+        visible BOOLEAN NOT NULL,
+        id_promo INT NOT NULL,
+        id_utilisateur INT NOT NULL,
+        CONSTRAINT pk_adherent PRIMARY KEY(id_adherent),
+        CONSTRAINT uq_utilisateur_id UNIQUE(id_utilisateur),
+        CONSTRAINT fk_id_promo FOREIGN KEY(id_promo) REFERENCES Promo(id_promo),
+        CONSTRAINT fk_id_utilisateur_adherent FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+     );",
+     
+     "CREATE TABLE IF NOT EXISTS Annonce(
+        id_annonce INT AUTO_INCREMENT,
+        contenue VARCHAR(500) NOT NULL,
+        date_poste DATE NOT NULL,
+        description_poste VARCHAR(100) NOT NULL,
+        url_photo VARCHAR(200) NOT NULL,
+        valide BOOLEAN NOT NULL,
+        id_utilisateur INT NOT NULL,
+        CONSTRAINT pk_annonce PRIMARY KEY(id_annonce),
+        CONSTRAINT fk_id_utilisateur_annonce FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+     );",
+     
+     "CREATE TABLE Photo(
+        id_photo INT AUTO_INCREMENT,
+        url_photo VARCHAR(200) NOT NULL,
+        date_poste DATE NOT NULL,
+        description_poste VARCHAR(100) NOT NULL,
+        valide BOOLEAN NOT NULL,
+        id_utilisateur INT NOT NULL,
+        CONSTRAINT pk_photo PRIMARY KEY(id_photo),
+        CONSTRAINT fk_id_utilisateur_photo FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+     );",
+     
+     "CREATE TABLE Evenement(
+        id_evenement INT AUTO_INCREMENT,
+        date_evenement DATE NOT NULL,
+        description_evenement VARCHAR(50) NOT NULL,
+        url_photo VARCHAR(200) NOT NULL,
+        titre VARCHAR(50) NOT NULL,
+        valide BOOLEAN NOT NULL,
+        id_utilisateur INT NOT NULL,
+        CONSTRAINT pk_evenement PRIMARY KEY(id_evenement),
+        CONSTRAINT fk_id_utilisateur_evenement FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+     );",
+     
+     "CREATE TABLE ParticipationEvenement(
+        id_utilisateur INT NOT NULL,
+        id_evenement INT NOT NULL,
+        CONSTRAINT pk_participation_evenement PRIMARY KEY(id_utilisateur, id_evenement),
+        CONSTRAINT fk_id_utilisateur_participation_evenement FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur),
+        CONSTRAINT fk_id_evenement FOREIGN KEY(id_evenement) REFERENCES Evenement(id_evenement)
+     );"
 ];
 
 foreach ($sqlCreationTable as $requete) {

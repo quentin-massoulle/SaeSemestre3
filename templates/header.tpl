@@ -16,6 +16,7 @@
                 <img src="images/logo_lorem_ipsum.avif" alt="Logo">
             </div>
             <div>
+                <a class="active" href="deconnexion">Déconnexion</a>
                 <a class="active" href="mon-profil">Mon profil</a>
                 <a class="active" href="annonce">Annonces</a>
                 <a class="active" href="photo">Photos</a>

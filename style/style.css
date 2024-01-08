@@ -227,7 +227,40 @@ body {
   /* Couleur du texte au survol du bouton */
 }
 
+/* popup erreur connexion */
 
+#popup-erreur {
+  width: 300px;
+  height: 140px; /* Correction : ajustement de la hauteur */
+  background-color: #115173;
+  border: 1px solid #ffd700;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Correction : utilisation de "fixed" au lieu de "center" */
+  top: 10%; /* Correction : position en pourcentage plutôt qu'en pixels */
+
+  overflow: hidden;
+  color: #fff;
+}
+
+#popup-erreur h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 2px;
+}
+
+#popup-erreur p {
+  text-align: center;
+}
+
+#closePopup-erreur {
+  position: absolute;
+  top: 5px; /* Correction : ajustement de la position */
+  right: 5px; /* Correction : ajustement de la position */
+  cursor: pointer;
+  color: #ccc;
+  font-size: 20px; /* Correction : ajustement de la taille de police */
+}
 
 
 

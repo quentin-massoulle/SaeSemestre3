@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
       // ------------------------ Popup de Connexion ------------------------
 
     function openConnexionPopup() {
+        document.getElementById("overlay").style.display = "block";
         document.getElementById("popup2").style.display = "block";
       }
     
       // Fonction pour fermer la popup de connexion
       function closeConnexionPopup() {
+        document.getElementById("overlay").style.display = "none";
         document.getElementById("popup2").style.display = "none";
       }
     
@@ -21,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Fonction pour ouvrir la popup d'inscription
   function openInscriptionPopup() {
     closeConnexionPopup();
+    document.getElementById("overlay").style.display = "block";
     document.getElementById("popup1").style.display = "block";
   }
 
   // Fonction pour fermer la popup d'inscription
   function closeInscriptionPopup() {
+    document.getElementById("overlay").style.display = "none";
     document.getElementById("popup1").style.display = "none";
   }
 
@@ -65,11 +69,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Fonction pour ouvrir la popup de réinitialisation du mot de passe
   function openForgotPasswordPopup() {
     closeConnexionPopup();
+    document.getElementById("overlay").style.display = "block";
     document.getElementById("popup3").style.display = "block";
   }
 
   // Fonction pour fermer la popup de réinitialisation du mot de passe
   function closeResetPasswordPopup() {
+    document.getElementById("overlay").style.display = "none";
     document.getElementById("popup3").style.display = "none";
   }
 
@@ -95,3 +101,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Fonction pour ouvrir la popup d'erreur de connexion
+  function openErreurPopup() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popup-erreur").style.display = "block";
+  }
+
+  // Fonction pour fermer la popup d'erreur de connexion
+  function closeErreurPopup() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup-erreur").style.display = "none";
+  }
+
+  // Ajout d'un gestionnaire d'événements pour le bouton de fermeture
+  document.getElementById("closePopup-erreur").addEventListener("click", closeErreurPopup);
+
+  openErreurPopup(); // Lancement de la popup d'erreur
+});
