@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-12-09 18:46:26
+/* Smarty version 4.2.1, created on 2024-01-08 13:31:35
   from 'C:\laragon\www\cours\Sae3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6574b60224dbc9_54078126',
+  'unifunc' => 'content_659bf9379a4f94_69916085',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f5cfece104a41b97725e494d5933e0107f0acc25' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\photo.tpl',
-      1 => 1702147560,
+      1 => 1704720690,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6574b60224dbc9_54078126 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659bf9379a4f94_69916085 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style/photo.css" rel="stylesheet" type="text/css" />
+    <link href="./style/style.css" rel="stylesheet" type="text/css" />
 
     <title>Document</title>
 </head>

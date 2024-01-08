@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-12-09 18:46:39
+/* Smarty version 4.2.1, created on 2024-01-08 13:03:22
   from 'C:\laragon\www\cours\Sae3\templates\annonce.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6574b60f986a00_90466560',
+  'unifunc' => 'content_659bf29a6c55d5_49181762',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c34ed49a5438ec34598e71336141d6caf229f889' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\annonce.tpl',
-      1 => 1702147527,
+      1 => 1704718991,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6574b60f986a00_90466560 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659bf29a6c55d5_49181762 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -36,18 +36,6 @@ function content_6574b60f986a00_90466560 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
  src="script.js"><?php echo '</script'; ?>
 >
-  <div class="topnav">
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-    <div>
-      <a class="active" href="#profil">Mon profil</a>
-      <a class="active" href="#annonce">Annonces</a>
-      <a class="active" href="#photos">Photos</a>
-      <a class="active" href="#accueil">Accueil</a>
-
-    </div>
-  </div>
 
   <div class="main">
     <h1>Annonces / Evènement</h1>
@@ -131,44 +119,6 @@ function content_6574b60f986a00_90466560 (Smarty_Internal_Template $_smarty_tpl)
 
 </body>
 
-<footer>
-  <div class="bottomfooter">
-    <div>
-      <a>Pages</a>
-      <ul>
-        <li>Page d’accueil</li>
-        <li>Mon profil</li>
-        <li>Annonces</li>
-        <li>Photos</li>
-      </ul>
-    </div>
-    <div>
-      <a>Pages légales</a>
-      <ul>
-        <li>Mentions légale</li>
-        <li>Politique de confidentialité</li>
-        <li>Préférence des cookies</li>
-      </ul>
-    </div>
-    <div class="réseau-sociaux">
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-    </div>
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-  </div>
-</footer>
 
 </html>  <?php }
 }

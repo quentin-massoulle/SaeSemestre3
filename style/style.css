@@ -203,10 +203,6 @@ body {
   margin-left:-50%;
   border-radius: 10px; /* Ajoutez cette ligne pour des coins arrondis */
 }
-
-
-
-
 .popup-content button {
   grid-column: span 2;
   /* Occupe les deux colonnes de la grille */
@@ -436,18 +432,6 @@ body {
 
 /*code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
-
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #053f5e;
-
-  font-family: "Open Sans", sans-serif;
-}
-
 a {
   text-decoration: none;
 }
@@ -610,6 +594,285 @@ a {
   cursor: pointer;
   color: #ccc; /* Couleur du bouton de fermeture */
   font-size: 30px; /* Taille de police du bouton de fermeture */
+}
+
+/*code hugo */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #053f5e;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container-haut{
+display: grid;
+grid-template-columns: 20% 60% 20%;
+/*background-color: yellow;*/
+margin-top: 50px;
+
+}
+
+.titre {
+text-align: center;
+color: white;
+font-size: 30px;
+}
+
+.titre text{
+align-items: center; 
+justify-content: center;
+}
+
+.filter-container {
+padding: 10px;
+}
+
+.dropdown-btn {
+width: 124px;
+padding: 10px;
+font-size: 16px;
+cursor: pointer;
+background-color: #043550;
+color: #fff;
+border: 2px solid #043550;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #226C94;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+z-index: 1;
+text-align: center;
+}
+
+.dropdown-content a {
+display: block;
+padding: 10px;
+text-decoration: none;
+color: #fff;
+border-bottom: 2px solid #226C94;
+
+}
+
+.dropdown-content a:hover {
+background-color: #043550;
+}
+
+.search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.search-box {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.search-input {
+padding: 10px;
+font-size: 16px;
+width: 300px;
+height: 30px;
+border: 0;
+outline: 0;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+transition: 0.3s ease-in-out;
+}
+
+.search-button {
+height: 50px;
+width: 50px;
+padding: 10px;
+background-color: #226c94;
+color: #fff;
+border: none;
+border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
+cursor: pointer;
+transition: 0.3s ease-in-out;
+}
+
+.search-button:hover {
+background-color: #3092c6;
+}
+
+.search-button img {
+width: 90%;
+height: 90%;
+}
+
+
+.container-item {
+display: grid;
+margin-top: 100px;
+justify-items: center;  
+}
+
+.ligne {
+  height: 300px;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 50px;
+}
+
+.container-photo {
+  width: 50%;
+  height: 50%;
+}
+
+.container-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  height: 280px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center;
+}
+
+.photo-info {
+  background-color: #115173;
+  width: 100%;
+  height: 280px;
+  
+}
+
+.photo-info img {
+  width: 100%;
+  height: 100%;
+}
+
+.texte-info {
+  background-color: #115173;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.p1{
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+
+}
+.p2{
+  font-size: 25px;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+
+}
+.p3{
+  font-size: 16px;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+
+}
+.p4{
+  font-size: 14px;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+
+}
+
+.importer-photo {
+padding: 20px 30px;
+font-size: 20px;
+font-style: bold;
+position: fixed;
+bottom: 5%;
+right: 5%;
+border: 0;
+color: #ffff;
+background-color: #226c94;
+transition: 0.3s ease-in-out;
+}
+
+.importer-photo:hover {
+background-color: #3092c6;
+}
+
+
+
+/* popup importer photo */
+.popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 20px;
+background-color: #043550;
+color: white;
+border: 1px solid #115173;
+border-radius: 10px;
+z-index: 2;
+}
+
+.popup h2 {
+text-align: center;
+color: #ffd700; /* Couleur jaune pour le titre "Importer une photo" */
+}
+
+.popup label,
+.popup textarea {
+display: block;
+margin: 10px 0;
+}
+
+/* Utiliser la classe "popup-column" pour diviser les champs en deux colonnes */
+.popup .popup-column {
+display: flex;
+justify-content: space-between;
+margin: 10px 0;
+}
+
+/* Ajuster la taille du champ de légende pour le rendre plus grand */
+.popup textarea {
+width: 100%; /* Utiliser la largeur complète de la colonne */
+height: 150px; /* Ajuster la hauteur selon vos préférences */
+}
+
+.popup button {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+border: none;
+border-radius: 5px;
+margin-right: 10px;
+}
+
+.popup button:hover {
+background-color: #ffd700;
+color: black;
 }
 
 

@@ -11,18 +11,6 @@
 <body>
 
   <script src="script.js"></script>
-  <div class="topnav">
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-    <div>
-      <a class="active" href="#profil">Mon profil</a>
-      <a class="active" href="#annonce">Annonces</a>
-      <a class="active" href="#photos">Photos</a>
-      <a class="active" href="#accueil">Accueil</a>
-
-    </div>
-  </div>
 
   <div class="main">
     <h1>Annonces / Evènement</h1>
@@ -106,43 +94,5 @@
 
 </body>
 
-<footer>
-  <div class="bottomfooter">
-    <div>
-      <a>Pages</a>
-      <ul>
-        <li>Page d’accueil</li>
-        <li>Mon profil</li>
-        <li>Annonces</li>
-        <li>Photos</li>
-      </ul>
-    </div>
-    <div>
-      <a>Pages légales</a>
-      <ul>
-        <li>Mentions légale</li>
-        <li>Politique de confidentialité</li>
-        <li>Préférence des cookies</li>
-      </ul>
-    </div>
-    <div class="réseau-sociaux">
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-    </div>
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-  </div>
-</footer>
 
 </html>  

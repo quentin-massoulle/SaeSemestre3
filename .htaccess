@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-    DirectoryIndex index.php
+    DirectoryIndex app.php
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

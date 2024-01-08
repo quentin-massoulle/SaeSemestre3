@@ -10,19 +10,6 @@
 
 <body>
 
-  <script src="script.js"></script>
-  <div class="topnav">
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-    <div>
-      <a class="active" href="mon_profil.html">Mon Profile</a>
-      <a class="active" href="annonce.html">Annonce</a>
-      <a class="active" href="photo.html">Photos</a>
-      <a class="active" href="accueil.html">Acceuil</a>
-    </div>
-  </div>
-
   <div class="container">
     <h1>Association Cercle des Informaticiens Dispersés</h1>
     <div class="contenue">
@@ -44,30 +31,5 @@
 
 </body>
 
-<footer>
-  <div class="bottomfooter">
-    <div class="elementfooter">
-      <p>Pages légales</p>
-       <a href=""> Mentions légale</a> 
-       <a href="">Politique de confidentialité</a>
-       <a href="">Préférence des cookies</a> 
-    </div>
-    <div class="elementfooter">
-      <p>reseau sociaux</p>
-      <div class="resau">
-        <div class="logo">
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
-        </div>
-        <div class="logo">
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
-          <a href="" class = "reseau"><img src="logo lorem ipsum.avif" alt="Logo"></a>
-        </div>
-      </div>
-    </div>
-    <div class="logo">
-      <img src="logo lorem ipsum.avif" alt="Logo">
-    </div>
-  </div>
-</footer>
+
 </html>  
