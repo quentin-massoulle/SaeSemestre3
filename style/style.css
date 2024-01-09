@@ -107,137 +107,92 @@ body {
   margin: 10px;
 }
 
-
-
-
+/*-------------------------POP UP--------------------------------*/
 
 /* popup Inscription Rayan */
 
 .popup1 {
   display: none;
-  /* Cache initialement la popup */
   position: fixed;
-  /* Position fixe pour rester en place même en faisant défiler la page */
   top: 0;
-  /* Position en haut de la fenêtre */
   left: 0;
-  /* Position à gauche de la fenêtre */
   width: 100%;
-  /* Largeur de 100% de la fenêtre */
   height: 100%;
-  /* Hauteur de 100% de la fenêtre */
   background-color: rgba(0, 0, 0, 0.5);
-  /* Fond semi-transparent noir */
   z-index: 1;
-  /* Positionnement z pour être au-dessus du reste du contenu */
 }
-
 
 .popup-content {
   background-color: #043550;
-  /* Couleur de fond de la popup */
   margin: 10% auto;
-  /* Marge supérieure de 10%, centrée horizontalement */
   padding: 20px;
-  /* Espacement intérieur de la popup */
   border: 1px solid #115173;
-  /* Bordure de la popup */
   width: 70%;
-  /* Largeur de la popup */
   color: white;
-  /* Couleur du texte de la popup */
   display: grid;
-  /* Utilise un affichage de grille pour organiser les éléments */
   grid-template-columns: repeat(2, 1fr);
-  /* Crée deux colonnes de largeur égale */
   gap: 12px;
-  /* Espacement entre les éléments de la grille */
   position: relative;
-  /* Position relative pour positionner les éléments enfants */
-  border-radius: 15px; /* Ajoutez cette ligne pour arrondir le contour */
+  border-radius: 15px;
 }
-
 
 .popup-content h2 {
   text-align: center;
-  /* Centre le texte du titre */
   grid-column: span 2;
-  /* Étend le titre sur les deux colonnes */
   color: #ffd700;
 }
 
-
 .popup-content .close {
   position: absolute;
-  /* Position absolue pour positionner par rapport au conteneur parent */
   top: 0;
-  /* Position en haut du conteneur parent */
   right: 0;
-  /* Position à droite du conteneur parent */
   color: #aaa;
-  /* Couleur du texte du bouton de fermeture */
   font-size: 28px;
-  /* Taille de la police du bouton de fermeture */
   font-weight: bold;
-  /* Texte en gras pour le bouton de fermeture */
   cursor: pointer;
-  margin-right:8px;
+  margin-right: 8px;
 }
-
 
 .popup-content label {
   display: block;
-  /* Affiche les étiquettes sur une nouvelle ligne */
   margin-bottom: 10px;
-  /* Marge inférieure entre les étiquettes */
 }
 
 .popup-content input {
   width: 150%;
-  /* Largeur de 130% pour donner un peu plus d'espace aux champs de saisie */
   padding: 6px;
-  /* Espacement intérieur des champs de saisie */
   box-sizing: border-box;
-  /* Inclut le rembourrage et la bordure dans la largeur totale */
-  margin-bottom: 5px; /* Ajout d'une marge en bas pour l'espacement */
-  margin-left:-50%;
-  border-radius: 10px; /* Ajoutez cette ligne pour des coins arrondis */
+  margin-bottom: 5px;
+  margin-left: -50%;
+  border-radius: 10px;
 }
 .popup-content button {
   grid-column: span 2;
-  /* Occupe les deux colonnes de la grille */
   background-color: #115173;
-  /* Couleur de fond du bouton */
   color: white;
-  /* Couleur du texte du bouton */
   padding: 15px;
-  /* Espacement intérieur du bouton */
   border: none;
-  /* Aucune bordure pour le bouton */
   cursor: pointer;
-  /* Curseur pointeur pour indiquer que le bouton est cliquable */
-  border-radius: 15px; 
-  justify-self: center; /* Centrer le bouton horizontalement */
+  border-radius: 15px;
+  justify-self: center;
 }
 
 .popup-content button:hover {
   background-color: #ffd700;
-  /* Couleur de fond au survol du bouton */
   color: black;
-  /* Couleur du texte au survol du bouton */
 }
 
 /* popup erreur connexion */
 
 #popup-erreur {
   width: 300px;
-  height: 140px; /* Correction : ajustement de la hauteur */
+  height: 140px;
   background-color: #115173;
   border: 1px solid #ffd700;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  position: fixed; /* Correction : utilisation de "fixed" au lieu de "center" */
-  top: 10%; /* Correction : position en pourcentage plutôt qu'en pixels */
+  position: fixed;
+  top: 10%;
 
   overflow: hidden;
   color: #fff;
@@ -255,15 +210,12 @@ body {
 
 #closePopup-erreur {
   position: absolute;
-  top: 5px; /* Correction : ajustement de la position */
-  right: 5px; /* Correction : ajustement de la position */
+  top: 5px;
+  right: 5px;
   cursor: pointer;
   color: #ccc;
-  font-size: 20px; /* Correction : ajustement de la taille de police */
+  font-size: 20px;
 }
-
-
-
 
 /* ... Popup de connexion ... */
 
@@ -292,73 +244,68 @@ body {
   border-radius: 15px;
 }
 
-/* Centrer le texte dans la grille sur 3 colonnes */
 .popup2 .popup-content h2 {
-  text-align: center; /* Centre le texte horizontalement */
-  grid-column: span 3; /* Étend le texte sur trois colonnes de la grille */
-  color: #ffd700; /* Couleur du texte */
+  text-align: center;
+  grid-column: span 3;
+  color: #ffd700;
 }
 
 /* Styles pour les libellés */
 .popup2 .popup-content label {
-  display: block; /* Affiche le libellé sur une nouvelle ligne */
-  margin-bottom: 10px; /* Marge inférieure entre les libellés */
-  grid-column: span 1; /* Étend le libellé sur une colonne de la grille */
+  display: block;
+  margin-bottom: 10px;
+  grid-column: span 1;
 }
 
 /* Styles pour les champs de saisie */
 .popup2 .popup-content input {
-  width: 110%; /* Largeur égale à 100% moins 20 pixels pour l'espacement */
-  padding: 5px; /* Espacement intérieur du champ de saisie */
-  box-sizing: border-box; /* Inclut la bordure et le rembourrage dans la largeur totale */
-  margin-bottom: 5px; /* Marge inférieure entre les champs de saisie */
-  border-radius: 10px; /* Coins arrondis */
-  grid-column: span 2; /* Étend le champ de saisie sur deux colonnes de la grille */
+  width: 110%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  grid-column: span 2;
   margin-left: -15%;
 }
 
 /* Groupe d'entrées (label + input) */
 .popup2 .popup-content .input-group {
-  display: grid; /* Utilise un affichage de grille pour organiser les éléments du groupe */
-  gap: 8px; /* Espacement entre les éléments du groupe */
-  grid-template-columns: 1fr 2fr; /* Crée deux colonnes dans le groupe, la première occupant 1 fraction et la deuxième 2 fractions de largeur */
-  grid-column: span 3; /* Étend le groupe sur trois colonnes de la grille */
-
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 2fr;
+  grid-column: span 3;
 }
 
 /* Styles pour le bouton */
 .popup2 .popup-content button {
-  grid-column: span 3; /* Étend le bouton sur trois colonnes de la grille */
-  background-color: #115173; /* Couleur de fond du bouton */
-  color: white; /* Couleur du texte du bouton */
-  padding: 15px; /* Espacement intérieur du bouton */
-  border: none; /* Pas de bordure pour le bouton */
-  cursor: pointer; /* Curseur pointeur pour indiquer que le bouton est cliquable */
-  border-radius: 15px; /* Coins arrondis */
-  justify-self: center; /* Centre le bouton horizontalement */
-  margin-top: 10px; /* Marge supérieure du bouton */
+  grid-column: span 3;
+  background-color: #115173;
+  color: white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  justify-self: center;
+  margin-top: 10px;
 }
 
 /* Styles pour le lien "Mot de passe oublié" */
 .popup2 .popup-content a {
-  color: #ffd700; /* Couleur du texte du lien */
-  text-decoration: none; /* Pas de soulignement pour le lien */
-  font-size: 14px; /* Taille du texte */
-  display: block; /* Affiche le lien sur une nouvelle ligne */
-  text-align: center; /* Centre le lien horizontalement */
-  margin-top: 10px; /* Marge supérieure du lien */
-  grid-column: span 3; /* Étend le lien sur trois colonnes de la grille */
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  grid-column: span 3;
 }
 .popup2 .popup-content button:hover {
-  background-color: #ffd700; /* Nouvelle couleur de fond au survol */
-  color: black; /* Nouvelle couleur du texte au survol */
+  background-color: #ffd700;
+  color: black;
 }
 
-
-
-
-
 /*Popup Mots de pass oublié*/
+
 /* Popup de Réinitialisation du Mot de Passe */
 .popup3 {
   display: none;
@@ -376,7 +323,7 @@ body {
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #115173;
-  width: 50%; /* Ajustez la largeur de la popup selon vos besoins */
+  width: 50%;
   color: white;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -462,8 +409,97 @@ body {
   text-decoration: underline;
 }
 
+/* Popup Notification*/
 
-/*code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#popup-notif {
+  width: 300px;
+  height: 140px;
+  background-color: #115173;
+  border: 1px solid #ffd700;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 10%;
+
+  overflow: hidden;
+  color: #fff;
+}
+
+#popup-notif h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 2px;
+}
+
+#popup-notif p {
+  text-align: center;
+}
+
+#closePopup-notif {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 20px;
+}
+
+/* popup importer photo */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #043550;
+  color: white;
+  border: 1px solid #115173;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.popup h2 {
+  text-align: center;
+  color: #ffd700;
+}
+
+.popup label,
+.popup textarea {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Utiliser la classe "popup-column" pour diviser les champs en deux colonnes */
+.popup .popup-column {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* Ajuster la taille du champ de légende pour le rendre plus grand */
+.popup textarea {
+  width: 100%;
+  height: 150px;
+}
+
+.popup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.popup button:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+/* ------------------------------ Fin des Pop up ---------------------------------------*/
+
+/*////////////////code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 a {
   text-decoration: none;
@@ -592,160 +628,122 @@ a {
   background-color: #3092c6;
 }
 
+/*////////////////FIN code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
-/* Popup Notification*/
-
-#popup-notification {
-  width: 250px;
-  height: auto;
-  background-color: #115173; /* Couleur de fond */
-  border: 1px solid #ffd700; /* Bordure légère */
-  border-radius: 10px; /* Coins arrondis */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet de flottaison */
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  overflow: hidden;
-  color: #fff; /* Couleur du texte */
-}
-
-#popup-notification h2 {
-  text-align: center;
-  color: #ffd700;
-  margin-bottom: 2px; /* Marge en bas du titre */
-}
-
-#popup-notification p {
-  text-align: center;
-}
-
-#closePopupNotification {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-  color: #ccc; /* Couleur du bouton de fermeture */
-  font-size: 30px; /* Taille de police du bouton de fermeture */
-}
-
-/*code hugo */
-html, body {
+/*------------------code hugo --------------------------*/
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   background-color: #053f5e;
   min-height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.container-haut{
-display: grid;
-grid-template-columns: 20% 60% 20%;
-/*background-color: yellow;*/
-margin-top: 50px;
-
+.container-haut {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  margin-top: 50px;
 }
 
 .titre {
-text-align: center;
-color: white;
-font-size: 30px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
 }
 
-.titre text{
-align-items: center; 
-justify-content: center;
+.titre text {
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-container {
-padding: 10px;
+  padding: 10px;
 }
 
 .dropdown-btn {
-width: 124px;
-padding: 10px;
-font-size: 16px;
-cursor: pointer;
-background-color: #043550;
-color: #fff;
-border: 2px solid #043550;
+  width: 124px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #043550;
+  color: #fff;
+  border: 2px solid #043550;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-background-color: #226C94;
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-z-index: 1;
-text-align: center;
+  display: none;
+  position: absolute;
+  background-color: #226c94;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
 }
 
 .dropdown-content a {
-display: block;
-padding: 10px;
-text-decoration: none;
-color: #fff;
-border-bottom: 2px solid #226C94;
-
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 2px solid #226c94;
 }
 
 .dropdown-content a:hover {
-background-color: #043550;
+  background-color: #043550;
 }
 
 .search-container {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-box {
-display: flex;
-justify-content: space-around;
-align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .search-input {
-padding: 10px;
-font-size: 16px;
-width: 300px;
-height: 30px;
-border: 0;
-outline: 0;
-border-bottom-left-radius: 5px;
-border-top-left-radius: 5px;
-transition: 0.3s ease-in-out;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button {
-height: 50px;
-width: 50px;
-padding: 10px;
-background-color: #226c94;
-color: #fff;
-border: none;
-border-bottom-right-radius: 5px;
-border-top-right-radius: 5px;
-cursor: pointer;
-transition: 0.3s ease-in-out;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  background-color: #226c94;
+  color: #fff;
+  border: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button:hover {
-background-color: #3092c6;
+  background-color: #3092c6;
 }
 
 .search-button img {
-width: 90%;
-height: 90%;
+  width: 90%;
+  height: 90%;
 }
 
-
 .container-item {
-display: grid;
-margin-top: 100px;
-justify-items: center;  
+  display: grid;
+  margin-top: 100px;
+  justify-items: center;
 }
 
 .ligne {
@@ -783,7 +781,6 @@ justify-items: center;
   background-color: #115173;
   width: 100%;
   height: 280px;
-  
 }
 
 .photo-info img {
@@ -797,115 +794,54 @@ justify-items: center;
   height: 100%;
 }
 
-
-
-.p1{
+.p1 {
   font-size: 20px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p2{
+.p2 {
   font-size: 25px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p3{
+.p3 {
   font-size: 16px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p4{
+.p4 {
   font-size: 14px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
 
 .importer-photo {
-padding: 20px 30px;
-font-size: 20px;
-font-style: bold;
-position: fixed;
-bottom: 5%;
-right: 5%;
-border: 0;
-color: #ffff;
-background-color: #226c94;
-transition: 0.3s ease-in-out;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-style: bold;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: 0;
+  color: #ffff;
+  background-color: #226c94;
+  transition: 0.3s ease-in-out;
 }
 
 .importer-photo:hover {
-background-color: #3092c6;
+  background-color: #3092c6;
 }
 
-
-
-/* popup importer photo */
-.popup {
-display: none;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-padding: 20px;
-background-color: #043550;
-color: white;
-border: 1px solid #115173;
-border-radius: 10px;
-z-index: 2;
-}
-
-.popup h2 {
-text-align: center;
-color: #ffd700; /* Couleur jaune pour le titre "Importer une photo" */
-}
-
-.popup label,
-.popup textarea {
-display: block;
-margin: 10px 0;
-}
-
-/* Utiliser la classe "popup-column" pour diviser les champs en deux colonnes */
-.popup .popup-column {
-display: flex;
-justify-content: space-between;
-margin: 10px 0;
-}
-
-/* Ajuster la taille du champ de légende pour le rendre plus grand */
-.popup textarea {
-width: 100%; /* Utiliser la largeur complète de la colonne */
-height: 150px; /* Ajuster la hauteur selon vos préférences */
-}
-
-.popup button {
-padding: 10px 20px;
-font-size: 16px;
-cursor: pointer;
-border: none;
-border-radius: 5px;
-margin-right: 10px;
-}
-
-.popup button:hover {
-background-color: #ffd700;
-color: black;
-}
-
-
+/*---------------Fin code hugo --------------------------*/

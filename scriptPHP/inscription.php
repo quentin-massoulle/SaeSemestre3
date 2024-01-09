@@ -47,6 +47,8 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
                     // Initialiser le statut par défaut
                     $statutAdmin = false;
                     $mdpGenere = genererMotDePasse(16);
+
+                    $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT); // permet de hasher le password
                     
                     // Liaison des paramètres
                     $requete->bind_param("ssssb", $email, $mdpGenere, $prenom, $nom, $statutAdmin);
@@ -81,11 +83,12 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
     }    
 
 
+// Crypter ??
 function genererMotDePasse($longueur = 12) {
     // Caractères possibles dans le mot de passe
     $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    // Mélanger les caractères
+    // Mélanger les caractères  
     $melangeCaracteres = str_shuffle($caracteres);
 
     // Extraire la sous-chaîne de la longueur souhaitée

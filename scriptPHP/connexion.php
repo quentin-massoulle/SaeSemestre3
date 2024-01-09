@@ -1,5 +1,14 @@
 <?php
+
 session_start(); // Démarrez la session
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email_connexion = $_POST['email_connexion'];
+    $password_connexion = $_POST['password_connexion'];
+
+    // Appeler la fonction d'authentification
+    authentifierUtilisateur($email_connexion, $password_connexion);
+}
 
 function authentifierUtilisateur($email_connexion, $password_connexion) {
     $servername = "localhost";
@@ -15,9 +24,11 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         die("La connexion à la base de données a échoué : " . $connexion->connect_error);
     }
 
+    $hashedPassword = password_hash($password_connexion, PASSWORD_BCRYPT);
+
     // Requête SQL avec une requête préparée
-    $requete = $connexion->prepare("SELECT * FROM Utilisateur WHERE mail=? AND mot_de_passe=?");
-    $requete->bind_param("ss", $email_connexion, $password_connexion);
+    $requete = $connexion->prepare("SELECT * FROM Utilisateur WHERE mail=?");
+    $requete->bind_param("s", $email_connexion);
 
     // Exécution de la requête
     $requete->execute();
@@ -30,16 +41,19 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         // Récupération de la première ligne de résultats
         $utilisateur = $resultat->fetch_assoc();
 
-        $_SESSION['login'] = true;
+        if(password_verify($hashedPassword, $utilisateur['mot_de_passe'])) {
+            $_SESSION['login'] = true;
 
-        // Vérification du statut de l'utilisateur
-        if($utilisateur['statut_admin'] == true) {
-            // Redirection vers la page d'administration
-            $_SESSION['admin'] = true;
-            header("Location: ../administration");
-            exit(); // Assurez-vous de quitter le script après la redirection
+            // Vérification du statut de l'utilisateur
+            if($utilisateur['statut_admin'] == true) {
+                // Redirection vers la page d'administration
+                $_SESSION['admin'] = true;
+                header("Location: ../administration");
+                exit(); // Assurez-vous de quitter le script après la redirection
+            }
         }
         else{
+            $_SESSION['notif'] = "Echec de la connexion.<br>Veuillez verifier votre identifiant et/ou votre mot de passe.";
             header("Location: ../accueil");
             exit();
         }
@@ -62,11 +76,4 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email_connexion = $_POST['email_connexion'];
-    $password_connexion = $_POST['password_connexion'];
-
-    // Appeler la fonction d'authentification
-    authentifierUtilisateur($email_connexion, $password_connexion);
-}
 ?>

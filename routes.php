@@ -5,7 +5,11 @@ Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
     {       
         include_once './templates/accueil-no-login.tpl';
-    } 
+        if(isset($_SESSION['notif'])) {
+            $messageNotif = $_SESSION['notif'];
+            Flight::render('notif.tpl', $messageNotif);
+        }
+    }
     else
     {
         Flight::redirect('/accueil');

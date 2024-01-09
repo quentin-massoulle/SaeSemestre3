@@ -1,24 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
+// TO RENAME
 
-      // ------------------------ Popup de Connexion ------------------------
+document.addEventListener("DOMContentLoaded", function () {
+  // ------------------------ Popup de Connexion ------------------------
 
-    function openConnexionPopup() {
-        document.getElementById("overlay").style.display = "block";
-        document.getElementById("popup2").style.display = "block";
-      }
-    
-      // Fonction pour fermer la popup de connexion
-      function closeConnexionPopup() {
-        document.getElementById("overlay").style.display = "none";
-        document.getElementById("popup2").style.display = "none";
-      }
-    
-      document.getElementById("connexionBtn").addEventListener("click", openConnexionPopup);
-      document.getElementById("closePopupBtn2").addEventListener("click", closeConnexionPopup);
-      document.getElementById("inscriptionLink").addEventListener("click", openInscriptionPopup);
+  function openConnexionPopup() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popup2").style.display = "block";
+  }
 
+  // Fonction pour fermer la popup de connexion
+  function closeConnexionPopup() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup2").style.display = "none";
+  }
 
-      // ------------------------ Popup d'Inscription ------------------------
+  document
+    .getElementById("connexionBtn")
+    .addEventListener("click", openConnexionPopup);
+  document
+    .getElementById("closePopupBtn2")
+    .addEventListener("click", closeConnexionPopup);
+  document
+    .getElementById("inscriptionLink")
+    .addEventListener("click", openInscriptionPopup);
+
+  // ------------------------ Popup d'Inscription ------------------------
 
   // Fonction pour ouvrir la popup d'inscription
   function openInscriptionPopup() {
@@ -36,14 +42,20 @@ document.addEventListener("DOMContentLoaded", function() {
   // Fonction pour soumettre le formulaire d'inscription
   function submitInscriptionForm() {
     // Récupère les valeurs des champs du formulaire
-    var email = document.getElementById('email').value;
-    var prenom = document.getElementById('prenom').value;
-    var nom = document.getElementById('nom').value;
-    var promo = document.getElementById('promo').value;
-    var telephone = document.getElementById('telephone').value;
+    var email = document.getElementById("email").value;
+    var prenom = document.getElementById("prenom").value;
+    var nom = document.getElementById("nom").value;
+    var promo = document.getElementById("promo").value;
+    var telephone = document.getElementById("telephone").value;
 
     // Vérifie si tous les champs sont remplis
-    if (email === '' || prenom === '' || nom === '' || promo === '' || telephone === '') {
+    if (
+      email === "" ||
+      prenom === "" ||
+      nom === "" ||
+      promo === "" ||
+      telephone === ""
+    ) {
       alert("Veuillez remplir tous les champs du formulaire d'inscription.");
       return;
     }
@@ -58,13 +70,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ferme la popup d'inscription
     closeInscriptionPopup();
   }
-   // Popup d'Inscription
-   document.getElementById("inscriptionBtn").addEventListener("click", openInscriptionPopup);
-   document.getElementById("inscriptionPopupBtn").addEventListener("click", submitInscriptionForm);
-   document.getElementById("closePopupBtn1").addEventListener("click", closeInscriptionPopup);
+  // Popup d'Inscription
+  document
+    .getElementById("inscriptionBtn")
+    .addEventListener("click", openInscriptionPopup);
+  document
+    .getElementById("inscriptionPopupBtn")
+    .addEventListener("click", submitInscriptionForm);
+  document
+    .getElementById("closePopupBtn1")
+    .addEventListener("click", closeInscriptionPopup);
 
-
-// ------------------------ Popup de Réinitialisation du Mot de Passe ------------------------
+  // ------------------------ Popup de Réinitialisation du Mot de Passe ------------------------
 
   // Fonction pour ouvrir la popup de réinitialisation du mot de passe
   function openForgotPasswordPopup() {
@@ -81,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Fonction pour soumettre le formulaire de réinitialisation du mot de passe
   function submitResetPasswordForm() {
-    var resetEmail = document.getElementById('resetEmail').value;
+    var resetEmail = document.getElementById("resetEmail").value;
 
-    if (resetEmail === '') {
+    if (resetEmail === "") {
       alert("Veuillez remplir l'email !");
       return;
     }
@@ -94,29 +111,34 @@ document.addEventListener("DOMContentLoaded", function() {
     closeResetPasswordPopup();
   }
 
-
-   document.getElementById("forgotPassword").addEventListener("click", openForgotPasswordPopup);
-  document.getElementById("closePopupBtn3").addEventListener("click", closeResetPasswordPopup);
-  document.getElementById("resetPasswordBtn").addEventListener("click", submitResetPasswordForm);
-
+  document
+    .getElementById("forgotPassword")
+    .addEventListener("click", openForgotPasswordPopup);
+  document
+    .getElementById("closePopupBtn3")
+    .addEventListener("click", closeResetPasswordPopup);
+  document
+    .getElementById("resetPasswordBtn")
+    .addEventListener("click", submitResetPasswordForm);
 });
 
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Fonction pour ouvrir la popup d'erreur de connexion
   function openErreurPopup() {
     document.getElementById("overlay").style.display = "block";
-    document.getElementById("popup-erreur").style.display = "block";
+    document.getElementById("popup-notif").style.display = "block";
   }
 
   // Fonction pour fermer la popup d'erreur de connexion
   function closeErreurPopup() {
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("popup-erreur").style.display = "none";
+    document.getElementById("popup-notif").style.display = "none";
   }
 
   // Ajout d'un gestionnaire d'événements pour le bouton de fermeture
-  document.getElementById("closePopup-erreur").addEventListener("click", closeErreurPopup);
+  document
+    .getElementById("closePopup-notif")
+    .addEventListener("click", closeErreurPopup);
 
   openErreurPopup(); // Lancement de la popup d'erreur
 });
