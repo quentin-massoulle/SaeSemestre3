@@ -10,7 +10,6 @@
 
 <body>
 
-  <script src="script.js"></script>
   <div class="topnav">
     <div class="logo">
       <img src="images/logo lorem ipsum.avif" alt="Logo">

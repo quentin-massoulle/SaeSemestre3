@@ -10,10 +10,6 @@
 
 <body>
 
-  <script src="script.js"></script>
-
-
-  
 <h1>Page d'administration</h1>
   <h2>Admin</h2>
   <div class="page_admin">

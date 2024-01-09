@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Titre de la page</title>
-    <script src="script.js"></script>
     <link href="style/header.css" rel="stylesheet" type="text/css" />
 </head>
 

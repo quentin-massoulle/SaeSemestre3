@@ -11,7 +11,7 @@
 
 <body>
 
-  <script src="scripteJS/pop-up.js"></script>
+  <script src="../js/pop-up.js"></script>
   <div class="topnav">
     <div class="logo">
       <img src="logo lorem ipsum.avif" alt="Logo">

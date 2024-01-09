@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="./style/valider-photo.css" rel="stylesheet" type="text/css" />
-  <script src=./scripteJS/"modifier-annonces.js"></script>
+  <script src=./js/"modifier-annonces.js"></script>
 
 </head>
 

@@ -10,8 +10,6 @@
 
 <body>
 
-  <script src="script.js"></script>
-
   <div class="main">
     <h1>Annonces / Evènement</h1>
 
