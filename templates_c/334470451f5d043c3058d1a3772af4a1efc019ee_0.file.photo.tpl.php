@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.2.1, created on 2024-01-09 20:29:22
+  from 'C:\laragon\www\cours\SaeSemestre3\templates\photo.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_659daca2e36a53_53397127',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '334470451f5d043c3058d1a3772af4a1efc019ee' => 
+    array (
+      0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\photo.tpl',
+      1 => 1704832156,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_659daca2e36a53_53397127 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +30,9 @@
     <title>Document</title>
 </head>
 <body>
-  <script src="./js/photo.js"></script>
+  <?php echo '<script'; ?>
+ src="./js/photo.js"><?php echo '</script'; ?>
+>
 
     <div class="container-haut">
       <div class="titre">Photos</div>
@@ -36,12 +61,15 @@
           </div>
       </div>
 
-      <script src="script.js"></script>
+      <?php echo '<script'; ?>
+ src="script.js"><?php echo '</script'; ?>
+>
 
     </div>
 
 
-<?php
+<?php echo '<?php'; ?>
+
 $uploadDir = 'uploads';
 
 // Obtenir la liste des fichiers dans le répertoire
@@ -52,16 +80,26 @@ $imageFiles = array_filter($files, function($file) {
     $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
     return $extension == 'jpg';
 });
+<?php echo '?>'; ?>
+
+<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['imageFiles']->value, 'image');
+$_smarty_tpl->tpl_vars['image']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['image']->value) {
+$_smarty_tpl->tpl_vars['image']->do_else = false;
 ?>
-{foreach $imageFiles as $image}
   <div class="container-item">
     <div class="ligne">
       <div class="container-photo">
-        <img src="{$uploadDir}/{$image}" alt="photo de profil" />
+        <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+" alt="photo de profil" />
       </div>
       <div class="info">
         <div class="photo-info">
-          <img src="{$uploadDir}/{$image}" alt="illustration" />
+          <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+" alt="illustration" />
         </div>
         <div class="texte-info">
           <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
@@ -72,7 +110,9 @@ $imageFiles = array_filter($files, function($file) {
       </div>
     </div>
   </div>
-{/foreach}
+<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <button onclick="" class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
@@ -94,3 +134,5 @@ $imageFiles = array_filter($files, function($file) {
 </div>
 </body>
 </html>
+<?php }
+}

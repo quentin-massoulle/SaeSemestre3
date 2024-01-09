@@ -166,10 +166,21 @@ Flight::route('/photos', function(){
     else {
         include_once './templates/header.tpl';
     }
+    $uploadDir = 'uploads';
+
+    // Obtenir la liste des fichiers dans le répertoire
+    $files = scandir($uploadDir);
+
+    // Filtrer les fichiers pour ne prendre que les fichiers JPG
+    $imageFiles = array_filter($files, function($file) {
+    $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+    return $extension == 'jpg';
+    });
     $data = array(
-        'titre' => 'Titre de test',
-        'route' => 'Route de test'
+        'imageFiles' => $imageFiles,
+        'uploadDir' => $uploadDir
     );
+
     Flight::render('photo.tpl',$data);
     include_once 'templates/footer.tpl';
 });
