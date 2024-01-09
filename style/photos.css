@@ -214,3 +214,56 @@ body {
 }
 
 /*---------------Fin code hugo --------------------------*/
+/*---------------pop-up ---------------------------------*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #043550;
+  color: white;
+  border: 1px solid #115173;
+  border-radius: 10px;
+  z-index: 2;
+  }
+  
+  .popup h2 {
+  text-align: center;
+  color: #ffd700; /* Couleur jaune pour le titre "Importer une photo" */
+  }
+  
+  .popup label,
+  .popup textarea {
+  display: block;
+  margin: 10px 0;
+  }
+  
+  /* Utiliser la classe "popup-column" pour diviser les champs en deux colonnes */
+  .popup .popup-column {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  }
+  
+  /* Ajuster la taille du champ de légende pour le rendre plus grand */
+  .popup textarea {
+  width: 100%; /* Utiliser la largeur complète de la colonne */
+  height: 150px; /* Ajuster la hauteur selon vos préférences */
+  }
+  
+  .popup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  }
+  
+  .popup button:hover {
+  background-color: #ffd700;
+  color: black;
+  }
+  
