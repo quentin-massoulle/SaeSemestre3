@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 session_start();
 
+=======
+>>>>>>> 6edfb4b3a33fa7ee26f51baf1fc06551464f2cc8
 Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
     {       
