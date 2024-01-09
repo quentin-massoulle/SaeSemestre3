@@ -49,7 +49,7 @@
         <span class="close" id="closePopupBtn1">&times;</span>
         <!-- Formulaire d'inscription -->
         <h2>Formulaire d'inscription</h2>
-        <form id="inscriptionForm" method="post" action="./scriptPHP/inscription.php">
+        <form id="inscriptionForm" method="post" action="./php/inscription.php">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
@@ -71,7 +71,7 @@
     <div class="popup-content">
         <span class="close" id="closePopupBtn2">&times;</span>
         <h2>Formulaire de connexion</h2>
-        <form id="connexionForm" method="post" action="./scriptPHP/connexion.php">
+        <form id="connexionForm" method="post" action="./php/connexion.php">
             <label for="email_connexion">Email:</label>
             <input type="email" id="email_connexion" name="email_connexion" required>
             <label for="password_connexion">Mot de passe:</label>
@@ -87,7 +87,7 @@
     <div class="popup-content">
         <span class="close" id="closePopupBtn3">&times;</span>
         <h2>Réinitialisation du mot de passe</h2>
-            <form id="resetPasswordForm"  method="post" action="./scriptPHP/mdpoublier.php">
+            <form id="resetPasswordForm"  method="post" action="./php/mdpoublier.php">
             <label for="resetEmail">Email:</label>
             <input type="email" id="resetEmail" name="resetEmail" required>
             <button type="submit" class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>
