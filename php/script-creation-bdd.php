@@ -39,7 +39,7 @@ $sqlCreationTable = [
     "CREATE TABLE IF NOT EXISTS Utilisateur(
         id_utilisateur INT AUTO_INCREMENT,
         mail VARCHAR(320) NOT NULL,
-        mot_de_passe VARCHAR(50) NOT NULL,
+        mot_de_passe VARCHAR(200) NOT NULL,
         prenom VARCHAR(50) NOT NULL,
         nom VARCHAR(50) NOT NULL,
         statut_admin BOOLEAN NOT NULL,

@@ -31,7 +31,7 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
             $utilisateur = "root";
             $mot_de_passe = "";
             $nomBaseDeDonnees = "BaseCID";
-            include './envoiemail';
+            include './envoiemail.php';
 
             // Connexion à la base de données
             $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
