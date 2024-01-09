@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-09 20:29:22
+/* Smarty version 4.2.1, created on 2024-01-09 21:51:42
   from 'C:\laragon\www\cours\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659daca2e36a53_53397127',
+  'unifunc' => 'content_659dbfee45cf84_25200198',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '334470451f5d043c3058d1a3772af4a1efc019ee' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704832156,
+      1 => 1704837091,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659daca2e36a53_53397127 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659dbfee45cf84_25200198 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>
@@ -66,22 +66,6 @@ function content_659daca2e36a53_53397127 (Smarty_Internal_Template $_smarty_tpl)
 >
 
     </div>
-
-
-<?php echo '<?php'; ?>
-
-$uploadDir = 'uploads';
-
-// Obtenir la liste des fichiers dans le répertoire
-$files = scandir($uploadDir);
-
-// Filtrer les fichiers pour ne prendre que les fichiers JPG
-$imageFiles = array_filter($files, function($file) {
-    $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-    return $extension == 'jpg';
-});
-<?php echo '?>'; ?>
-
 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['imageFiles']->value, 'image');
 $_smarty_tpl->tpl_vars['image']->do_else = true;
@@ -120,14 +104,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <h2>Importation de photo</h2>
   <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
     <label for="date">Date de la photo:</label>
-    <input type="text" id="date" name="date" required>
-
+    <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
-
     <label for="file">Sélectionnez une photo :</label>
     <input type="file" name="file" id="file" accept="image/*">
-
     <button type="submit" id="submitBtn">Envoyer</button>
     <button type="button" id="closePopupBtn">Fermer</button>
   </form>

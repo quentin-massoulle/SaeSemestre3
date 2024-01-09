@@ -158,12 +158,10 @@ Flight::route('/mon-profil', function(){
     Flight::render('mon-profil.tpl',$data);
     include_once 'templates/footer.tpl';
 });
-
 Flight::route('/photos', function(){
     if(isset($_SESSION['admin'])) {
         include_once './templates/header-admin.tpl';
-    }
-    else {
+    } else {
         include_once './templates/header.tpl';
     }
     $uploadDir = 'uploads';
@@ -171,19 +169,21 @@ Flight::route('/photos', function(){
     // Obtenir la liste des fichiers dans le répertoire
     $files = scandir($uploadDir);
 
-    // Filtrer les fichiers pour ne prendre que les fichiers JPG
-    $imageFiles = array_filter($files, function($file) {
-    $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-    return $extension == 'jpg';
+    // Inclure tous les types d'images
+    $imageFiles = array_filter($files, function($file) use ($uploadDir) {
+        return is_file($uploadDir . '/' . $file); // Utiliser le chemin complet du fichier
     });
+
     $data = array(
         'imageFiles' => $imageFiles,
         'uploadDir' => $uploadDir
     );
 
-    Flight::render('photo.tpl',$data);
+    Flight::render('photo.tpl', $data);
     include_once 'templates/footer.tpl';
 });
+
+
 
 Flight::route('/valider-photo', function(){
     $data = array(

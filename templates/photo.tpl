@@ -39,20 +39,6 @@
       <script src="script.js"></script>
 
     </div>
-
-
-<?php
-$uploadDir = 'uploads';
-
-// Obtenir la liste des fichiers dans le répertoire
-$files = scandir($uploadDir);
-
-// Filtrer les fichiers pour ne prendre que les fichiers JPG
-$imageFiles = array_filter($files, function($file) {
-    $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-    return $extension == 'jpg';
-});
-?>
 {foreach $imageFiles as $image}
   <div class="container-item">
     <div class="ligne">
@@ -80,14 +66,11 @@ $imageFiles = array_filter($files, function($file) {
   <h2>Importation de photo</h2>
   <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
     <label for="date">Date de la photo:</label>
-    <input type="text" id="date" name="date" required>
-
+    <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
-
     <label for="file">Sélectionnez une photo :</label>
     <input type="file" name="file" id="file" accept="image/*">
-
     <button type="submit" id="submitBtn">Envoyer</button>
     <button type="button" id="closePopupBtn">Fermer</button>
   </form>

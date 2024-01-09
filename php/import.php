@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $timestamp = time();
     $extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
     $fileName = $timestamp . "." . $extension;
-
+    $utilisateur = $_SESSION['utilisateur'];
     $uploadFile = $uploadDir . "/" . $fileName;
 
     // Vérifier s'il y a des erreurs lors du téléchargement du fichier
@@ -22,10 +22,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Déplacer le fichier téléchargé vers le répertoire spécifié
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile)) {
-            header('Location: ../photos');
-            // Ajoutez ici le code pour enregistrer la date, la légende et le nom de fichier dans une base de données, par exemple.
+            // Ajouter les informations dans la base de données
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "BaseCID";
+
+            // Connexion à la base de données
+            $connexion = new mysqli($servername, $username, $password, $dbname);
+
+            // Vérification de la connexion
+            if ($connexion->connect_error) {
+                die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+            }
+
+            // Requête SQL pour insérer une nouvelle photo
+            $requete = $connexion->prepare("INSERT INTO Photo (url_photo, date_poste, description_poste, valide, id_utilisateur) VALUES (?, ?, ?, 1, ?)");
+            $requete->bind_param("sssi", $fileName, $date, $legende, $utilisateur);
+
+            // Exécution de la requête
+            $resultat = $requete->execute();
+
+            // Fermer la requête préparée
+            $requete->close();
+
+            // Fermer la connexion à la base de données
+            $connexion->close();
+
+            if ($resultat) {
+                header('Location: ../photos');
+            } else {
+                // Gérer le cas où l'insertion dans la base de données a échoué
+                echo "Erreur : L'insertion dans la base de données a échoué.";
+            }
         } else {
-            header('Location: ../photos');
+            // Gérer le cas où le déplacement du fichier a échoué
+            echo "Erreur : Le déplacement du fichier a échoué.";
         }
     }
 }
