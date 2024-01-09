@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-  <script src="./scripteJS/photo.js"></script>
+  <script src="./js/photo.js"></script>
 
     <div class="container-haut">
       <div class="titre">Photos</div>
