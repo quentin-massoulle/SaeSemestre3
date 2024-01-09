@@ -1,5 +1,6 @@
 <?php
 
+// tets
 
 Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
