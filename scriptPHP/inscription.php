@@ -1,8 +1,8 @@
 <?php
-
+include 'generer-mdp.php';
 // include pdo
 
-session_start();
+session_start(); // Démarrez la session
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,13 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
-    echo $email;
     if (utilisateurExiste($nom,$prenom)){
-        echo "utilisateur deja cree";
+        $_SESSION['notif'] = "Compte déjà existant.";
+        header('Location: ../');
+        exit();
     }
     else 
     {
-        if (utilisateurDansCSV($nom, $prenom, "../Utilisateur/Diplômés-IUT-1987-2013.csv")){
+        //utilisateurDansCSV($nom, $prenom, "../Utilisateur/Diplômés-IUT-1987-2013.csv")
+        if(isset($prenom)){
     
             // Paramètres de connexion à la base de données
             $serveur = "localhost";
@@ -45,19 +47,23 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
                 // Vérifier si la requête a été préparée avec succès
                 if ($requete) {
                     // Initialiser le statut par défaut
-                    $statutAdmin = false;
+                    $statutAdmin = 0;
                     $mdpGenere = genererMotDePasse(16);
 
                     $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT); // permet de hasher le password
                     
                     // Liaison des paramètres
-                    $requete->bind_param("ssssb", $email, $mdpGenere, $prenom, $nom, $statutAdmin);
+                    $requete->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
 
                     // Exécution de la requête
                     if ($requete->execute()) {
                         // Succès de l'insertion
                         envoyerEmail($email, $mdpGenere,"inscrition au cid");
                         
+                        $_SESSION['notif'] = "Inscription reussis.<br>Veuillez vous connectez afin d'accéder au site.";
+
+                        header('Location: ../');
+                        exit();
                     } else {
                         // Erreur lors de l'insertion
                         echo "Erreur lors de l'inscription : " . $requete->error;
@@ -70,8 +76,6 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
                     echo "Erreur lors de la préparation de la requête : " . $connexion->error;
                 }
 
-                // Fermeture du résultat
-                $resultatCount->close();
             } else {
                 // Erreur lors du comptage des utilisateurs
                 echo "Erreur lors du comptage des utilisateurs : " . $connexion->error;
@@ -84,18 +88,7 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
 
 
 // Crypter ??
-function genererMotDePasse($longueur = 12) {
-    // Caractères possibles dans le mot de passe
-    $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    // Mélanger les caractères  
-    $melangeCaracteres = str_shuffle($caracteres);
-
-    // Extraire la sous-chaîne de la longueur souhaitée
-    $motDePasse = substr($melangeCaracteres, 0, $longueur);
-
-    return $motDePasse;
-}
 
 function utilisateurExiste($nom,$prenom) {
     // Paramètres de connexion à la base de données
@@ -113,7 +106,7 @@ function utilisateurExiste($nom,$prenom) {
     }
 
     // Requête pour vérifier si l'utilisateur existe
-    $requete = $connexion->prepare("SELECT ID_Utilisateur FROM utilisateur WHERE Prénom = ? and nom = ?");
+    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE prenom=? AND nom=?");
     $requete->bind_param("ss",$prenom,$nom);
     
     // Exécution de la requête
@@ -131,6 +124,7 @@ function utilisateurExiste($nom,$prenom) {
     // Retourner true si l'utilisateur existe, false sinon
     return $resultat->num_rows > 0;
 }
+
 
 function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) {
     // Ouvrir le fichier CSV en mode lecture
@@ -159,9 +153,6 @@ function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) 
 
                         // Vérifier si le nom et le prénom correspondent
                         if (stripos($nom, $nomRecherche) !== false && stripos($prenom, $prenomRecherche) !== false) {
-                            // Afficher le nom et le prénom
-                            echo "Nom : $nom, Prénom : $prenom ,  ";
-
                             // Fermer le fichier et retourner true si l'utilisateur est trouvé
                             fclose($fichier);
                             return true;
@@ -169,7 +160,7 @@ function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) 
                     }
                 }
             }
-        }echo ' personne de ce nom ds la base ';
+        }
     }
 
     // Retourner false si l'utilisateur n'est pas trouvé ou s'il y a une erreur

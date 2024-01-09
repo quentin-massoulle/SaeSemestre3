@@ -13,17 +13,7 @@
 <body>
 
   <script src="script.js"></script>
-  <div class="topnav">
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-    <div>
-      <a class="active" href="mon_profil.html">Mon Profile</a>
-      <a class="active" href="annonce.html">Annonce</a>
-      <a class="active" href="photo.html">Photos</a>
-      <a class="active" href="accueil.html">Acceuil</a>
-    </div>
-  </div>
+
 
   <h1>Modifier annonces</h1>
   <h2 class="admin">Admin</h2>
@@ -122,44 +112,4 @@
   </div>
 
 </body>
-
-<footer>
-  <div class="bottomfooter">
-    <div>
-      <a>Pages</a>
-      <ul>
-        <li>Page d’accueil</li>
-        <li>Mon profil</li>
-        <li>Annonces</li>
-        <li>Photos</li>
-      </ul>
-    </div>
-    <div>
-      <a>Pages légales</a>
-      <ul>
-        <li>Mentions légale</li>
-        <li>Politique de confidentialité</li>
-        <li>Préférence des cookies</li>
-      </ul>
-    </div>
-    <div class="réseau-sociaux">
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-      <div class="logo">
-        <img src="images/logo lorem ipsum.avif" alt="Logo">
-      </div>
-    </div>
-    <div class="logo">
-      <img src="images/logo lorem ipsum.avif" alt="Logo">
-    </div>
-  </div>
-</footer>
-
 </html>

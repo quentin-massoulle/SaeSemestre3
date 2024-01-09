@@ -1,6 +1,6 @@
 <?php
 
-// tets
+session_start();
 
 Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
@@ -8,7 +8,11 @@ Flight::route('/', function(){
         include_once './templates/accueil-no-login.tpl';
         if(isset($_SESSION['notif'])) {
             $messageNotif = $_SESSION['notif'];
-            Flight::render('notif.tpl', $messageNotif);
+            unset($_SESSION['notif']);
+            $data = array(
+                'message_notif' => $messageNotif
+            );
+            Flight::render('notif.tpl', $data);
         }
     }
     else
@@ -17,8 +21,13 @@ Flight::route('/', function(){
     }
 });
 
-Flight::route('deconnexion', function(){
+
+Flight::route('/deconnexion', function(){
     session_destroy();
+
+    session_start();
+
+    $_SESSION['notif'] = "Vous avez été déconnecté.";
 
     Flight::redirect('/');
 });
@@ -26,7 +35,12 @@ Flight::route('deconnexion', function(){
 Flight::route('/accueil', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
-        include_once './templates/header.tpl';
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        }
+        else {
+            include_once './templates/header.tpl';
+        }
 
         include_once './templates/accueil-login.tpl';
 
@@ -38,9 +52,9 @@ Flight::route('/accueil', function(){
 });
 
 Flight::route('/administration', function(){
-    if(isset($_SESSION['login'])) // if login -> true
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])) // if login -> true
     {
-        include_once './templates/header.tpl';
+        include_once './templates/header-admin.tpl';
 
         include_once './templates/administration.tpl';
 
@@ -51,9 +65,9 @@ Flight::route('/administration', function(){
 });
 
 Flight::route('/annonces-admin', function(){
-    if(isset($_SESSION['login'])) // if login -> true
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])) // if login -> true
     {
-        include_once './templates/header.tpl';
+        include_once './templates/header-admin.tpl';
 
         include_once './templates/annonces-admin.tpl';
 
@@ -66,7 +80,12 @@ Flight::route('/annonces-admin', function(){
 Flight::route('/annonces', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
-        include_once './templates/header.tpl';
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        }
+        else {
+            include_once './templates/header.tpl';
+        }
 
         include_once './templates/annonces.tpl';
 
@@ -79,7 +98,12 @@ Flight::route('/annonces', function(){
 Flight::route('/consulter-profil', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
-        include_once './templates/header.tpl';
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        }
+        else {
+            include_once './templates/header.tpl';
+        }
 
         include_once './templates/consulter-profil.tpl';
 
@@ -90,22 +114,19 @@ Flight::route('/consulter-profil', function(){
 });
 
 Flight::route('/liste-adherent', function(){
-    if(isset($_SESSION['login'])) // if login -> true
-    {
-        include_once './templates/header.tpl';
-
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])){ // if login -> tru
+        include_once './templates/header-admin.tpl';
         include_once './templates/liste-adherent.tpl';
 
         include_once './templates/footer.tpl';
     } else {
         Flight::redirect('/');
-    }
-});
+    }}
+);
 Flight::route('/modifier-annoces', function(){
-    if(isset($_SESSION['login'])) // if login -> true
+    if(isset($_SESSION['admin']) && isset($_SESSION['login']))
     {
-        include_once './templates/header.tpl';
-
+        include_once './templates/header-admin.tpl';
         include_once './templates/modifier-annonces.tpl';
 
         include_once './templates/footer.tpl';
@@ -122,8 +143,14 @@ Flight::route('/modifier-photo', function(){
     Flight::render('modifier-photo.tpl',$data);
     include_once 'templates/footer.tpl';
 });
+
 Flight::route('/mon-profil', function(){
-    include_once 'templates/header.tpl';
+    if(isset($_SESSION['admin'])) {
+        include_once './templates/header-admin.tpl';
+    }
+    else {
+        include_once './templates/header.tpl';
+    }
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
@@ -131,8 +158,14 @@ Flight::route('/mon-profil', function(){
     Flight::render('mon-profil.tpl',$data);
     include_once 'templates/footer.tpl';
 });
-Flight::route('/photo', function(){
-    include_once 'templates/header.tpl';
+
+Flight::route('/photos', function(){
+    if(isset($_SESSION['admin'])) {
+        include_once './templates/header-admin.tpl';
+    }
+    else {
+        include_once './templates/header.tpl';
+    }
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
@@ -140,6 +173,7 @@ Flight::route('/photo', function(){
     Flight::render('photo.tpl',$data);
     include_once 'templates/footer.tpl';
 });
+
 Flight::route('/valider-photo', function(){
     $data = array(
         'titre' => 'Titre de test',
@@ -154,8 +188,6 @@ Flight::route('/valider-annonces', function(){
     );
     Flight::render('valider-annonces.tpl',$data);
 });
-
-
 
 Flight::map('notFound', function(){
    echo "<p>404. la route spécifiée n'existe pas</p>";

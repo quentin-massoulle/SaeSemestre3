@@ -1,4 +1,5 @@
 
+<link href="style/footer.css" rel="stylesheet" type="text/css" />
 <footer>
   <div class="bottomfooter">
     <div>

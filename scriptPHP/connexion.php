@@ -24,7 +24,9 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         die("La connexion à la base de données a échoué : " . $connexion->connect_error);
     }
 
-    $hashedPassword = password_hash($password_connexion, PASSWORD_BCRYPT);
+    //echo $password_connexion;
+    //$hashedPassword = password_hash($password_connexion, PASSWORD_BCRYPT);
+    //echo $hashedPassword;
 
     // Requête SQL avec une requête préparée
     $requete = $connexion->prepare("SELECT * FROM Utilisateur WHERE mail=?");
@@ -41,15 +43,21 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         // Récupération de la première ligne de résultats
         $utilisateur = $resultat->fetch_assoc();
 
-        if(password_verify($hashedPassword, $utilisateur['mot_de_passe'])) {
+        $storedPassword = $utilisateur['mot_de_passe'];
+
+        if(password_verify($password_connexion, $storedPassword)) {
             $_SESSION['login'] = true;
 
             // Vérification du statut de l'utilisateur
-            if($utilisateur['statut_admin'] == true) {
+            if($utilisateur['statut_admin'] == 1) {
                 // Redirection vers la page d'administration
                 $_SESSION['admin'] = true;
                 header("Location: ../administration");
                 exit(); // Assurez-vous de quitter le script après la redirection
+            }
+            else {
+                header('Location: ../accueil');
+                exit();
             }
         }
         else{
@@ -71,6 +79,9 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
 
         // Fermer la connexion à la base de données
         $connexion->close();
+
+        $_SESSION['notif'] = "Echec de la connexion.<br>Veuillez verifier votre identifiant et/ou votre mot de passe.";
+
         header("Location: ../");
         exit(); 
     }

@@ -1,0 +1,30 @@
+.bottomfooter {
+    margin-top: 20px;
+    background-color: #043550;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    padding: 5px;
+    width: 100% auto;
+    color: white;
+  }
+  
+  .réseau-sociaux {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .réseau-sociaux img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .bottomfooter .logo img {
+    height: 30px;
+    margin: 10px;
+  }
+  

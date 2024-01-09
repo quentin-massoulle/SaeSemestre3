@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownContent.style.display = 'none';
         }
     });
-
     const openPopupBtn = document.getElementById("openPopupBtn");
     const importPopup = document.getElementById("importPopup");
     const closePopupBtn = document.getElementById("closePopupBtn");

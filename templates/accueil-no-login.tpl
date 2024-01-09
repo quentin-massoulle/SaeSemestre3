@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width">
   <title>cercle des informaticiens dispersés</title>
   <link href="style/index.css" rel="stylesheet" type="text/css" />
+  <link href="style/header.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-  <script src="scripteJS/index.js"></script>
+  <script src="scripteJS/pop-up.js"></script>
   <div class="topnav">
     <div class="logo">
       <img src="logo lorem ipsum.avif" alt="Logo">
@@ -43,12 +44,6 @@
   
   <div id="overlay"></div>
 
-  <div id="popup-erreur" class="popup">
-    <span class="close" id="closePopup-erreur">&times;</span>
-    <h2>Erreur de connexion</h2>
-    <p id="erreur">Code de l'erreur/explication</p>
-  </div>
-
   <div id="popup1" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopupBtn1">&times;</span>
@@ -76,7 +71,7 @@
     <div class="popup-content">
         <span class="close" id="closePopupBtn2">&times;</span>
         <h2>Formulaire de connexion</h2>
-        <form id="connexionForm" method="post" action="./scriptPHP/autentification.php">
+        <form id="connexionForm" method="post" action="./scriptPHP/connexion.php">
             <label for="email_connexion">Email:</label>
             <input type="email" id="email_connexion" name="email_connexion" required>
             <label for="password_connexion">Mot de passe:</label>
