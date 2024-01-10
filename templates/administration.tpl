@@ -16,7 +16,7 @@
     <div class="container">
       Gestion adhérents
       <div><button class="btn" type="button">Ajout adhérents</button></div>
-      <div><a href="liste-adherent.html"><button class="btn" type="button">Liste adhérents</button></a></div>
+      <div><a href="liste-adherent"><button class="btn" type="button">Liste adhérents</button></a></div>
     </div>
     <div class="container">
       Gestion Photos

@@ -12,11 +12,11 @@
 
   <script src="script.js"></script>
   
-  <h1>Modifier son profil</h1>
+  <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px>
+        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
         <button class="btn" type="button">modifier la photo de profil</button>
       </div>
       <div><button class="btn" type="button">Gérer mes photos</button></div>
@@ -24,18 +24,18 @@
     </div>
     
     <div class="container">
-        <p>Changer de mot de passe</p>
+        <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">
             <div>
-                <label for="ancienMotDePasse">Ancien mot de passe :</label>
+                <label for="ancienMotDePasse">Ancien mot de passe :</label><br>
                 <input type="password" id="ancienMotDePasse" name="ancienMotDePasse" required>
             </div>
             <div>
-                <label for="nouveauMotDePasse">Nouveau mot de passe :</label>
+                <label for="nouveauMotDePasse">Nouveau mot de passe :</label><br>
                 <input type="password" id="nouveauMotDePasse" name="nouveauMotDePasse" required>
             </div>
             <div>
-                <label for="confirmation">Confirmation :</label>
+                <label for="confirmation">Confirmation :</label><br>
                 <input type="password" id="confirmation" name="confirmation" required>
             </div>
             <button class="btn" type="submit">Valider</button>

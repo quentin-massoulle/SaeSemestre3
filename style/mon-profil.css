@@ -7,41 +7,15 @@ body {
   padding: 0;
   background-color: #053f5e;
 }
-h1{
+
+h1 {
   color: white;
+  font-size: 36px; /* Augmentation de la taille de la police pour le titre h1 */
 }
-
-/* Barre de navigation */
-.topnav {
-  background-color: #043550;
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+h3 {
+  color: white;
+  font-size: 12px; /* Augmentation de la taille de la police pour le titre h1 */
 }
-
-.topnav a {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ffd700;
-  color: black;
-}
-
-.topnav .logo img {
-  height: 30px;
-  margin: 10px;
-}
-
-
-
-
 
 /* Contenu principal */
 .container {
@@ -52,93 +26,71 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 50px auto 0;
   text-align: center;
-  padding-top: 20px;
-
+  padding: 30px; /* Ajustement du rembourrage */
 }
 
-.modifier_profil{
+.modifier_profil {
   display: flex;
   justify-content: space-evenly;
-  margin:20px;
+  margin: 60px; /* Ajustement de la marge */
 }
+
 button {
-  cursor:pointer;
-  margin: 5px;
-  color: #f2f2f2;
+  cursor: pointer;
+  margin: 15px; /* Ajustement de la marge des boutons */
+  color: #ffffff;
   background-color: #226C94;
   border: none;
   text-align: center;
-  padding: 14px 16px;
-  font-size: 17px;
+  padding: 22px 24px; /* Ajustement de la taille du rembourrage des boutons */
+  font-size: 24px; /* Augmentation de la taille de la police des boutons */
 }
-button:hover{
-  background-color: #ffd700;
-  color: black;
-}
+
 .container h1 {
   color: white;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.container .content {
-  text-align: left;
-  padding-left: 20px;
-  overflow-wrap: break-word;
-  max-width: 3000px;
-  
-}
-
-.contenue {
-  display: flex;
-  justify-content: space-between;
-  
+  font-size: 32px;
+  margin-bottom: 40px; /* Ajustement de la marge inférieure du titre h1 */
 }
 
 .container .content p {
   color: white;
-  font-size: 14px;
-  margin-bottom: 25px;
-  word-wrap: break-word;
-  max-width: 3200px;
+  font-size: 18px; /* Augmentation de la taille de la police du contenu */
+  margin-bottom: 40px;
 }
 
-
-
-
-
-
-
-/* Barre de pied de page */
-.bottomfooter {
-  margin-top: 20px;
-  background-color: #043550;
-  overflow: hidden;
+/* Style du formulaire */
+form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: sticky;
-  padding: 5px;
-  width: 100% auto;
+}
+
+form label {
   color: white;
+  font-size: 15px; /* Augmentation de la taille de la police pour les étiquettes du formulaire */
 }
 
-.réseau-sociaux {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+form input {
+  background-color: white;
+  color: #053f5e;
+  font-size: 15px; /* Augmentation de la taille de la police pour les champs de saisie */
+  padding: 15px; /* Ajustement du rembourrage des champs de saisie */
+  margin: 10px 0; /* Ajustement de la marge des champs de saisie */
+  border: none;
+  border-radius: 5px;
 }
 
-.réseau-sociaux img {
-  width: 100%;
-  height: auto;
-  display: block;
+form button {
+  background-color: #ffffff;
+  color: #053f5e;
+  font-size: 14px; /* Augmentation de la taille de la police pour le bouton du formulaire */
+  padding: 20px; /* Ajustement du rembourrage du bouton du formulaire */
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.bottomfooter .logo img {
-  height: 30px;
-  margin: 10px;
+form button:hover {
+  background-color: #053f5e;
+  color: #ffffff;
 }
-
