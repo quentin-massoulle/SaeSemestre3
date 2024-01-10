@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" translate="no">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/photos.css" rel="stylesheet" type="text/css" />
@@ -40,36 +40,36 @@
 
     </div>
   <div class="container-item">
-
-{foreach $imageFiles as $image}
-    <div class="ligne">
-      <div class="container-photo">
-        <img src="{$uploadDir}/{$image}" alt="photo de profil" />
-      </div>
-      <div class="info">
-        <div class="photo-info">
-          <img src="{$uploadDir}/{$image}" alt="illustration" />
+    {foreach $imageFiles as $image}
+      <div class="ligne">
+        <div class="container-photo">
+          <img src="{$uploadDir}/{$image}" alt="photo de profil" />
         </div>
-        <div class="texte-info">
-          <p class="p1">jj/mm/aaaa promo diplome année</p>
-          <p class="p2">titre photo</p>
-          <p class="p3">utilisateur</p>
-          <p class="p4">description</p>
+        <div class="info">
+          <div class="photo-info">
+            <img src="{$uploadDir}/{$image}" alt="illustration" />
+          </div>
+          <div class="texte-info">
+            <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
+            <p class="p2">titre photo</p>
+            <p class="p3">utilisateur</p>
+            <p class="p4"></p>
+          </div>
         </div>
       </div>
-    </div>
-{/foreach}
+    {/foreach}
   </div>
 
-<button onclick="" class="importer-photo" id="openPopupBtn">Importer une photo</button>
+
+<button class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
 <div class="popup" id="importPopup">
-  <h2>Importation de photo</h2>
+  <h2>Importer de photo</h2>
   <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
-    <label for="date">Date de la photo:</label>
+    <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
-    <label for="titre-photo">Titre de la photo :</label>
-    <input id="titre-photo" name="titre-photo" required></textarea>
+    <label for="titre-photo">Titre :</label>
+    <input type="text" id="titre-photo" name="titre-photo" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionnez une photo :</label>

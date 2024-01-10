@@ -1,21 +1,17 @@
 <?php
 session_start();
-require('pdo.php');
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $uploadDir = "../uploads/photos"; // Répertoire où vous souhaitez enregistrer les photos
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $uploadDir = "../uploads/annonces";
+    
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0777, true); // Créer le répertoire s'il n'existe pas
     }
-
-    $date = $_POST["date"];
-    $legende = $_POST["legende"];
 
     // Générer un nom de fichier unique basé sur le timestamp
     $timestamp = time();
     $extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
     $fileName = $timestamp . "." . $extension;
-    $utilisateur = $_SESSION['utilisateur'];
     $uploadFile = $uploadDir . "/" . $fileName;
 
     // Vérifier s'il y a des erreurs lors du téléchargement du fichier
@@ -25,10 +21,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Déplacer le fichier téléchargé vers le répertoire spécifié
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile)) {
             // Ajouter les informations dans la base de données
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "BaseCID";
+
+            // Connexion à la base de données
+            $connexion = new mysqli($servername, $username, $password, $dbname);
+
+            // Vérification de la connexion
+            if ($connexion->connect_error) {
+                die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+            }
+
+            $datePoste = $_POST["date"];
+            $titrePoste = $_POST["titre"];
+            $descriptionPoste = $_POST["description"];
+            $contenuePoste = $_POST["contenue"];
+
+            $idUtilisateur = $_SESSION['id_utilisateur'];
+
+            $urlPhoto = "./uploads/annonces" . "/" . $fileName;
 
             // Requête SQL pour insérer une nouvelle photo
-            $requete = $connexion->prepare("INSERT INTO Photo (url_photo, date_poste, description_poste, valide, id_utilisateur) VALUES (?, ?, ?, 1, ?)");
-            $requete->bind_param("sssi", $uploadFile, $date, $legende, $utilisateur);
+            // valide -> 0 because admin need to valid the announce before make it public
+            $requete = $connexion->prepare("INSERT INTO Annonce(titre_poste, contenue, date_poste, description_poste, url_photo, valide, id_utilisateur) VALUES (?, ?, ?, ?, ?, 0, ?)"); 
+            $requete->bind_param("sssssi", $titrePoste, $contenuePoste, $datePoste, $descriptionPoste, $urlPhoto, $idUtilisateur);
 
             // Exécution de la requête
             $resultat = $requete->execute();

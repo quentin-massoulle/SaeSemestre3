@@ -64,7 +64,7 @@
             <input type="text" id="promo" name="promo" required>
 
             <label for="promo d'optention diplome">Date d'optention du diplome:</label>
-            <input type="text" id="date-promo" name="date-promo" required>
+            <input type="number" id="date-promo" name="date-promo" min="1989" max="2024" placeholder=""Saisir année... required>
             
             <button class="inscriptionPopupBtn" id="inscriptionPopupBtn" type="submit">Créer un compte</button>
         </form>
@@ -91,8 +91,8 @@
     <div class="popup-content">
         <span class="close" id="closePopupBtn3">&times;</span>
         <h2>Réinitialisation du mot de passe</h2>
-            <form id="resetPasswordForm"  method="post" action="./php/mdpoublier.php">
-            <label for="resetEmail">Email:</label>
+            <form id="resetPasswordForm"  method="post" action="./php/mdp-oublier.php">
+            <label for="resetEmail">Email :</label>
             <input type="email" id="resetEmail" name="resetEmail" required>
             <button type="submit" class="resetPasswordBtn" id="resetPasswordBtn">Recevoir le mot de passe</button>
         </form>
