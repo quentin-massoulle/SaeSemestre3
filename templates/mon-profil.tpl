@@ -24,21 +24,22 @@
     </div>
     
     <div class="container">
-      <p>Changer de mot de passe</p>
-      <div>
-        <label for="Ancien mot de passe">Ancien mot de passe :</label>
-        <input type="text" id="Ancien_mot_de_passe" name="Ancien mot de passe">
-      </div>
-      <div>
-        <label for="Nouveau mot de passe">Nouveau mot de passe
- :</label>
-        <input type="text" id="Nouveau_mot_de_passe" name="Nouveau mot de passe">
-      </div>
-      <div>
-        <label for="Confirmation">Confirmation :</label>
-        <input type="text" id="Confirmation" name="Confirmation">
-      </div>
-      <button class="btn" type="button">Valider</button>
+        <p>Changer de mot de passe</p>
+        <form action="./php/changement-mdp.php" method="post">
+            <div>
+                <label for="ancienMotDePasse">Ancien mot de passe :</label>
+                <input type="password" id="ancienMotDePasse" name="ancienMotDePasse" required>
+            </div>
+            <div>
+                <label for="nouveauMotDePasse">Nouveau mot de passe :</label>
+                <input type="password" id="nouveauMotDePasse" name="nouveauMotDePasse" required>
+            </div>
+            <div>
+                <label for="confirmation">Confirmation :</label>
+                <input type="password" id="confirmation" name="confirmation" required>
+            </div>
+            <button class="btn" type="submit">Valider</button>
+        </form>
     </div>
   </div>
   
