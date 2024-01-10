@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-08 13:34:01
+/* Smarty version 4.2.1, created on 2024-01-10 09:38:37
   from 'C:\laragon\www\cours\Sae3\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659bf9c95647b9_14723366',
+  'unifunc' => 'content_659e659d8c7801_55437213',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f2eb09c4e0d160e24f2a2a94405c3161ffe0dc8' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\mon-profil.tpl',
-      1 => 1704720836,
+      1 => 1704879514,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659bf9c95647b9_14723366 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659e659d8c7801_55437213 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -49,21 +49,22 @@ function content_659bf9c95647b9_14723366 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     
     <div class="container">
-      <p>Changer de mot de passe</p>
-      <div>
-        <label for="Ancien mot de passe">Ancien mot de passe :</label>
-        <input type="text" id="Ancien_mot_de_passe" name="Ancien mot de passe">
-      </div>
-      <div>
-        <label for="Nouveau mot de passe">Nouveau mot de passe
- :</label>
-        <input type="text" id="Nouveau_mot_de_passe" name="Nouveau mot de passe">
-      </div>
-      <div>
-        <label for="Confirmation">Confirmation :</label>
-        <input type="text" id="Confirmation" name="Confirmation">
-      </div>
-      <button class="btn" type="button">Valider</button>
+        <p>Changer de mot de passe</p>
+        <form action="./php/changement-mdp.php" method="post">
+            <div>
+                <label for="ancienMotDePasse">Ancien mot de passe :</label>
+                <input type="password" id="ancienMotDePasse" name="ancienMotDePasse" required>
+            </div>
+            <div>
+                <label for="nouveauMotDePasse">Nouveau mot de passe :</label>
+                <input type="password" id="nouveauMotDePasse" name="nouveauMotDePasse" required>
+            </div>
+            <div>
+                <label for="confirmation">Confirmation :</label>
+                <input type="password" id="confirmation" name="confirmation" required>
+            </div>
+            <button class="btn" type="submit">Valider</button>
+        </form>
     </div>
   </div>
   

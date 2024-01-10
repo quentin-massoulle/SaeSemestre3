@@ -60,8 +60,11 @@
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" required>
             
-            <label for="promo d'optention diplome">Promo:</label>
+             <label for="promo d'optention diplome">Nom du diplome (BUT/DUT) :</label>
             <input type="text" id="promo" name="promo" required>
+
+            <label for="promo d'optention diplome">Date d'optention du diplome:</label>
+            <input type="text" id="date-promo" name="date-promo" required>
             
             <button class="inscriptionPopupBtn" id="inscriptionPopupBtn" type="submit">Créer un compte</button>
         </form>

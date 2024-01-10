@@ -10,13 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $prenom = $_POST["prenom"];
     $nom = $_POST["nom"];
-    $promo = $_POST["promo"];
+    $nompromo = $_POST["promo"];
+    $datepromo= $_POST["date-promo"]; 
+
     // Appeler la fonction d'inscription
-    inscriptionUtilisateur($email, $prenom, $nom, $promo);
+    inscriptionUtilisateur($email, $prenom, $nom, $nompromo,$datepromo);
 }
-function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
-    if (utilisateurExiste($nom, $prenom)) {
-        $_SESSION['notif'] = "Compte déjà existant.";
+
+function inscriptionUtilisateur($email, $prenom, $nom, $nompromo,$datepromo) {
+    if (utilisateurExiste($nom, $prenom,$email)) {
+        $_SESSION['notif'] = "mails deja utiliser.";
         header('Location: ../');
         exit();
     } else {
@@ -37,22 +40,38 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
             $mdpGenere = genererMotDePasse(16);
             $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT);
 
-            $requete = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin) VALUES (?, ?, ?, ?, ?)");
-            $requete->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
+            // Requête d'insertion d'utilisateur
+            $requeteUtilisateur = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin) VALUES (?, ?, ?, ?, ?)");
+            $requeteUtilisateur->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
 
-            if ($requete->execute()) {
+            if ($requeteUtilisateur->execute()) {
                 envoyerEmail($email, $mdpGenere, "inscription au cid");
 
                 // Récupérer l'id de l'utilisateur nouvellement créé
-                $idUtilisateur = $requete->insert_id;
+                $idUtilisateur = $requeteUtilisateur->insert_id;
 
                 // Fermer la requête
-                $requete->close();
+                $requeteUtilisateur->close();
+
+                // Vérifier si la promo existe déjà
+                $promoExiste = promoExiste($nompromo, $connexion);
+
+                if (!$promoExiste) {
+                    // Promo n'existe pas, insertion
+                    $requeteInsertPromo = $connexion->prepare("INSERT INTO Promo(nom_diplome, date_diplome) VALUES (?, ?)");
+                    $requeteInsertPromo->bind_param("ss", $nompromo,$datepromo);
+                    $requeteInsertPromo->execute();
+                    $idPromo = $requeteInsertPromo->insert_id;
+                    $requeteInsertPromo->close();
+                } else {
+                    // Promo existe, récupérer son ID
+                    $idPromo = obtenirIdPromo($nompromo, $connexion);
+                }
 
                 // Insérer l'adhérent dans la table Adherent
                 $requeteAdherent = $connexion->prepare("INSERT INTO Adherent(visible, id_promo, id_utilisateur) VALUES (?, ?, ?)");
                 $visible = 1; // Vous pouvez ajuster cela selon vos besoins
-                $requeteAdherent->bind_param("iii", $visible, $promo, $idUtilisateur);
+                $requeteAdherent->bind_param("iii", $visible, $idPromo, $idUtilisateur);
                 $requeteAdherent->execute();
                 $requeteAdherent->close();
 
@@ -64,19 +83,39 @@ function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
                 header('Location: ../');
                 exit();
             } else {
-                echo "Erreur lors de l'inscription : " . $requete->error;
+                echo "Erreur lors de l'inscription : " . $requeteUtilisateur->error;
             }
 
-            $requete->close();
+            $requeteUtilisateur->close();
             $connexion->close();
         }
     }
 }
 
-// Crypter ??
+function promoExiste($nompromo, $connexion) {
+    $requete = $connexion->prepare("SELECT id_promo FROM Promo WHERE nom_diplome = ?");
+    $requete->bind_param("s", $nompromo);
+    $requete->execute();
+    $resultat = $requete->get_result();
+    $promoExiste = $resultat->num_rows > 0;
+    $requete->close();
 
+    return $promoExiste;
+}
 
-function utilisateurExiste($nom,$prenom) {
+function obtenirIdPromo($nompromo, $connexion) {
+    $requete = $connexion->prepare("SELECT id_promo FROM Promo WHERE nom_diplome = ?");
+    $requete->bind_param("s",$nompromo);
+    $requete->execute();
+    $resultat = $requete->get_result();
+    $row = $resultat->fetch_assoc();
+    $idPromo = $row['id_promo'];
+    $requete->close();
+
+    return $idPromo;
+}
+
+function utilisateurExiste($mail) {
     // Paramètres de connexion à la base de données
     $serveur = "localhost";
     $utilisateur = "root";
@@ -92,9 +131,10 @@ function utilisateurExiste($nom,$prenom) {
     }
 
     // Requête pour vérifier si l'utilisateur existe
-    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE prenom=? AND nom=?");
-    $requete->bind_param("ss",$prenom,$nom);
-    
+    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=?");
+
+    $requete->bind_param("s", $email);
+
     // Exécution de la requête
     $requete->execute();
 
@@ -110,7 +150,6 @@ function utilisateurExiste($nom,$prenom) {
     // Retourner true si l'utilisateur existe, false sinon
     return $resultat->num_rows > 0;
 }
-
 
 function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) {
     // Ouvrir le fichier CSV en mode lecture
@@ -135,7 +174,6 @@ function utilisateurDansCSV($nomRecherche, $prenomRecherche, $cheminFichierCSV) 
                     if (count($mots) >= 2) {
                         $nom = trim($mots[0]);
                         $prenom = trim($mots[1]);
-                       
 
                         // Vérifier si le nom et le prénom correspondent
                         if (stripos($nom, $nomRecherche) !== false && stripos($prenom, $prenomRecherche) !== false) {
@@ -164,5 +202,4 @@ function retirerPrefixe($chaine) {
     // Retourner la chaîne résultante
     return trim($chaineSansPrefixe);
 }
-
 ?>

@@ -11,7 +11,7 @@ CREATE TABLE Utilisateur(
 CREATE TABLE Promo(
    id_promo INT AUTO_INCREMENT,
    nom_diplome VARCHAR(100) NOT NULL,
-   date_diplome DATE NOT NULL,
+   date_diplome year NOT NULL,
    CONSTRAINT pk_promo PRIMARY KEY(id_promo)
 );
 
