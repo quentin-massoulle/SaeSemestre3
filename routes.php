@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include './php/pdo.php';
 
 Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
