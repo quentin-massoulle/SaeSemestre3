@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $connexion->close();
 
             if ($resultat) {
-                header('Location: ../photos');
+                header('Location: ../annonces');
             } else {
                 // Gérer le cas où l'insertion dans la base de données a échoué
                 echo "Erreur : L'insertion dans la base de données a échoué.";

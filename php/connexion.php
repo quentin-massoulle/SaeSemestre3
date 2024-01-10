@@ -2,21 +2,17 @@
 
 session_start(); // Démarrez la session
 
+include 'pdo.php'; // Assurez-vous d'inclure le fichier pdo.php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_connexion = $_POST['email_connexion'];
     $password_connexion = $_POST['password_connexion'];
 
-    // Appeler la fonction d'authentification
-    authentifierUtilisateur($email_connexion, $password_connexion);
+    // Appeler la fonction d'authentification en passant la connexion comme argument
+    authentifierUtilisateur($email_connexion, $password_connexion, $connexion);
 }
 
-function authentifierUtilisateur($email_connexion, $password_connexion) {
-    require('../include/pdo.php');
-
-    //echo $password_connexion;
-    //$hashedPassword = password_hash($password_connexion, PASSWORD_BCRYPT);
-    //echo $hashedPassword;
-
+function authentifierUtilisateur($email_connexion, $password_connexion, $connexion) {  
     // Requête SQL avec une requête préparée
     $requete = $connexion->prepare("SELECT * FROM Utilisateur WHERE mail=?");
     $requete->bind_param("s", $email_connexion);
@@ -76,5 +72,4 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
         exit(); 
     }
 }
-
 ?>
