@@ -96,7 +96,7 @@ Flight::route('/consulter-profil', function(){
 });
 
 Flight::route('/liste-adherent', function(){
-    if(isset($_SESSION['admin']) && isset($_SESSION['login'])){ // if login -> tru
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])){ // if login -> true
         include_once './templates/header-admin.tpl';
         include_once './templates/liste-adherent.tpl';
 

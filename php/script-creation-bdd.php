@@ -1,18 +1,6 @@
 <?php
 
-// Paramètres de connexion à la base de données
-$serveur = "localhost";
-$utilisateur = "root";
-$mot_de_passe = "";
-$nomBaseDeDonnees = "BaseCID";
-
-// Connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe);
-
-// Vérifier la connexion
-if ($connexion->connect_error) {
-    die("Échec de la connexion à la base de données : " . $connexion->connect_error);
-}
+require('../include/pdo.php');
 
 // Création de la base de données
 $sqlCreationDB = "CREATE DATABASE IF NOT EXISTS $nomBaseDeDonnees";

@@ -24,17 +24,8 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo,$datepromo) {
         exit();
     } else {
         if (isset($prenom)) {
-            $serveur = "localhost";
-            $utilisateur = "root";
-            $mot_de_passe = "";
-            $nomBaseDeDonnees = "BaseCID";
+            require('../include/pdo.php');
             include './envoiemail.php';
-
-            $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
-
-            if ($connexion->connect_error) {
-                die("Échec de la connexion à la base de données : " . $connexion->connect_error);
-            }
 
             $statutAdmin = 0;
             $mdpGenere = genererMotDePasse(16);

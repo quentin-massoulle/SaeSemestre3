@@ -33,18 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Fonction pour obtenir le mot de passe actuel à partir de la base de données
 function getPasswordFromDatabase($userId) {
     // Paramètres de connexion à la base de données
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_de_passe = "";
-    $nomBaseDeDonnees = "basecid";
-
-    // Connexion à la base de données
-    $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
-
-    // Vérifier la connexion
-    if ($connexion->connect_error) {
-        die("Échec de la connexion à la base de données : " . $connexion->connect_error);
-    }
+    require('../include/pdo.php');
 
     // Préparer la requête SQL
     $requete = $connexion->prepare("SELECT mot_de_passe FROM Utilisateur WHERE id_utilisateur = ?");
