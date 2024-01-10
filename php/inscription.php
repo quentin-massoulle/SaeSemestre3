@@ -14,78 +14,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Appeler la fonction d'inscription
     inscriptionUtilisateur($email, $prenom, $nom, $promo);
 }
-
 function inscriptionUtilisateur($email, $prenom, $nom, $promo) {
-    if (utilisateurExiste($nom,$prenom)){
+    if (utilisateurExiste($nom, $prenom)) {
         $_SESSION['notif'] = "Compte déjà existant.";
         header('Location: ../');
         exit();
-    }
-    else 
-    {
-        //utilisateurDansCSV($nom, $prenom, "../Utilisateur/Diplômés-IUT-1987-2013.csv")
-        if(isset($prenom)){
-    
-            // Paramètres de connexion à la base de données
+    } else {
+        if (isset($prenom)) {
             $serveur = "localhost";
             $utilisateur = "root";
             $mot_de_passe = "";
             $nomBaseDeDonnees = "BaseCID";
             include './envoiemail.php';
 
-            // Connexion à la base de données
             $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
 
-            // Vérifier la connexion
             if ($connexion->connect_error) {
                 die("Échec de la connexion à la base de données : " . $connexion->connect_error);
             }
 
-                // Préparer la requête d'insertion
-                $requete = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin) VALUES (?, ?, ?, ?, ?)");
+            $statutAdmin = 0;
+            $mdpGenere = genererMotDePasse(16);
+            $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT);
 
-                // Vérifier si la requête a été préparée avec succès
-                if ($requete) {
-                    // Initialiser le statut par défaut
-                    $statutAdmin = 0;
-                    $mdpGenere = genererMotDePasse(16);
+            $requete = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin) VALUES (?, ?, ?, ?, ?)");
+            $requete->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
 
-                    $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT); // permet de hasher le password
-                    
-                    // Liaison des paramètres
-                    $requete->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
+            if ($requete->execute()) {
+                envoyerEmail($email, $mdpGenere, "inscription au cid");
 
-                    // Exécution de la requête
-                    if ($requete->execute()) {
-                        // Succès de l'insertion
-                        envoyerEmail($email, $mdpGenere,"inscrition au cid");
-                        
-                        $_SESSION['notif'] = "Inscription reussis.<br>Veuillez vous connectez afin d'accéder au site.";
+                // Récupérer l'id de l'utilisateur nouvellement créé
+                $idUtilisateur = $requete->insert_id;
 
-                        header('Location: ../');
-                        exit();
-                    } else {
-                        // Erreur lors de l'insertion
-                        echo "Erreur lors de l'inscription : " . $requete->error;
-                    }
+                // Fermer la requête
+                $requete->close();
 
-                    // Fermeture de la requête
-                    $requete->close();
-                } else {
-                    // Erreur lors de la préparation de la requête
-                    echo "Erreur lors de la préparation de la requête : " . $connexion->error;
-                }
+                // Insérer l'adhérent dans la table Adherent
+                $requeteAdherent = $connexion->prepare("INSERT INTO Adherent(visible, id_promo, id_utilisateur) VALUES (?, ?, ?)");
+                $visible = 1; // Vous pouvez ajuster cela selon vos besoins
+                $requeteAdherent->bind_param("iii", $visible, $promo, $idUtilisateur);
+                $requeteAdherent->execute();
+                $requeteAdherent->close();
 
+                // Fermer la connexion
+                $connexion->close();
+
+                $_SESSION['notif'] = "Inscription réussie.<br>Veuillez vous connecter pour accéder au site.";
+
+                header('Location: ../');
+                exit();
             } else {
-                // Erreur lors du comptage des utilisateurs
-                echo "Erreur lors du comptage des utilisateurs : " . $connexion->error;
+                echo "Erreur lors de l'inscription : " . $requete->error;
             }
 
-            // Fermer la connexion
+            $requete->close();
             $connexion->close();
         }
-    }    
-
+    }
+}
 
 // Crypter ??
 
