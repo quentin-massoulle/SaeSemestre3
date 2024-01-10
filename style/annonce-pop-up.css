@@ -1,0 +1,144 @@
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #043550;
+  color: white;
+  border: 1px solid #115173;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.popup h2 {
+  text-align: center;
+  color: #ffd700; /* Couleur jaune pour le titre "Importer une photo" */
+}
+
+.popup label,
+.popup textarea {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Utiliser la classe "popup-column" pour diviser les champs en deux colonnes */
+.popup .popup-column {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* Ajuster la taille du champ de légende pour le rendre plus grand */
+.popup textarea {
+  width: 100%; /* Utiliser la largeur complète de la colonne */
+  height: 150px; /* Ajuster la hauteur selon vos préférences */
+}
+
+.popup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.popup button:hover {
+  background-color: #ffd700;
+  color: black;
+}
+
+#titre {
+  width: 70%;
+}
+
+#description {
+  width: 100%;
+}
+
+/* POP UP En savoir plus */
+
+#customPopupAnnonce {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popupContentAnnonce {
+  width: 400px;
+  height: 500px;
+  background-color: #115173;
+  border: 1px solid #ffd700;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer horizontalement */
+  justify-content: center; /* Centrer verticalement */
+}
+
+.popupContentAnnonce h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.popupContentAnnonce h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.popupContentAnnonce p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 20px;
+}
+
+.customButtonAnnonce {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 15px;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  color: #115173;
+  cursor: pointer;
+}
+
+.retour-btn {
+  background-color: #043550;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px; /* Espacement entre le texte et le bouton, ajustez selon vos besoins */
+}
+
+.retour-btn:hover {
+  background-color: #ffd700;
+  color: black;
+}

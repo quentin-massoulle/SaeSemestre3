@@ -214,21 +214,21 @@ Flight::route('/annonces', function(){
         $requete->execute();
 
         // Récupération des résultats
-        $resultatsAnnnonces = $requete->get_result();
+        $resultatsAnnonces = $requete->get_result();
 
         $dataAnnonces = array();
 
         // Vérification de l'authentification
-        if ($resultatsAnnnonces->num_rows > 0) {
+        if ($resultatsAnnonces->num_rows > 0) {
             // Parcourir toutes les lignes de résultats
             while ($annonce = $resultatsAnnonces->fetch_assoc()) {
                 $dataAnnonces[] = array(
-                    'titre_poste' => $annonce['id_annonce'],
-                    'id_annonce' => $annonce['titre_poste'],
+                    'id_annonce' => $annonce['id_annonce'],
+                    'titre_poste' => $annonce['titre_poste'],
                     'contenue' => $annonce['contenue'],
                     'date_poste' => $annonce['date_poste'],
                     'description_poste' => $annonce['description_poste'],
-                    'url_photo' => $uploadDir . $annonce['url_photo'],
+                    'url_photo' => $annonce['url_photo'],
                     'id_utilisateur' => $annonce['id_utilisateur'],
                     'nom' => $annonce['nom'],
                     'prenom' => $annonce['prenom']

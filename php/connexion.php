@@ -47,7 +47,7 @@ function authentifierUtilisateur($email_connexion, $password_connexion) {
 
         if(password_verify($password_connexion, $storedPassword)) {
             $_SESSION['login'] = true;
-            $_SESSION['utilisateur'] = $utilisateur['id_utilisateur'];
+            $_SESSION['id_utilisateur'] = $utilisateur['id_utilisateur'];
 
             // Vérification du statut de l'utilisateur
             if($utilisateur['statut_admin'] == 1) {

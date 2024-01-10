@@ -107,10 +107,6 @@ body {
   margin: 10px;
 }
 
-
-
-
-
 /* popup Inscription Rayan */
 
 .popup1 {
@@ -131,7 +127,6 @@ body {
   z-index: 1;
   /* Positionnement z pour être au-dessus du reste du contenu */
 }
-
 
 .popup-content {
   background-color: #043550;
@@ -157,7 +152,6 @@ body {
   border-radius: 15px; /* Ajoutez cette ligne pour arrondir le contour */
 }
 
-
 .popup-content h2 {
   text-align: center;
   /* Centre le texte du titre */
@@ -165,7 +159,6 @@ body {
   /* Étend le titre sur les deux colonnes */
   color: #ffd700;
 }
-
 
 .popup-content .close {
   position: absolute;
@@ -181,9 +174,8 @@ body {
   font-weight: bold;
   /* Texte en gras pour le bouton de fermeture */
   cursor: pointer;
-  margin-right:8px;
+  margin-right: 8px;
 }
-
 
 .popup-content label {
   display: block;
@@ -200,7 +192,7 @@ body {
   box-sizing: border-box;
   /* Inclut le rembourrage et la bordure dans la largeur totale */
   margin-bottom: 5px; /* Ajout d'une marge en bas pour l'espacement */
-  margin-left:-50%;
+  margin-left: -50%;
   border-radius: 10px; /* Ajoutez cette ligne pour des coins arrondis */
 }
 .popup-content button {
@@ -216,7 +208,7 @@ body {
   /* Aucune bordure pour le bouton */
   cursor: pointer;
   /* Curseur pointeur pour indiquer que le bouton est cliquable */
-  border-radius: 15px; 
+  border-radius: 15px;
   justify-self: center; /* Centrer le bouton horizontalement */
 }
 
@@ -261,9 +253,6 @@ body {
   color: #ccc;
   font-size: 20px; /* Correction : ajustement de la taille de police */
 }
-
-
-
 
 /* ... Popup de connexion ... */
 
@@ -323,7 +312,6 @@ body {
   gap: 8px; /* Espacement entre les éléments du groupe */
   grid-template-columns: 1fr 2fr; /* Crée deux colonnes dans le groupe, la première occupant 1 fraction et la deuxième 2 fractions de largeur */
   grid-column: span 3; /* Étend le groupe sur trois colonnes de la grille */
-
 }
 
 /* Styles pour le bouton */
@@ -353,10 +341,6 @@ body {
   background-color: #ffd700; /* Nouvelle couleur de fond au survol */
   color: black; /* Nouvelle couleur du texte au survol */
 }
-
-
-
-
 
 /*Popup Mots de pass oublié*/
 /* Popup de Réinitialisation du Mot de Passe */
@@ -462,7 +446,6 @@ body {
   text-decoration: underline;
 }
 
-
 /*code de Thibault /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 a {
@@ -470,6 +453,7 @@ a {
 }
 
 .main {
+  margin: auto;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -540,23 +524,33 @@ a {
   justify-content: space-evenly;
 }
 
-.item .containter-info .info {
+.item .container-info .info-annonce {
   padding: 10px;
+  width: 100%;
+  height: 100%;
 }
 
-.item .container-info .info .date-poste {
+.item .container-info .info-annonce .date-poste {
   text-align: center;
+  font-weight: bold;
 }
 
-.item .container-info .info .titre-poste {
+.item .container-info .info-annonce .titre-poste {
+  margin-top: 10px;
   font-size: 18px;
+  word-wrap: break-word;
 }
-.item .container-info .info .auteur-poste {
-  font-size: 17px;
+.item .container-info .info-annonce .auteur-poste {
+  margin-top: 10px;
+  font-size: 16px;
+  word-wrap: break-word;
+  font-style: italic;
 }
 
-.item .containter-info .info .description-poste {
+.item .container-info .info-annonce .description-poste {
+  margin-top: 10px;
   text-align: justify;
+  word-wrap: break-word;
 }
 
 .item .container-info .see-more-poste {
@@ -591,8 +585,6 @@ a {
 .create-annonce:hover {
   background-color: #3092c6;
 }
-
-
 
 /* Popup Notification*/
 
@@ -630,122 +622,120 @@ a {
 }
 
 /*code hugo */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   background-color: #053f5e;
   min-height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.container-haut{
-display: grid;
-grid-template-columns: 20% 60% 20%;
-/*background-color: yellow;*/
-margin-top: 50px;
-
+.container-haut {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  /*background-color: yellow;*/
+  margin-top: 50px;
 }
 
 .titre {
-text-align: center;
-color: white;
-font-size: 30px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
 }
 
-.titre text{
-align-items: center; 
-justify-content: center;
+.titre text {
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-container {
-padding: 10px;
+  padding: 10px;
 }
 
 .dropdown-btn {
-width: 124px;
-padding: 10px;
-font-size: 16px;
-cursor: pointer;
-background-color: #043550;
-color: #fff;
-border: 2px solid #043550;
+  width: 124px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #043550;
+  color: #fff;
+  border: 2px solid #043550;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-background-color: #226C94;
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-z-index: 1;
-text-align: center;
+  display: none;
+  position: absolute;
+  background-color: #226c94;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
 }
 
 .dropdown-content a {
-display: block;
-padding: 10px;
-text-decoration: none;
-color: #fff;
-border-bottom: 2px solid #226C94;
-
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 2px solid #226c94;
 }
 
 .dropdown-content a:hover {
-background-color: #043550;
+  background-color: #043550;
 }
 
 .search-container {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-box {
-display: flex;
-justify-content: space-around;
-align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .search-input {
-padding: 10px;
-font-size: 16px;
-width: 300px;
-height: 30px;
-border: 0;
-outline: 0;
-border-bottom-left-radius: 5px;
-border-top-left-radius: 5px;
-transition: 0.3s ease-in-out;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button {
-height: 50px;
-width: 50px;
-padding: 10px;
-background-color: #226c94;
-color: #fff;
-border: none;
-border-bottom-right-radius: 5px;
-border-top-right-radius: 5px;
-cursor: pointer;
-transition: 0.3s ease-in-out;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  background-color: #226c94;
+  color: #fff;
+  border: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button:hover {
-background-color: #3092c6;
+  background-color: #3092c6;
 }
 
 .search-button img {
-width: 90%;
-height: 90%;
+  width: 90%;
+  height: 90%;
 }
 
-
 .container-item {
-display: grid;
-margin-top: 100px;
-justify-items: center;  
+  display: grid;
+  margin-top: 100px;
+  justify-items: center;
 }
 
 .ligne {
@@ -783,7 +773,6 @@ justify-items: center;
   background-color: #115173;
   width: 100%;
   height: 280px;
-  
 }
 
 .photo-info img {
@@ -797,58 +786,52 @@ justify-items: center;
   height: 100%;
 }
 
-
-
-.p1{
+.p1 {
   font-size: 20px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p2{
+.p2 {
   font-size: 25px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p3{
+.p3 {
   font-size: 16px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
-.p4{
+.p4 {
   font-size: 14px;
   margin-top: 2%;
   margin-bottom: 0%;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
-
 }
 
 .importer-photo {
-padding: 20px 30px;
-font-size: 20px;
-font-style: bold;
-position: fixed;
-bottom: 5%;
-right: 5%;
-border: 0;
-color: #ffff;
-background-color: #226c94;
-transition: 0.3s ease-in-out;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-style: bold;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: 0;
+  color: #ffff;
+  background-color: #226c94;
+  transition: 0.3s ease-in-out;
 }
 
 .importer-photo:hover {
-background-color: #3092c6;
+  background-color: #3092c6;
 }
