@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-09 16:30:28
+/* Smarty version 4.2.1, created on 2024-01-10 08:32:15
   from 'C:\laragon\www\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659d74a4493f50_34917698',
+  'unifunc' => 'content_659e560f0be158_52410902',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fa19a2cead7f03ca7bccf916b7a64eace7f3ba3' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704817825,
+      1 => 1704875397,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659d74a4493f50_34917698 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659e560f0be158_52410902 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/photos.css" rel="stylesheet" type="text/css" />
-
     <title>Document</title>
 </head>
 <body>
@@ -67,80 +66,53 @@ function content_659d74a4493f50_34917698 (Smarty_Internal_Template $_smarty_tpl)
 >
 
     </div>
-
-    <div class="container-item">
-        <div class="ligne">
-          <div class="container-photo">
-            <img src="./profil.jpg" alt="photo de profil" />
-          </div>
-          <div class="info">
-            <div class="photo-info">
-                <img src="./labo.png" alt="illustration" />
-            </div>
-            <div class="texte-info">
-                <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
-                <p class="p2">titre photo</p>
-                <p class="p3">posté par nom</p>
-                <p class="p4">Contenu Ah non attention, j'ai vraiment une grande mission car il y a de bonnes règles, de bonnes règles et c'est une sensation réelle qui se produit si on veut ! Ça respire le meuble de Provence, hein ?
-                    Si je t'emmerde, tu me le dis, je ne suis pas un simple danseur car c'est juste une question d'awareness et ça, c'est très dur, et, et, et... c'est très facile en même temps. C'est pour ça que j'ai fait des films avec des replicants.
-                </p>  
-            </div>
-          </div>
+<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['imageFiles']->value, 'image');
+$_smarty_tpl->tpl_vars['image']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['image']->value) {
+$_smarty_tpl->tpl_vars['image']->do_else = false;
+?>
+  <div class="container-item">
+    <div class="ligne">
+      <div class="container-photo">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+" alt="photo de profil" />
+      </div>
+      <div class="info">
+        <div class="photo-info">
+          <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+" alt="illustration" />
         </div>
-
-        <div class="ligne">
-            <div class="container-photo">
-              <img src="./profil.jpg" alt="photo de profil" />
-            </div>
-            <div class="info">
-              <div class="photo-info">
-                  <img src="./profil.jpg" alt="illustration" />
-              </div>
-              <div class="texte-info">
-                  <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
-                  <p class="p2">titre photo</p>
-                  <p class="p3">posté par nom</p>
-                  <p class="p4">Contenu Ah non attention, j'ai vraiment une grande mission car il y a de bonnes règles, de bonnes règles et c'est une sensation réelle qui se produit si on veut ! Ça respire le meuble de Provence, hein ?
-                      Si je t'emmerde, tu me le dis, je ne suis pas un simple danseur car c'est juste une question d'awareness et ça, c'est très dur, et, et, et... c'est très facile en même temps. C'est pour ça que j'ai fait des films avec des replicants.
-                  </p>  
-              </div>
-            </div>
+        <div class="texte-info">
+          <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
+          <p class="p2">titre photo</p>
+          <p class="p3">utilisateur</p>
+          <p class="p4"></p>
         </div>
-
-        <div class="ligne">
-          <div class="container-photo">
-            <img src="./profil.jpg" alt="photo de profil" />
-          </div>
-          <div class="info">
-            <div class="photo-info">
-                <img src="./illustration.jpg" alt="illustration" />
-            </div>
-            <div class="texte-info">
-                <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
-                <p class="p2">titre photo</p>
-                <p class="p3">posté par nom</p>
-                <p class="p4">Contenu Ah non attention, j'ai vraiment une grande mission car il y a de bonnes règles, de bonnes règles et c'est une sensation réelle qui se produit si on veut ! Ça respire le meuble de Provence, hein ?
-                    Si je t'emmerde, tu me le dis, je ne suis pas un simple danseur car c'est juste une question d'awareness et ça, c'est très dur, et, et, et... c'est très facile en même temps. C'est pour ça que j'ai fait des films avec des replicants.
-                </p>  
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+  </div>
+<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
-    <button onclick="" class="importer-photo" id="openPopupBtn">Importer une photo</button>
+<button onclick="" class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
-    <div class="popup" id="importPopup">
-      <h2>Importation de photo</h2>
-      <label for="date ">Date de la photo:</label>
-      <input type="text" id="date" name="date" required>
-
-      <label for="legende">Légende :</label>
-      <textarea id="legende" name="legende" required></textarea>
-
-      <button id="importBtn">Importer une photo</button>
-      <button id="sendBtn">Envoyer</button>
-      <button id="closePopupBtn">Fermer</button>
-    </div>
+<div class="popup" id="importPopup">
+  <h2>Importation de photo</h2>
+  <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
+    <label for="date">Date de la photo:</label>
+    <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" required>
+    <label for="legende">Légende :</label>
+    <textarea id="legende" name="legende" required></textarea>
+    <label for="file">Sélectionnez une photo :</label>
+    <input type="file" name="file" id="file" accept="image/*">
+    <button type="submit" id="submitBtn">Envoyer</button>
+    <button type="button" id="closePopupBtn">Fermer</button>
+  </form>
+</div>
 </body>
 </html>
 <?php }

@@ -77,24 +77,6 @@ Flight::route('/annonces-admin', function(){
     }
 });
 
-Flight::route('/annonces', function(){
-    if(isset($_SESSION['login'])) // if login -> true
-    {
-        if(isset($_SESSION['admin'])) {
-            include_once './templates/header-admin.tpl';
-        }
-        else {
-            include_once './templates/header.tpl';
-        }
-
-        include_once './templates/annonces.tpl';
-
-        include_once './templates/footer.tpl';
-    } else {
-        Flight::redirect('/');
-    }
-});
-
 Flight::route('/consulter-profil', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
@@ -158,31 +140,114 @@ Flight::route('/mon-profil', function(){
     Flight::render('mon-profil.tpl',$data);
     include_once 'templates/footer.tpl';
 });
+
 Flight::route('/photos', function(){
-    if(isset($_SESSION['admin'])) {
-        include_once './templates/header-admin.tpl';
+    if(isset($_SESSION['login'])) // if login -> true
+    {
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        } else {
+            include_once './templates/header.tpl';
+        }
+
+        // Get images from photos repo
+        // ----------------------------------------
+
+        $uploadDir = './uploads/photos';
+
+        // Obtenir la liste des fichiers dans le répertoire
+        $files = scandir($uploadDir);
+
+        // Inclure tous les types d'images
+        $imageFiles = array_filter($files, function($file) use ($uploadDir) {
+            return is_file($uploadDir . '/' . $file); // Utiliser le chemin complet du fichier
+        });
+
+        // ----------------------------------------
+
+
+        $data = array(
+            'imageFiles' => $imageFiles,
+            'uploadDir' => $uploadDir
+        );
+
+        Flight::render('photo.tpl', $data);
+        include_once 'templates/footer.tpl';
     } else {
-        include_once './templates/header.tpl';
+        Flight::redirect('/');
     }
-    $uploadDir = 'uploads';
-
-    // Obtenir la liste des fichiers dans le répertoire
-    $files = scandir($uploadDir);
-
-    // Inclure tous les types d'images
-    $imageFiles = array_filter($files, function($file) use ($uploadDir) {
-        return is_file($uploadDir . '/' . $file); // Utiliser le chemin complet du fichier
-    });
-
-    $data = array(
-        'imageFiles' => $imageFiles,
-        'uploadDir' => $uploadDir
-    );
-
-    Flight::render('photo.tpl', $data);
-    include_once 'templates/footer.tpl';
 });
 
+Flight::route('/annonces', function(){
+    if(isset($_SESSION['login'])) // if login -> true
+    {
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        } else {
+            include_once './templates/header.tpl';
+        }
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "BaseCID";
+
+        // Connexion à la base de données
+        $connexion = new mysqli($servername, $username, $password, $dbname);
+
+        // Vérification de la connexion
+        if ($connexion->connect_error) {
+            die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+        }
+
+        // Get info from annonces
+        // ----------------------------------------
+
+        // If the annonce is mark OK by an admin, then we add it
+        $requete = $connexion->prepare("
+            SELECT id_annonce, titre_poste, contenue, date_poste, description_poste, url_photo, U.id_utilisateur, nom, prenom  
+            FROM Annonce as A, Utilisateur as U 
+            WHERE valide = 1 AND A.id_utilisateur = U.id_utilisateur
+        ");
+
+        // Exécution de la requête
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsAnnnonces = $requete->get_result();
+
+        $dataAnnonces = array();
+
+        // Vérification de l'authentification
+        if ($resultatsAnnnonces->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($annonce = $resultatsAnnonces->fetch_assoc()) {
+                $dataAnnonces[] = array(
+                    'titre_poste' => $annonce['id_annonce'],
+                    'id_annonce' => $annonce['titre_poste'],
+                    'contenue' => $annonce['contenue'],
+                    'date_poste' => $annonce['date_poste'],
+                    'description_poste' => $annonce['description_poste'],
+                    'url_photo' => $uploadDir . $annonce['url_photo'],
+                    'id_utilisateur' => $annonce['id_utilisateur'],
+                    'nom' => $annonce['nom'],
+                    'prenom' => $annonce['prenom']
+                );
+            };
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_annonces' => $dataAnnonces
+        );
+
+        Flight::render('annonces.tpl', $data);
+        include_once 'templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
 
 
 Flight::route('/valider-photo', function(){

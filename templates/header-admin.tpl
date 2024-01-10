@@ -21,7 +21,7 @@
                 <a class="active" href="annonces">Annonces</a>
                 <a class="active" href="photos">Photos</a>
                 <a class="active" href="accueil">Accueil</a>
-                <a class="active" href="deconnexion">Admin</a>
+                <a class="active" href="administration">Admin</a>
             </div>
         </div>
     </header>
