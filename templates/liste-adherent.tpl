@@ -2,95 +2,43 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-  <script src="script.js"></script>
-  <h1>Liste adhérents</h1>
-  <h2>Admin</h2>
-  <div class="container-item">
-    
-    <div class="item">
-      <div class="checkbox" </div>
-      <input type="checkbox">
-      <div class="info">
-        <div class="container-img-profil">
-          <img src="images/logo lorem ipsum.avif" alt="image_profil">
-        </div>
-        <div class="user-info">
-          <p>Nom</p>
-          <p>promo</p>
-        </div>
-        <div class="update-delete">
-          <a class="container-img" href=""> <!-- à changer en btn  -->
-            <img src="images/logo lorem ipsum.avif" alt="icon">
-          </a>
-          <a class="container-img" href=""><!-- à changer en btn  -->
-            <img src="images/logo lorem ipsum.avif" alt="icon">
-          </a>
-        </div>
-      </div>
-    </div>
-    
-  </div>
+    <script src="script.js"></script>
+    <h1>Liste adhérents</h1>
+    <h2>Admin</h2>
+    <form action="./php/supprimer-adherents.php" method="post" id="formSuppression">
+        <div class="container-item">
 
-  <div class="item">
-    <div class="checkbox" </div>
-    <input type="checkbox">
-    <div class="info">
-      <div class="container-img-profil">
-        <img src="images/logo lorem ipsum.avif" alt="image_profil">
-      </div>
-      <div class="user-info">
-        <p>Nom</p>
-        <p>promo</p>
-      </div>
-      <div class="update-delete">
-        <a class="container-img" href="">
-          <img src="images/logo lorem ipsum.avif" alt="icon">
-        </a>
-        <a class="container-img" href="">
-          <img src="images/logo lorem ipsum.avif" alt="icon">
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="item">
-    <div class="checkbox" </div>
-    <input type="checkbox">
-    <div class="info">
-      <div class="container-img-profil">
-        <img src="images/logo lorem ipsum.avif" alt="image_profil">
-      </div>
-      <div class="user-info">
-        <p>Nom</p>
-        <p>promo</p>
-      </div>
-      <div class="update-delete">
-        <a class="container-img" href="">
-          <img src="images/logo lorem ipsum.avif" alt="icon">
-        </a>
-        <a class="container-img" href="">
-          <img src="images/logo lorem ipsum.avif" alt="icon">
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
+            {foreach $data_adherent as $adherent}
+            <div class="item">
+                <div class="checkbox"></div>
+                <input type="checkbox" name="adherents[]" value="{$adherent['id_adherent']}">
+                <div class="info">
+                    <div class="container-img-profil">
+                        <img src="" alt="image_profil">
+                    </div>
+                    <div class="user-info">
+                        <p>{$adherent['nom_adherent']}</p>
+                        <p>{$adherent['prenom_adherent']}</p>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
 
-  <div class="supprimer">
-    <div><button class="btn" type="button">Supprimer adhérents</button></div>
-      
-  </div>
-
-  
+        </div>
+        <div class="supprimer">
+            <div>
+                <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+            </div>
+        </div>
+    </form>
 
 </body>
 
