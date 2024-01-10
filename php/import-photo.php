@@ -26,8 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile)) {
             // Ajouter les informations dans la base de données=
             // Requête SQL pour insérer une nouvelle photo
-            $requete = $connexion->prepare("INSERT INTO Photo (url_photo, date_poste, description_poste, valide, id_utilisateur) VALUES (?, ?, ?, 1, ?)");
-            $requete->bind_param("sssi", $uploadFile, $date, $legende, $utilisateur);
+            $urlPhoto = "./uploads/photos" . "/" . $fileName;
+            $requete = $connexion->prepare("INSERT INTO Photo (url_photo, date_poste, description_poste, valide, id_utilisateur) VALUES (?, ?, ?, 0, ?)");
+            $requete->bind_param("sssi", $urlPhoto, $date, $legende, $utilisateur);
 
             // Exécution de la requête
             $resultat = $requete->execute();

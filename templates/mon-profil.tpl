@@ -12,6 +12,14 @@
 
   <script src="script.js"></script>
   
+  <?php
+  session_start();
+  {if isset($_SESSION['notif'])}
+    <div class="notification">
+      {$_SESSION['notif']}
+    </div>
+  {/if}
+  ?>
   <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>

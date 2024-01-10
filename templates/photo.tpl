@@ -40,24 +40,24 @@
 
     </div>
   <div class="container-item">
-    {foreach $imageFiles as $image}
-      <div class="ligne">
+    {foreach $data_photo as $photo}
+    <div class="ligne">
         <div class="container-photo">
-          <img src="{$uploadDir}/{$image}" alt="photo de profil" />
+            <img src="{$photo.url_photo}" alt="photo de profil" />
         </div>
         <div class="info">
-          <div class="photo-info">
-            <img src="{$uploadDir}/{$image}" alt="illustration" />
-          </div>
-          <div class="texte-info">
-            <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
-            <p class="p2">titre photo</p>
-            <p class="p3">utilisateur</p>
-            <p class="p4"></p>
-          </div>
+            <div class="photo-info">
+                <img src="{$photo.url_photo}" alt="illustration" />
+            </div>
+            <div class="texte-info">
+                <p class="p1">{$photo.date_poste} promo diplome année</p>
+                <p class="p2"></p>
+                <p class="p3">Posté par {$photo.nom} {$photo.prenom}</p>
+                <p class="p4">{$photo.description_poste}</p>
+            </div>
         </div>
-      </div>
-    {/foreach}
+    </div>
+{/foreach}
   </div>
 
 

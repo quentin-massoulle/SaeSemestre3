@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include './php/pdo.php';
+include 'php/pdo.php';
 
 Flight::route('/', function(){
     if(!isset($_SESSION['login'])) // if login -> false
@@ -151,25 +151,58 @@ Flight::route('/photos', function(){
             include_once './templates/header.tpl';
         }
 
-        // Get images from photos repo
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "BaseCID";
+
+        // Connexion à la base de données
+        $connexion = new mysqli($servername, $username, $password, $dbname);
+
+        // Vérification de la connexion
+        if ($connexion->connect_error) {
+            die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+        }
+
+        // Get info from annonces
         // ----------------------------------------
 
-        $uploadDir = './uploads/photos';
+        // If the annonce is mark OK by an admin, then we add it
+        $requete = $connexion->prepare("
+        SELECT P.id_photo, P.url_photo, P.date_poste, P.description_poste, U.id_utilisateur, U.nom, U.prenom
+        FROM Photo AS P
+        JOIN Utilisateur AS U ON P.id_utilisateur = U.id_utilisateur
+        WHERE P.valide = 1;
+        ");
 
-        // Obtenir la liste des fichiers dans le répertoire
-        $files = scandir($uploadDir);
+    // Exécution de la requête
+    $requete->execute();
 
-        // Inclure tous les types d'images
-        $imageFiles = array_filter($files, function($file) use ($uploadDir) {
-            return is_file($uploadDir . '/' . $file); // Utiliser le chemin complet du fichier
-        });
+    // Récupération des résultats
+    $resultatsPhotos = $requete->get_result();
+
+    $dataPhotos = array();
+
+    // Vérification de l'existence de résultats
+    if ($resultatsPhotos->num_rows > 0) {
+        // Parcourir toutes les lignes de résultats
+        while ($photo = $resultatsPhotos->fetch_assoc()) {
+            $dataPhotos[] = array(
+                'id_photo' => $photo['id_photo'],
+                'url_photo' => $photo['url_photo'],
+                'date_poste' => $photo['date_poste'],
+                'description_poste' => $photo['description_poste'],
+                'id_utilisateur' => $photo['id_utilisateur'],
+                'nom' => $photo['nom'],
+                'prenom' => $photo['prenom']
+            );
+        }
+    }
 
         // ----------------------------------------
-
 
         $data = array(
-            'imageFiles' => $imageFiles,
-            'uploadDir' => $uploadDir
+            'data_photo' => $dataPhotos
         );
 
         Flight::render('photo.tpl', $data);
