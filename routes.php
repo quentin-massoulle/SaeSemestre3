@@ -123,7 +123,7 @@ Flight::route('/liste-adherent', function(){
                 $dataAdherent[] = array(
                     'nom_adherent' => $adherent['nom'],
                     'prenom_adherent' => $adherent['prenom'],
-                    'id_adherent' =>$adherent['id_utilisateur']
+                    'id_utilisateur' =>$adherent['id_utilisateur']
                 );
             }
         }

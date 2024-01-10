@@ -19,7 +19,7 @@
             {foreach $data_adherent as $adherent}
             <div class="item">
                 <div class="checkbox"></div>
-                <input type="checkbox" name="adherents[]" value="{$adherent['id_adherent']}">
+                <input type="checkbox" name="adherents[]" value="{$adherent['id_utilisateur']}">
                 <div class="info">
                     <div class="container-img-profil">
                         <img src="" alt="image_profil">
