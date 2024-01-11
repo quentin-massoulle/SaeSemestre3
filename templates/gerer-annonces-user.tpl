@@ -15,7 +15,7 @@
     <form action="./php/supprimer-annonce-user.php" method="post" id="formSuppression">
         <div class="container-item">
             {foreach $data_annonces as $annonce}
-                <div class="item">
+                <div class="item" id="id-annonce-{$annonce.id_annonce}>
                     <input type="checkbox" name="liste-annonces[]" value="{$annonce.id_annonce}">
                     <div class="container-img">
                     <img src="{$annonce.url_photo}" alt="{$annonce.titre_poste}"/>
@@ -31,6 +31,9 @@
                             <div class="contenue-poste">{$annonce.contenue}</div>
                         </div>
                     </div>
+
+                    <button class="modifier-btn" onclick="call pop up modifier id => {$annonce.id_annonce}">Modifier</button>
+                    <button class="supprimer-btn" onclick="call pop up supprimer id => {$annonce.id_annonce}">Supprimer</button>
                 </div>
             {/foreach}
         </div>
