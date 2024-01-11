@@ -7,7 +7,6 @@
     <title>Mes annonces - CID</title>
     <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
     <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
-    <link href="./style/index.css rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -33,17 +32,17 @@
                                 {$annonce.description_poste}
                             </div>
                             <div class="contenue-poste">{$annonce.contenue}</div>
-                        </div>
+                        </div>  
                     </div>
-
-                    <button class="modifier-btn" type="button" onclick="openModifierPopUp({$annonce.id_annonce})">Modifier</button>
-                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$annonce.id_annonce})">Supprimer</button>
+                    
+                        <button class="modifier-btn" type="button" onclick="openModifierPopUp({$annonce.id_annonce})">Modifier</button>
+                        <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$annonce.id_annonce})">Supprimer</button>
                 </div>
             {/foreach}
         </div>
         <div class="supprimer">
             <div>
-                <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
+                <button class="supprimer-btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
             </div>
         </div>
     </form>
