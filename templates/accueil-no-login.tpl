@@ -39,7 +39,7 @@
         <p> Participez en partageant vos photos et évènements, nous y répondrons présent avec plaisr ! </p>         
       </div>
       <div class="container-img">
-        <img src="logo lorem ipsum.avif" alt="Logo">
+        <img src="./images/accueil.jpg" alt="image accueil">
       </div>
     </div>
   </div>
