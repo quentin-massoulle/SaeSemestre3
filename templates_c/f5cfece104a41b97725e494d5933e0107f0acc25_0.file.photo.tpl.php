@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 14:20:38
+/* Smarty version 4.2.1, created on 2024-01-11 08:12:22
   from 'C:\laragon\www\cours\Sae3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659ea7b666a985_01523827',
+  'unifunc' => 'content_659fa2e6cb2808_23651416',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f5cfece104a41b97725e494d5933e0107f0acc25' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\photo.tpl',
-      1 => 1704896436,
+      1 => 1704960567,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659ea7b666a985_01523827 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659fa2e6cb2808_23651416 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/photos.css" rel="stylesheet" type="text/css" />
@@ -67,47 +67,49 @@ function content_659ea7b666a985_01523827 (Smarty_Internal_Template $_smarty_tpl)
 
     </div>
   <div class="container-item">
-
-<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['imageFiles']->value, 'image');
-$_smarty_tpl->tpl_vars['image']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['image']->value) {
-$_smarty_tpl->tpl_vars['image']->do_else = false;
+    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data_photo']->value, 'photo');
+$_smarty_tpl->tpl_vars['photo']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['photo']->value) {
+$_smarty_tpl->tpl_vars['photo']->do_else = false;
 ?>
     <div class="ligne">
-      <div class="container-photo">
-        <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+        <div class="container-photo">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
 " alt="photo de profil" />
-      </div>
-      <div class="info">
-        <div class="photo-info">
-          <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+        </div>
+        <div class="info">
+            <div class="photo-info">
+                <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
 " alt="illustration" />
+            </div>
+            <div class="texte-info">
+                <p class="p1"><?php echo $_smarty_tpl->tpl_vars['photo']->value['date_poste'];?>
+ promo diplome année</p>
+                <p class="p2"></p>
+                <p class="p3">Posté par <?php echo $_smarty_tpl->tpl_vars['photo']->value['nom'];?>
+ <?php echo $_smarty_tpl->tpl_vars['photo']->value['prenom'];?>
+</p>
+                <p class="p4"><?php echo $_smarty_tpl->tpl_vars['photo']->value['description_poste'];?>
+</p>
+            </div>
         </div>
-        <div class="texte-info">
-          <p class="p1">jj/mm/aaaa promo diplome année</p>
-          <p class="p2">titre photo</p>
-          <p class="p3">utilisateur</p>
-          <p class="p4">description</p>
-        </div>
-      </div>
     </div>
 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </div>
 
-<button onclick="" class="importer-photo" id="openPopupBtn">Importer une photo</button>
+
+<button class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
 <div class="popup" id="importPopup">
-  <h2>Importation de photo</h2>
-  <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
-    <label for="date">Date de la photo:</label>
+  <h2>Importer de photo</h2>
+  <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
+    <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
-    <label for="titre-photo">Titre de la photo :</label>
-    <input id="titre-photo" name="titre-photo" required></textarea>
+    <label for="titre-photo">Titre :</label>
+    <input type="text" id="titre-photo" name="titre-photo" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionnez une photo :</label>

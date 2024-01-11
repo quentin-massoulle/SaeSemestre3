@@ -15,12 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $requete->execute();
 
             // Supprimer les photos de l'adhérent
-            $requete = $connexion->prepare("DELETE FROM Photo WHERE id_utilisateur = ?");
+            $requete = $connexion->prepare("DELETE FROM adherent WHERE id_utilisateur = ?");
             $requete->bind_param("i", $id_adherent);
             $requete->execute();
 
             // Supprimer l'adhérent
-            $requete = $connexion->prepare("DELETE FROM Adherent WHERE id_adherent = ?");
+            $requete = $connexion->prepare("DELETE FROM utilisateur WHERE id_utilisateur = ?");
             $requete->bind_param("i", $id_adherent);
             $requete->execute();
         }
