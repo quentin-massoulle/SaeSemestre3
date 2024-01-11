@@ -192,11 +192,51 @@ Flight::route('/liste-adherent-no-visible', function(){
 
 
 // [ADMIN]
-Flight::route('/liste-annonces-admin', function(){
+Flight::route('/liste-annonces', function(){
     if(isset($_SESSION['admin']) && isset($_SESSION['login']))
     {
         include_once './templates/header-admin.tpl';
-        include_once './templates/listes-annonces.tpl';
+        include './php/pdo.php';
+        $requete = $connexion->prepare("
+        SELECT A.id_annonce, A.titre_poste, A.contenu, A.date_poste, A.description_poste, A.url_photo, A.valide, U.id_utilisateur, U.nom, U.prenom
+        FROM Annonce A
+        JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
+        ");
+
+        // Exécution de la requête
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsAnnonces = $requete->get_result();
+
+        $dataAnnonces = array();
+
+        // Vérification de l'authentification
+        if ($resultatsAnnonces->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($annonce = $resultatsAnnonces->fetch_assoc()) {
+                $dataAnnonces[] = array(
+                    'id_annonce' => $annonce['id_annonce'],
+                    'titre_poste' => $annonce['titre_poste'],
+                    'contenue' => $annonce['contenu'],
+                    'date_poste' => $annonce['date_poste'],
+                    'description_poste' => $annonce['description_poste'],
+                    'url_photo' => $annonce['url_photo'],
+                    'valide' => $annonce['valide'],
+                    'id_utilisateur' => $annonce['id_utilisateur'],
+                    'nom' => $annonce['nom'],
+                    'prenom' => $annonce['prenom']
+                );
+            };
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_annonces' => $dataAnnonces
+        );
+
+        Flight::render('liste-annonces.tpl', $data);
 
         include_once './templates/footer.tpl';
     } else {
@@ -205,17 +245,134 @@ Flight::route('/liste-annonces-admin', function(){
 });
 
 // [ADMIN]
-Flight::route('/listes-photo-admin', function(){
+Flight::route('/liste-annonces-no-visible', function(){
     if(isset($_SESSION['admin']) && isset($_SESSION['login']))
     {
         include_once './templates/header-admin.tpl';
-        include_once './templates/listes-photos.tpl';
+        include './php/pdo.php';
+        $requete = $connexion->prepare("
+        SELECT A.id_annonce, A.titre_poste, A.contenu, A.date_poste, A.description_poste, A.url_photo, A.valide, U.id_utilisateur, U.nom, U.prenom
+        FROM Annonce A
+        JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
+        WHERE A.valide = 0
+        ");
+
+        // Exécution de la requête
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsAnnonces = $requete->get_result();
+
+        $dataAnnonces = array();
+
+        // Vérification de l'authentification
+        if ($resultatsAnnonces->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($annonce = $resultatsAnnonces->fetch_assoc()) {
+                $dataAnnonces[] = array(
+                    'id_annonce' => $annonce['id_annonce'],
+                    'titre_poste' => $annonce['titre_poste'],
+                    'contenue' => $annonce['contenu'],
+                    'date_poste' => $annonce['date_poste'],
+                    'description_poste' => $annonce['description_poste'],
+                    'url_photo' => $annonce['url_photo'],
+                    'valide' => $annonce['valide'],
+                    'id_utilisateur' => $annonce['id_utilisateur'],
+                    'nom' => $annonce['nom'],
+                    'prenom' => $annonce['prenom']
+                );
+            };
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_annonces' => $dataAnnonces
+        );
+
+        Flight::render('liste-annonces-no-visible.tpl', $data);
 
         include_once './templates/footer.tpl';
     } else {
         Flight::redirect('/');
     }
 });
+
+
+// [ADMIN]
+Flight::route('/liste-photos', function(){
+    if(isset($_SESSION['admin']) && isset($_SESSION['login']))
+    {
+        include_once './templates/header-admin.tpl';
+        include_once './templates/liste-photos.tpl';
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
+// [ADMIN]
+
+
+Flight::route('/liste-photos-no-visible', function(){
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])) {
+        include_once './templates/header-admin.tpl';
+        include './php/pdo.php';
+
+        $id_utilisateur = $_SESSION['id_utilisateur'];
+
+        $requete = $connexion->prepare("
+            SELECT P.id_photo, P.titre_poste, P.date_poste, P.description_poste, P.url_photo, P.valide, U.id_utilisateur, U.nom, U.prenom  
+            FROM Photo as P
+            INNER JOIN Utilisateur as U ON P.id_utilisateur = U.id_utilisateur
+            WHERE P.valide = 0
+        ");
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsPhotos = $requete->get_result();
+
+        $dataPhotos = array();
+
+        // Vérification de l'authentification
+        if ($resultatsPhotos->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($photo = $resultatsPhotos->fetch_assoc()) {
+                $text_valide = ($photo['valide'] == 1) ? "Cette photo est validée." : "Cette photo n'est pas validée.";
+
+                $dataPhotos[] = array(
+                    'id_photo' => $photo['id_photo'],
+                    'titre_poste' => $photo['titre_poste'],
+                    'date_poste' => $photo['date_poste'],
+                    'description_poste' => $photo['description_poste'],
+                    'url_photo' => $photo['url_photo'],
+                    'valide' => $text_valide,
+                    'id_utilisateur' => $photo['id_utilisateur'],
+                    'nom' => $photo['nom'],
+                    'prenom' => $photo['prenom']
+                );
+            }
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_photos' => $dataPhotos
+        );
+
+        Flight::render('liste-photos-no-visible.tpl', $data);
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
+
+
+
+
+
+
 
 // [USER]
 Flight::route('/gerer-photos', function(){
@@ -257,20 +414,14 @@ Flight::route('/gerer-photos', function(){
         if ($resultatsPhotos->num_rows > 0) {
             // Parcourir toutes les lignes de résultats
             while ($photo = $resultatsPhotos->fetch_assoc()) {
-                if($photo['valide'] == 1) {
-                    $text_valide = "Cette photo est validé.";
-                }
-                else {
-                    $text_valide = "Cette photo n'est pas validé.";
-                }
-
+              
                 $dataPhotos[] = array(
                     'id_photo' => $photo['id_photo'],
                     'titre_poste' => $photo['titre_poste'],
                     'date_poste' => $photo['date_poste'],
                     'description_poste' => $photo['description_poste'],
                     'url_photo' => $photo['url_photo'],
-                    'valide' => $text_valide,
+                    'valide' => $photo['valide'] ,
                     'id_utilisateur' => $photo['id_utilisateur'],
                     'nom' => $photo['nom'],
                     'prenom' => $photo['prenom']

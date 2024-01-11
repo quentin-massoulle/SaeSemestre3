@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.2.1, created on 2024-01-11 23:24:15
+  from 'C:\laragon\www\cours\SaeSemestre3\templates\liste-photos-no-visible.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_65a0789fa57dd3_27082495',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '72100f03a7d07b5f81580622c6de33dab8f0bc45' => 
+    array (
+      0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\liste-photos-no-visible.tpl',
+      1 => 1705015449,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_65a0789fa57dd3_27082495 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
 
 <head>
@@ -11,34 +34,57 @@
 </head>
 
 <body>
-    <script src="./js/gerer-photo.js"></script>
-    <script src="./js/notif.js"></script>
+    <?php echo '<script'; ?>
+ src="./js/gerer-photo.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="./js/notif.js"><?php echo '</script'; ?>
+>
 
     <h1>Mes Photos</h1>
     <form action="./php/gerer-liste-photo.php" method="post" id="formSuppression">
         <div class="container-item">
-            {foreach $data_photos as $photo}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data_photos']->value, 'photo');
+$_smarty_tpl->tpl_vars['photo']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['photo']->value) {
+$_smarty_tpl->tpl_vars['photo']->do_else = false;
+?>
                 <div class="item">
-                    <input type="checkbox" name="liste-photos[]" value="{$photo.id_photo}">
+                    <input type="checkbox" name="liste-photos[]" value="<?php echo $_smarty_tpl->tpl_vars['photo']->value['id_photo'];?>
+">
                     <div class="container-img">
-                    <img src="{$photo.url_photo}" alt="{$photo.titre_poste}"/>
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['photo']->value['titre_poste'];?>
+"/>
                     </div>
                     <div class="container-info">
-                        <div class="info-photo" id="id-photo-{$photo.id_photo}">
-                            <div class="date-poste">{$photo.date_poste}</div>
-                            <div class="titre-poste">{$photo.titre_poste}</div>
-                            <div class="auteur-poste">Posté par {$photo.nom} {$photo.prenom}</div>
+                        <div class="info-photo" id="id-photo-<?php echo $_smarty_tpl->tpl_vars['photo']->value['id_photo'];?>
+">
+                            <div class="date-poste"><?php echo $_smarty_tpl->tpl_vars['photo']->value['date_poste'];?>
+</div>
+                            <div class="titre-poste"><?php echo $_smarty_tpl->tpl_vars['photo']->value['titre_poste'];?>
+</div>
+                            <div class="auteur-poste">Posté par <?php echo $_smarty_tpl->tpl_vars['photo']->value['nom'];?>
+ <?php echo $_smarty_tpl->tpl_vars['photo']->value['prenom'];?>
+</div>
                             <div class="description-poste">
-                                {$photo.description_poste}
+                                <?php echo $_smarty_tpl->tpl_vars['photo']->value['description_poste'];?>
+
                             </div>
-                            <div class="visible">{$photo.valide}</div>
+                            <div class="visible"><?php echo $_smarty_tpl->tpl_vars['photo']->value['valide'];?>
+</div>
                         </div>
                     </div>
 
-                    <button class="modifier-btn" type="button" onclick="openModifierPopUp({$photo.id_photo})">Modifier</button>
-                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$photo.id_photo})">Supprimer</button>
+                    <button class="modifier-btn" type="button" onclick="openModifierPopUp(<?php echo $_smarty_tpl->tpl_vars['photo']->value['id_photo'];?>
+)">Modifier</button>
+                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp(<?php echo $_smarty_tpl->tpl_vars['photo']->value['id_photo'];?>
+)">Supprimer</button>
                 </div>
-            {/foreach}
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="supprimer">
         <div>
@@ -87,3 +133,5 @@
 </body>
 
 </html>
+<?php }
+}

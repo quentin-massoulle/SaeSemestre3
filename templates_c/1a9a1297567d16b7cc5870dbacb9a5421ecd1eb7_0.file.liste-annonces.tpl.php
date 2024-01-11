@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 22:53:36
-  from 'C:\laragon\www\cours\SaeSemestre3\templates\gerer-annonces-user.tpl' */
+/* Smarty version 4.2.1, created on 2024-01-11 23:14:50
+  from 'C:\laragon\www\cours\SaeSemestre3\templates\liste-annonces.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a07170e3cef0_19770190',
+  'unifunc' => 'content_65a0766a5a3b33_20060694',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '76713c7bdfe42c852686ed4f1110467c52bcb60b' => 
+    '1a9a1297567d16b7cc5870dbacb9a5421ecd1eb7' => 
     array (
-      0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\gerer-annonces-user.tpl',
-      1 => 1705013109,
+      0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\liste-annonces.tpl',
+      1 => 1705014817,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a07170e3cef0_19770190 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a0766a5a3b33_20060694 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -43,59 +43,59 @@ function content_65a07170e3cef0_19770190 (Smarty_Internal_Template $_smarty_tpl)
 
     <h1>Mes Annonces</h1>
     <form action="./php/gerer-liste-annonce.php" method="post" id="formSuppression">
-        <div class="container-item">
-            <!-- Une seule boucle foreach ici -->
-            <?php
+    <div class="container-item">
+        <!-- Une seule boucle foreach ici -->
+        <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data_annonces']->value, 'annonce');
 $_smarty_tpl->tpl_vars['annonce']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['annonce']->value) {
 $_smarty_tpl->tpl_vars['annonce']->do_else = false;
 ?>
-                <div class="item">
-                    <input type="checkbox" name="liste-annonces[]" value="<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+            <div class="item">
+                <input type="checkbox" name="liste-annonces[]" value="<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
 ">
-                    <div class="container-img">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['annonce']->value['url_photo'];?>
+                <div class="container-img">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['annonce']->value['url_photo'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre_poste'];?>
 "/>
-                    </div>
-                    <div class="container-info">
-                        <div class="info-annonce" id="id-annonce-<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+                </div>
+                <div class="container-info">
+                    <div class="info-annonce" id="id-annonce-<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
 ">
-                            <div class="date-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['date_poste'];?>
+                        <div class="date-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['date_poste'];?>
 </div>
-                            <div class="titre-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre_poste'];?>
+                        <div class="titre-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre_poste'];?>
 </div>
-                            <div class="auteur-poste">Posté par <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nom'];?>
+                        <div class="auteur-poste">Posté par <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nom'];?>
  <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prenom'];?>
 </div>
-                            <div class="description-poste">
-                                <?php echo $_smarty_tpl->tpl_vars['annonce']->value['description_poste'];?>
+                        <div class="description-poste">
+                            <?php echo $_smarty_tpl->tpl_vars['annonce']->value['description_poste'];?>
 
-                            </div>
-                            <div class="contenue-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['contenue'];?>
-</div>
-                            <div class="visible"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['valide'];?>
-</div>
                         </div>
+                        <div class="contenue-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['contenue'];?>
+</div>
+                        <div class="visible"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['valide'];?>
+</div>
                     </div>
-                    
-                    <button class="modifier-btn" type="button" onclick="openModifierPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
-)">Modifier</button>
-                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
-)">Supprimer</button>
                 </div>
-            <?php
+                
+                <button class="modifier-btn" type="button" onclick="openModifierPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+)">Modifier</button>
+                <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+)">Supprimer</button>
+            </div>
+        <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    </div>
+    <div class="supprimer">
+        <div>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
         </div>
-        <div class="supprimer">
-            <div>
-            <input type="hidden" name="action" value="supprimer">
-            <button class="supprimer-btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
+
 
     <div id="overlay"></div>
 
