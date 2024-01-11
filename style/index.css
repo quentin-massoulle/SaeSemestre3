@@ -103,12 +103,11 @@ button:hover {
 .container-img {
   padding: 40px;
   width: 45%;
-  background-color: blue;
 }
 
 .container-img img {
   width: 90%;
-  height: auto;
+  height: 90%;
   border-radius: 15px;
 }
 

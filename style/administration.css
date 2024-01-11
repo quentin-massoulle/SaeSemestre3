@@ -14,6 +14,8 @@ h2{
   color: #f2f2f2;
   background-color:#ffd700;
   display: inline-block;
+  border-radius: 20px;
+  padding: 5px 15px;
 }
 /* Barre de navigation */
 .topnav {
