@@ -132,6 +132,9 @@ button:hover {
   padding: 10px;
   display: flex;
   align-items: center;
+  width: auto;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 /*////////////////////////////////////////////*/
@@ -148,8 +151,8 @@ button:hover {
 .container-img {
   display: flex;
   flex-direction: column;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 100px;
+  max-height: 100px;
   /*flex-wrap: wrap;
   justify-content: space-between;*/
 }
@@ -174,4 +177,19 @@ button:hover {
 .supprimer{
   display: flex;
   justify-content: end;
+}
+
+.supprimer-btn:hover{
+  background-color: red;
+}
+
+.contenue-poste {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-annonce{
+  max-width: 350px;
 }
