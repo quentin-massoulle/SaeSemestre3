@@ -81,6 +81,7 @@ form input {
   border-radius: 5px;
 }
 
+
 form button {
   background-color: #ffffff;
   color: #053f5e;
@@ -91,6 +92,41 @@ form button {
 }
 
 form button:hover {
+  background-color: #053f5e;
+  color: #ffffff;
+}
+
+
+
+form button {
+  background-color: #ffffff;
+  color: #053f5e;
+  font-size: 14px; /* Augmentation de la taille de la police pour le bouton du formulaire */
+  padding: 20px; /* Ajustement du rembourrage du bouton du formulaire */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #053f5e;
+  color: #ffffff;
+}
+
+
+/* Ajoutez ces styles pour l'élément avec la classe "gerer-photos-btn" */
+.gerer-btn {
+  cursor: pointer;
+  margin: 15px;
+  color: #ffffff;
+  background-color: #226C94;
+  border: none;
+  text-align: center;
+  padding: 22px 24px;
+  font-size: 24px;
+  text-decoration: none; /* Pour supprimer le soulignement par défaut sur les liens */
+}
+
+.gerer-btn:hover {
   background-color: #053f5e;
   color: #ffffff;
 }
