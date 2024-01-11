@@ -1,6 +1,5 @@
 <?php
 include 'generer-mdp.php';
-include 'pdo.php';
 
 session_start(); // Démarrez la session
 
@@ -24,7 +23,6 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
         header('Location: ../');
         exit();
     } else {
-        include './envoiemail.php';
         $statu_admin = 0 ;
         $mdpGenere = genererMotDePasse(16);
         $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT);
@@ -35,7 +33,7 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
         $requeteUtilisateur->bind_param("ssssis", $email, $hashedPassword, $prenom, $nom, $statu_admin, $url_pp);
 
         if ($requeteUtilisateur->execute()) {
-            envoyerEmail($email, $mdpGenere, "Inscription au CID");
+            
 
             // Récupérer l'id de l'utilisateur nouvellement créé
             $idUtilisateur = $requeteUtilisateur->insert_id;
@@ -60,12 +58,12 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
 
             // Insérer l'adhérent dans la table Adherent
             $requeteAdherent = $connexion->prepare("INSERT INTO Adherent(visible, id_promo, id_utilisateur) VALUES (?, ?, ?)");
-            $visible = 1; // Vous pouvez ajuster cela selon vos besoins
+            $visible = 0; // Vous pouvez ajuster cela selon vos besoins
             $requeteAdherent->bind_param("iii", $visible, $idPromo, $idUtilisateur);
             $requeteAdherent->execute();
             $requeteAdherent->close();
 
-            $_SESSION['notif'] = "Inscription réussie.<br>Veuillez vous connecter pour accéder au site.";
+            $_SESSION['notif'] = "Inscription réussie.<br>attendait confimation des admin.";
 
             header('Location: ../');
             exit();

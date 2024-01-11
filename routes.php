@@ -142,6 +142,55 @@ Flight::route('/liste-adherent', function(){
     }
 });
 
+
+Flight::route('/liste-adherent-no-visible', function(){
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])){ // if login -> true
+        include_once './templates/header-admin.tpl';
+        include 'php/pdo.php';
+
+        $requete = $connexion->prepare("
+            SELECT U.nom, U.prenom, U.id_utilisateur, U.photo_profil
+            FROM adherent AS A
+            JOIN utilisateur AS U ON A.id_utilisateur = U.id_utilisateur
+            WHERE A.visible = 0;
+        ");
+
+        // Exécution de la requête
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsAdherent = $requete->get_result();
+
+        $dataAdherent = array();
+
+        // Vérification de l'existence de résultats
+        if ($resultatsAdherent->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($adherent = $resultatsAdherent->fetch_assoc()) {
+                $dataAdherent[] = array(
+                    'nom_adherent' => $adherent['nom'],
+                    'prenom_adherent' => $adherent['prenom'],
+                    'id_utilisateur' =>$adherent['id_utilisateur'],
+                    'photo_profil'=> $adherent['photo_profil']
+                );
+            }
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_adherent' => $dataAdherent // Correction du nom de la variable
+        );
+
+        Flight::render('liste-adherant-no-visible.tpl', $data);
+        
+        include_once 'templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
+
+
 // [ADMIN]
 Flight::route('/liste-annonces-admin', function(){
     if(isset($_SESSION['admin']) && isset($_SESSION['login']))

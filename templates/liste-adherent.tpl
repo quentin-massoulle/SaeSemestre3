@@ -13,7 +13,7 @@
     <script src="script.js"></script>
     <h1>Liste adhérents</h1>
     <h2>Admin</h2>
-    <form action="./php/supprimer-adherents.php" method="post" id="formSuppression">
+    <form action="./php/gestion-adherents.php" method="post" id="formSuppression">
         <div class="container-item">
 
             {foreach $data_adherent as $adherent}
@@ -35,7 +35,7 @@
         </div>
         <div class="supprimer">
             <div>
-                <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+                <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
             </div>
         </div>
     </form>
