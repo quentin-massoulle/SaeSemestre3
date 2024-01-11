@@ -33,6 +33,7 @@
                                 {$annonce.description_poste}
                             </div>
                             <div class="contenue-poste">{$annonce.contenue}</div>
+                            <div class="visible">{$annonce.valide}</div>
                         </div>
                     </div>
 
@@ -51,7 +52,7 @@
     <div id="overlay"></div>
 
     <div class="popup" id="modifierPopup">
-        <h2>Importer une annonce</h2>
+        <h2>Modifier une annonce</h2>
         <form id="modifierForm" action="./php/modifier-annonce.php" method="post" enctype="multipart/form-data">
             <input type="hidden" id="id-annonce" name="id-annonce" value="">
 

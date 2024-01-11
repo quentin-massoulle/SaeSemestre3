@@ -68,8 +68,8 @@
   <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
-    <label for="titre-photo">Titre :</label>
-    <input type="text" id="titre-photo" name="titre-photo" placeholder="Titre de la photo..;  " required>
+    <label for="titre">Titre :</label>
+    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionnez une photo :</label>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 10:05:32
+/* Smarty version 4.2.1, created on 2024-01-11 16:32:36
   from 'C:\laragon\www\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659fbd6cb35db9_92239168',
+  'unifunc' => 'content_65a01824e662b9_04349325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fa19a2cead7f03ca7bccf916b7a64eace7f3ba3' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704961741,
+      1 => 1704990751,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659fbd6cb35db9_92239168 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a01824e662b9_04349325 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>    
@@ -108,8 +108,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
-    <label for="titre-photo">Titre :</label>
-    <input type="text" id="titre-photo" name="titre-photo" placeholder="Titre de la photo..;  " required>
+    <label for="titre">Titre :</label>
+    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionnez une photo :</label>

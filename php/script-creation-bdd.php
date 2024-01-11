@@ -72,6 +72,7 @@ $sqlCreationTable = [
      
      "CREATE TABLE IF NOT EXISTS Photo(
         id_photo INT AUTO_INCREMENT,
+        titre_poste VARCHAR(50) NOT NULL,
         url_photo VARCHAR(200) NOT NULL,
         date_poste DATE NOT NULL,
         description_poste VARCHAR(100) NOT NULL,

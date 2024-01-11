@@ -177,7 +177,6 @@ Flight::route('/gerer-photos', function(){
         else {
             include_once './templates/header.tpl';
         }
-
         if(isset($_SESSION['notif'])) {
             $messageNotif = $_SESSION['notif'];
             unset($_SESSION['notif']);
@@ -187,7 +186,55 @@ Flight::route('/gerer-photos', function(){
             Flight::render('notif.tpl', $data);
         }
 
-        include_once './templates/gerer-photos-user.tpl';
+        include './php/pdo.php';
+
+        $id_utilisateur = $_SESSION['id_utilisateur'];
+
+        $requete = $connexion->prepare("
+            SELECT id_photo, titre_poste, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
+            FROM Photo as P, Utilisateur as U 
+            WHERE U.id_utilisateur = ?
+        ");
+        $requete->bind_param("i", $id_utilisateur);
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsPhotos = $requete->get_result();
+
+        $dataPhotos = array();
+
+        // Vérification de l'authentification
+        if ($resultatsPhotos->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($photo = $resultatsPhotos->fetch_assoc()) {
+                if($photo['valide'] == 1) {
+                    $text_valide = "Cette photo est validé.";
+                }
+                else {
+                    $text_valide = "Cette photo n'est pas validé.";
+                }
+
+                $dataPhotos[] = array(
+                    'id_photo' => $photo['id_photo'],
+                    'titre_poste' => $photo['titre_poste'],
+                    'date_poste' => $photo['date_poste'],
+                    'description_poste' => $photo['description_poste'],
+                    'url_photo' => $photo['url_photo'],
+                    'valide' => $text_valide,
+                    'id_utilisateur' => $photo['id_utilisateur'],
+                    'nom' => $photo['nom'],
+                    'prenom' => $photo['prenom']
+                );
+            };
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_photos' => $dataPhotos
+        );
+
+        Flight::render('gerer-photos-user.tpl', $data);
 
         include_once './templates/footer.tpl';
     } else {
@@ -235,11 +282,11 @@ Flight::route('/gerer-annonces', function(){
         if ($resultatsAnnonces->num_rows > 0) {
             // Parcourir toutes les lignes de résultats
             while ($annonce = $resultatsAnnonces->fetch_assoc()) {
-                if($annonce['valide'] = 1) {
-                    $text_valide = "Cette image est visible.";
+                if($annonce['valide'] == 1) {
+                    $text_valide = "Cette annonce est validé.";
                 }
                 else {
-                    $text_valide = "Cette image n'est pas visible.";
+                    $text_valide = "Cette annonce n'est pas validé.";
                 }
 
                 $dataAnnonces[] = array(

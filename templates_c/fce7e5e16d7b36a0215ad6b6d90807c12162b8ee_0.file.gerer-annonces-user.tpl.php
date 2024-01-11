@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 14:59:06
+/* Smarty version 4.2.1, created on 2024-01-11 17:14:07
   from 'C:\laragon\www\SaeSemestre3\templates\gerer-annonces-user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a0023ac69405_79537727',
+  'unifunc' => 'content_65a021df1f9f49_56134386',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fce7e5e16d7b36a0215ad6b6d90807c12162b8ee' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\gerer-annonces-user.tpl',
-      1 => 1704985144,
+      1 => 1704992027,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a0023ac69405_79537727 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a021df1f9f49_56134386 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -75,6 +75,8 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
                             </div>
                             <div class="contenue-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['contenue'];?>
 </div>
+                            <div class="visible"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['valide'];?>
+</div>
                         </div>
                     </div>
 
@@ -97,7 +99,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <div id="overlay"></div>
 
     <div class="popup" id="modifierPopup">
-        <h2>Importer une annonce</h2>
+        <h2>Modifier une annonce</h2>
         <form id="modifierForm" action="./php/modifier-annonce.php" method="post" enctype="multipart/form-data">
             <input type="hidden" id="id-annonce" name="id-annonce" value="">
 

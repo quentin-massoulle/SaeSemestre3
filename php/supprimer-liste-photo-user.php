@@ -17,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Rediriger ou afficher un message de confirmation
         $_SESSION["notif"] = "Photo(s) supprimer.";
-        header('Location: ../gerer-photo');
+        header('Location: ../gerer-photos');
         exit();
     } else {
         $_SESSION["notif"] = "La suppression des/de la photo(s) a échouer";
-        header('Location: ../gerer-photo');
+        header('Location: ../gerer-photos');
         exit();
     }
 }
 else {
     $_SESSION["notif"] = "La suppression des/de la photo(s) a échouer";
-    header('Location: ../gerer-photo');
+    header('Location: ../gerer-photos');
     exit();
 }
 ?>
