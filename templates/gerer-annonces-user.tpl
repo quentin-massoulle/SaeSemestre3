@@ -17,11 +17,12 @@
     <h1>Mes Annonces</h1>
     <form action="./php/supprimer-liste-annonce-user.php" method="post" id="formSuppression">
         <div class="container-item">
+            <!-- Une seule boucle foreach ici -->
             {foreach $data_annonces as $annonce}
                 <div class="item">
                     <input type="checkbox" name="liste-annonces[]" value="{$annonce.id_annonce}">
                     <div class="container-img">
-                    <img src="{$annonce.url_photo}" alt="{$annonce.titre_poste}"/>
+                        <img src="{$annonce.url_photo}" alt="{$annonce.titre_poste}"/>
                     </div>
                     <div class="container-info">
                         <div class="info-annonce" id="id-annonce-{$annonce.id_annonce}">
@@ -36,8 +37,8 @@
                         </div>
                     </div>
                     
-                        <button class="modifier-btn" type="button" onclick="openModifierPopUp({$annonce.id_annonce})">Modifier</button>
-                        <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$annonce.id_annonce})">Supprimer</button>
+                    <button class="modifier-btn" type="button" onclick="openModifierPopUp({$annonce.id_annonce})">Modifier</button>
+                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$annonce.id_annonce})">Supprimer</button>
                 </div>
             {/foreach}
         </div>

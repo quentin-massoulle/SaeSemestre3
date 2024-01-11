@@ -102,7 +102,7 @@ Flight::route('/liste-adherent', function(){
         include 'php/pdo.php';
 
         $requete = $connexion->prepare("
-            SELECT U.nom, U.prenom, U.id_utilisateur
+            SELECT U.nom, U.prenom, U.id_utilisateur, U.photo_profil
             FROM adherent AS A
             JOIN utilisateur AS U ON A.id_utilisateur = U.id_utilisateur
             WHERE A.visible = 1;
@@ -123,7 +123,8 @@ Flight::route('/liste-adherent', function(){
                 $dataAdherent[] = array(
                     'nom_adherent' => $adherent['nom'],
                     'prenom_adherent' => $adherent['prenom'],
-                    'id_utilisateur' =>$adherent['id_utilisateur']
+                    'id_utilisateur' =>$adherent['id_utilisateur'],
+                    'photo_profil'=> $adherent['photo_profil']
                 );
             }
         }
@@ -266,10 +267,12 @@ Flight::route('/gerer-annonces', function(){
         $id_utilisateur = $_SESSION['id_utilisateur'];
 
         $requete = $connexion->prepare("
-            SELECT id_annonce, titre_poste, contenue, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
-            FROM Annonce as A, Utilisateur as U 
-            WHERE A.id_utilisateur = ?
+        SELECT A.id_annonce, A.titre_poste, A.contenu, A.date_poste, A.description_poste, A.url_photo, A.valide, U.id_utilisateur, U.nom, U.prenom
+        FROM Annonce A
+        JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
+        WHERE A.id_utilisateur = ?
         ");
+
         $requete->bind_param("i", $id_utilisateur);
         $requete->execute();
 
@@ -282,21 +285,14 @@ Flight::route('/gerer-annonces', function(){
         if ($resultatsAnnonces->num_rows > 0) {
             // Parcourir toutes les lignes de résultats
             while ($annonce = $resultatsAnnonces->fetch_assoc()) {
-                if($annonce['valide'] == 1) {
-                    $text_valide = "Cette annonce est validé.";
-                }
-                else {
-                    $text_valide = "Cette annonce n'est pas validé.";
-                }
-
                 $dataAnnonces[] = array(
                     'id_annonce' => $annonce['id_annonce'],
                     'titre_poste' => $annonce['titre_poste'],
-                    'contenue' => $annonce['contenue'],
+                    'contenue' => $annonce['contenu'],
                     'date_poste' => $annonce['date_poste'],
                     'description_poste' => $annonce['description_poste'],
                     'url_photo' => $annonce['url_photo'],
-                    'valide' => $text_valide,
+                    'valide' => $annonce['valide'],
                     'id_utilisateur' => $annonce['id_utilisateur'],
                     'nom' => $annonce['nom'],
                     'prenom' => $annonce['prenom']
@@ -321,17 +317,43 @@ Flight::route('/gerer-annonces', function(){
 Flight::route('/mon-profil', function(){
     if(isset($_SESSION['admin'])) {
         include_once './templates/header-admin.tpl';
-    }
-    else {
+    } else {
         include_once './templates/header.tpl';
     }
-    $data = array(
-        'titre' => 'Titre de test',
-        'route' => 'Route de test'
-    );
-    Flight::render('mon-profil.tpl',$data);
+
+    include './php/pdo.php';
+    
+    $requete = $connexion->prepare("
+        SELECT photo_profil 
+        FROM utilisateur 
+        WHERE id_utilisateur = ?
+    ");
+    
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $requete->bind_param("i", $id_utilisateur);
+    
+    // Exécution de la requête
+    $requete->execute();
+
+    // Récupération des résultats
+    $resultatsProfil = $requete->get_result();
+    
+    // Assurez-vous que la requête a renvoyé des résultats avant de les utiliser
+    if ($resultatsProfil->num_rows > 0) {
+        // Récupération de la première ligne de résultats
+        $row = $resultatsProfil->fetch_assoc();
+        
+        // Création des données pour le rendu de la template
+        $data = array(
+            'pp' => $row['photo_profil'],
+        );
+
+        Flight::render('mon-profil.tpl', $data);
+    }
+
     include_once 'templates/footer.tpl';
 });
+
 
 Flight::route('/photos', function(){
     if(isset($_SESSION['login'])) // if login -> true
@@ -348,7 +370,7 @@ Flight::route('/photos', function(){
         // ----------------------------------------
 
         $requete = $connexion->prepare("
-        SELECT P.id_photo, P.url_photo, P.date_poste, P.description_poste, U.id_utilisateur, U.nom, U.prenom
+        SELECT P.id_photo, P.url_photo, P.date_poste, P.description_poste, U.id_utilisateur, U.nom, U.prenom,U.photo_profil
         FROM Photo AS P
         JOIN Utilisateur AS U ON P.id_utilisateur = U.id_utilisateur
         WHERE P.valide = 1;
@@ -373,7 +395,8 @@ Flight::route('/photos', function(){
                 'description_poste' => $photo['description_poste'],
                 'id_utilisateur' => $photo['id_utilisateur'],
                 'nom' => $photo['nom'],
-                'prenom' => $photo['prenom']
+                'prenom' => $photo['prenom'],
+                'photo_profil' => $photo['photo_profil']
             );
         }
     }
@@ -407,7 +430,7 @@ Flight::route('/annonces', function(){
 
         // If the annonce is mark OK by an admin, then we add it
         $requete = $connexion->prepare("
-            SELECT id_annonce, titre_poste, contenue, date_poste, description_poste, url_photo, U.id_utilisateur, nom, prenom  
+            SELECT id_annonce, titre_poste, contenu, date_poste, description_poste, url_photo, U.id_utilisateur, nom, prenom , photo_profil , mail_annonce ,numero_telephone_annonce
             FROM Annonce as A, Utilisateur as U 
             WHERE valide = 1 AND A.id_utilisateur = U.id_utilisateur
         ");
@@ -427,13 +450,16 @@ Flight::route('/annonces', function(){
                 $dataAnnonces[] = array(
                     'id_annonce' => $annonce['id_annonce'],
                     'titre_poste' => $annonce['titre_poste'],
-                    'contenue' => $annonce['contenue'],
+                    'contenu' => $annonce['contenu'],
                     'date_poste' => $annonce['date_poste'],
                     'description_poste' => $annonce['description_poste'],
                     'url_photo' => $annonce['url_photo'],
                     'id_utilisateur' => $annonce['id_utilisateur'],
                     'nom' => $annonce['nom'],
-                    'prenom' => $annonce['prenom']
+                    'prenom' => $annonce['prenom'],
+                    'photo_profil' => $annonce['photo_profil'],
+                    'mail' => $annonce['mail_annonce'],
+                    'tel' => $annonce['numero_telephone_annonce']
                 );
             };
         }

@@ -16,8 +16,13 @@
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <a href="" class="gerer-btn" type="button">modifier la photo de profil</a>
+        <img src="{$pp}" alt="image_profile"width=100px height=100px><br>
+        <form action="php/changement-pp.php" method="post" enctype="multipart/form-data">
+                <label for="nouvelle_photo">Choisir une nouvelle photo :</label>
+                <input type="file" name="nouvelle_photo" id="nouvelle_photo" accept="image/*">
+                <br>
+                <button class="gerer-btn" type="submit">Modifier la photo de profil</button>
+            </form>
       <div>
       
         <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>

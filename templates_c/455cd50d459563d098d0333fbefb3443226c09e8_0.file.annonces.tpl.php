@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 19:32:19
+/* Smarty version 4.2.1, created on 2024-01-11 20:21:35
   from 'C:\laragon\www\cours\SaeSemestre3\templates\annonces.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659ef0c38cc5e1_32321819',
+  'unifunc' => 'content_65a04dcf96fd15_03369668',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '455cd50d459563d098d0333fbefb3443226c09e8' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\annonces.tpl',
-      1 => 1704911191,
+      1 => 1705004469,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659ef0c38cc5e1_32321819 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a04dcf96fd15_03369668 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -57,6 +57,11 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
 </div>
                 <div class="titre-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre_poste'];?>
 </div>
+
+                <div class="titre-poste">mail de contacte : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['mail'];?>
+</div>
+                <div class="titre-poste">telephon  de contacte : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['tel'];?>
+</div>
                 <div class="auteur-poste">Posté par <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nom'];?>
  <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prenom'];?>
 </div>
@@ -64,7 +69,7 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
                   <?php echo $_smarty_tpl->tpl_vars['annonce']->value['description_poste'];?>
 
                 </div>
-                <div class="contenue-poste" style="display:none"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['contenue'];?>
+                <div class="contenue-poste" style="display:none"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['contenu'];?>
 </div>
               </div>
               <button onclick="openPopupBtnClick(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
@@ -96,11 +101,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <label for="description">Description :</label>
       <input type="text" id="description" name="description" placeholder="Description de l'annonce..." maxlength="100" required>
 
+      
+      <label for="file">Numéro de contacte :</label>
+      <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
+
+
+      <label for="file"> Mail de contacte :</label>
+      <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
+
+
       <label for="contenue">Contenue :</label>
       <textarea id="contenue" name="contenue" placeholder="Contenue de l'annonce..." maxlength="500" required></textarea>
 
       <label for="file">Sélectionnez une photo :</label>
       <input type="file" name="file" id="file" accept="image/*">
+
 
       <button type="submit" id="submitBtn">Envoyer</button>
       <button type="button" id="closePopupBtn">Fermer</button>
@@ -109,17 +124,22 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
   <div id="customPopupAnnonce" class="customPopupAnnonce">
     <div class="popupContentAnnonce">
-      <label for="popupToggle" id="closePopupBtn1" class="close">&times;</label>
-      <h2>Informations sur l'annonce</h2>
-      <p><span id="annonceDate">-</span></p>
-      <p><span id="annonceAuteur">-</span></p>
-
-      <h3 id="annonceTitre">-</h3>
-      <p id="annonceDescription">-</p>
-      <p id="annonceContenue">-</p>
-     <button id="closePopupBtn2" class="retour-btn">Retour</button>
-
+        <label for="popupToggle" id="closePopupBtn1" class="close">&times;</label>
+        <h2>Informations sur l'annonce</h2>
+        <p><span id="annonceDate">-</span></p>
+        <p><span id="annonceAuteur">-</span></p>
+        <p><span id="annonceMail">-</span></p>
+        <p><span id="annonceNumero">-</span></p>
+        <div class="container-img-profil">
+            <img id="annoncePhotoProfil" src="" alt="Photo de profil de l'annonce">
+        </div>
+        <h3 id="annonceTitre">-</h3>
+        <p id="annonceDescription">-</p>
+        <p id="annonceContenue">-</p>
+        <button id="closePopupBtn2" class="retour-btn">Retour</button>
     </div>
+</div>
+
   </div>
 
 </body>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 21:50:18
+/* Smarty version 4.2.1, created on 2024-01-11 18:57:41
   from 'C:\laragon\www\cours\SaeSemestre3\templates\liste-adherent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659f111a6773c6_43170094',
+  'unifunc' => 'content_65a03a25df7bf1_70965624',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f01e1b6096517790e6122eec2180636b4b7e1c56' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\liste-adherent.tpl',
-      1 => 1704923263,
+      1 => 1704999456,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659f111a6773c6_43170094 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a03a25df7bf1_70965624 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -53,7 +53,8 @@ $_smarty_tpl->tpl_vars['adherent']->do_else = false;
 ">
                 <div class="info">
                     <div class="container-img-profil">
-                        <img src="" alt="image_profil">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['adherent']->value['photo_profil'];?>
+" alt="image_profil">
                     </div>
                     <div class="user-info">
                         <p><?php echo $_smarty_tpl->tpl_vars['adherent']->value['nom_adherent'];?>

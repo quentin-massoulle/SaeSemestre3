@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $titrePoste = $_POST["titre"];
             $descriptionPoste = $_POST["description"];
             $contenuePoste = $_POST["contenue"];
+            $numeroPoste = $_POST["numero"];
+            $mailPoste = $_POST["mail"];
 
             $idUtilisateur = $_SESSION['id_utilisateur'];
 
@@ -45,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Requête SQL pour insérer une nouvelle photo
             // valide -> 0 because admin need to valid the announce before make it public
-            $requete = $connexion->prepare("INSERT INTO Annonce(titre_poste, contenue, date_poste, description_poste, url_photo, valide, id_utilisateur) VALUES (?, ?, ?, ?, ?, 0, ?)"); 
-            $requete->bind_param("sssssi", $titrePoste, $contenuePoste, $datePoste, $descriptionPoste, $urlPhoto, $idUtilisateur);
+            $requete = $connexion->prepare("INSERT INTO Annonce(titre_poste, contenu, date_poste, description_poste, url_photo, valide, id_utilisateur,mail_annonce,numero_telephone_annonce) VALUES (?, ?, ?, ?, ?, 0, ?, ? , ?)"); 
+            $requete->bind_param("sssssiss", $titrePoste, $contenuePoste, $datePoste, $descriptionPoste, $urlPhoto, $idUtilisateur,$mailPoste,$numeroPoste);
 
             // Exécution de la requête
             $resultat = $requete->execute();

@@ -22,7 +22,7 @@
                 <input type="checkbox" name="adherents[]" value="{$adherent['id_utilisateur']}">
                 <div class="info">
                     <div class="container-img-profil">
-                        <img src="" alt="image_profil">
+                        <img src="{$adherent['photo_profil']}" alt="image_profil">
                     </div>
                     <div class="user-info">
                         <p>{$adherent['nom_adherent']}</p>

@@ -43,7 +43,7 @@
     {foreach $data_photo as $photo}
     <div class="ligne">
         <div class="container-photo">
-            <img src="{$photo.url_photo}" alt="photo de profil" />
+            <img src="{$photo.photo_profil}" alt="photo de profil" />
         </div>
         <div class="info">
             <div class="photo-info">

@@ -16,27 +16,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Appeler la fonction d'inscription
     inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo);
 }
-
 function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
-    global $connexion; // Utiliser la variable $connexion déclarée dans pdo.php
+    include 'pdo.php'; // Utiliser la variable $connexion déclarée dans pdo.php
 
-    if (utilisateurExiste($email, $connexion)) {
-        $_SESSION['notif'] = "Mail déjà utilisé.";
+    if (utilisateurExiste($email, $nom, $prenom)) {
+        $_SESSION['notif'] = "Compte déjà créé.";
         header('Location: ../');
         exit();
     } else {
         include './envoiemail.php';
-
-        $statutAdmin = 0;
+        $statu_admin = 0 ;
         $mdpGenere = genererMotDePasse(16);
         $hashedPassword = password_hash($mdpGenere, PASSWORD_BCRYPT);
+        $url_pp = '.\uploads\photo_profil\pp-base.png';
 
         // Requête d'insertion d'utilisateur
-        $requeteUtilisateur = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin) VALUES (?, ?, ?, ?, ?)");
-        $requeteUtilisateur->bind_param("ssssi", $email, $hashedPassword, $prenom, $nom, $statutAdmin);
+        $requeteUtilisateur = $connexion->prepare("INSERT INTO Utilisateur(mail, mot_de_passe, prenom, nom, statut_admin, photo_profil) VALUES (?, ?, ?, ?, ? ,?)");
+        $requeteUtilisateur->bind_param("ssssis", $email, $hashedPassword, $prenom, $nom, $statu_admin, $url_pp);
 
         if ($requeteUtilisateur->execute()) {
-            envoyerEmail($email, $mdpGenere, "inscription au cid");
+            envoyerEmail($email, $mdpGenere, "Inscription au CID");
 
             // Récupérer l'id de l'utilisateur nouvellement créé
             $idUtilisateur = $requeteUtilisateur->insert_id;
@@ -66,9 +65,6 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
             $requeteAdherent->execute();
             $requeteAdherent->close();
 
-            // Fermer la connexion
-            $connexion->close();
-
             $_SESSION['notif'] = "Inscription réussie.<br>Veuillez vous connecter pour accéder au site.";
 
             header('Location: ../');
@@ -76,13 +72,15 @@ function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
         } else {
             echo "Erreur lors de l'inscription : " . $requeteUtilisateur->error;
         }
-
-        $requeteUtilisateur->close();
-        $connexion->close();
     }
+
+    // Fermer la connexion à la fin de la fonction
+    $connexion->close();
 }
 
-function promoExiste($nompromo, $connexion) {
+
+function promoExiste($nompromo) {
+    include 'pdo.php';
     $requete = $connexion->prepare("SELECT id_promo FROM Promo WHERE nom_diplome = ?");
     $requete->bind_param("s", $nompromo);
     $requete->execute();
@@ -93,7 +91,8 @@ function promoExiste($nompromo, $connexion) {
     return $promoExiste;
 }
 
-function obtenirIdPromo($nompromo, $connexion) {
+function obtenirIdPromo($nompromo,) {
+    include 'pdo.php';
     $requete = $connexion->prepare("SELECT id_promo FROM Promo WHERE nom_diplome = ?");
     $requete->bind_param("s",$nompromo);
     $requete->execute();
@@ -105,25 +104,18 @@ function obtenirIdPromo($nompromo, $connexion) {
     return $idPromo;
 }
 
-function utilisateurExiste($mail) {
+function utilisateurExiste($mail ,$nom,$prenom) {
     // Paramètres de connexion à la base de données
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_de_passe = "";
-    $nomBaseDeDonnees = "BaseCID";
-
-    // Connexion à la base de données
-    $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
-
+    include 'pdo.php';
     // Vérifier la connexion
     if ($connexion->connect_error) {
         die("Échec de la connexion à la base de données : " . $connexion->connect_error);
     }
 
     // Requête pour vérifier si l'utilisateur existe
-    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=?");
+    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=? and nom =? and prenom=?");
 
-    $requete->bind_param("s", $email);
+    $requete->bind_param("sss", $mail, $nom,$prenom);
 
     // Exécution de la requête
     $requete->execute();

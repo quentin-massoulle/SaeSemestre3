@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 20:44:09
+/* Smarty version 4.2.1, created on 2024-01-11 21:27:06
   from 'C:\laragon\www\cours\SaeSemestre3\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659f0199255b18_17045234',
+  'unifunc' => 'content_65a05d2a6fd592_78094347',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9a5d62406371cdcff5613bfdae8f5239cb6aba4f' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\mon-profil.tpl',
-      1 => 1704919439,
+      1 => 1705008422,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659f0199255b18_17045234 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a05d2a6fd592_78094347 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Mon Profil - CID</title>
   <link href="./style/mon-profil.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -37,28 +37,32 @@ function content_659f0199255b18_17045234 (Smarty_Internal_Template $_smarty_tpl)
  src="script.js"><?php echo '</script'; ?>
 >
   
-  <?php echo '<?php'; ?>
-
-  session_start();
-  <?php if ((isset($_smarty_tpl->tpl_vars['_SESSION']->value['notif']))) {?>
-    <div class="notification">
-      <?php echo $_smarty_tpl->tpl_vars['_SESSION']->value['notif'];?>
-
-    </div>
-  <?php }?>
-  <?php echo '?>'; ?>
-
   <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <button class="btn" type="button">modifier la photo de profil</button>
+        <img src="<?php echo $_smarty_tpl->tpl_vars['pp']->value;?>
+" alt="image_profile"width=100px height=100px><br>
+        <form action="php/changement-pp.php" method="post" enctype="multipart/form-data">
+                <label for="nouvelle_photo">Choisir une nouvelle photo :</label>
+                <input type="file" name="nouvelle_photo" id="nouvelle_photo" accept="image/*">
+                <br>
+                <button class="gerer-btn" type="submit">Modifier la photo de profil</button>
+            </form>
+      <div>
+      
+        <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>
       </div>
-      <div><button class="btn" type="button">Gérer mes photos</button></div>
-        <div><button class="btn" type="button">Gérer mes annonces</button></div>        
+      <div>
+        <a href="gerer-annonces" class="gerer-btn" type="button">Gérer mes annonces</a>
+      </div> 
+      </div>       
     </div>
     
+
+
+
+
     <div class="container">
         <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">
@@ -82,5 +86,6 @@ function content_659f0199255b18_17045234 (Smarty_Internal_Template $_smarty_tpl)
 
 </body>
 
-</html>  <?php }
+</html>  
+<?php }
 }
