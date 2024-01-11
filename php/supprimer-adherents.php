@@ -25,12 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $requete->execute();
         }
 
-        // Rediriger ou afficher un message de confirmation
+        $_SESSION["notif"] = "Adhérent(s) supprimer.";
         header('Location: ../liste-adherent');
+        exit();
     } else {
+        $_SESSION["notif"] = "[ADMIN] La suppression des/de l'adhérent(s) a échouer.";
         header('Location: ../liste-adherent');
+        exit();
     }
+} else {
+    $_SESSION["notif"] = "[ADMIN] La suppression des/de l'adhérent(s) a échouer.";
+    header('Location: ../liste-adherent');
+    exit();
 }
-?>
-
+    
 ?>
