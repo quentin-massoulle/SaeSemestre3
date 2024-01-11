@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 10:09:40
+/* Smarty version 4.2.1, created on 2024-01-11 17:36:18
   from 'C:\laragon\www\SaeSemestre3\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659fbe642a2711_88771368',
+  'unifunc' => 'content_65a0271292d995_28211478',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f33ac2f07dce01f7df21424efdc1b4aee0bd619' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\mon-profil.tpl',
-      1 => 1704967778,
+      1 => 1704994577,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659fbe642a2711_88771368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a0271292d995_28211478 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Mon Profil - CID</title>
   <link href="./style/mon-profil.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -42,16 +42,21 @@ function content_659fbe642a2711_88771368 (Smarty_Internal_Template $_smarty_tpl)
     <div>
       <div class="container">
         <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <button class="btn" type="button">modifier la photo de profil</button>
+        <a href="" class="gerer-btn" type="button">modifier la photo de profil</a>
+      <div>
+      
+        <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>
       </div>
       <div>
-        <a href="gerer-photos" class="btn" type="button">Gérer mes photos</a>
-      </div>
-      <div>
-        <a href="gerer-annonces" class="btn" type="button">Gérer mes annonces</a>
-      </div>        
+        <a href="gerer-annonces" class="gerer-btn" type="button">Gérer mes annonces</a>
+      </div> 
+      </div>       
     </div>
     
+
+
+
+
     <div class="container">
         <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">
@@ -75,5 +80,6 @@ function content_659fbe642a2711_88771368 (Smarty_Internal_Template $_smarty_tpl)
 
 </body>
 
-</html>  <?php }
+</html>  
+<?php }
 }

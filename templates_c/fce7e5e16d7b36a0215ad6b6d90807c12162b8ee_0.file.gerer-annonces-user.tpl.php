@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 17:14:07
+/* Smarty version 4.2.1, created on 2024-01-11 17:36:44
   from 'C:\laragon\www\SaeSemestre3\templates\gerer-annonces-user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a021df1f9f49_56134386',
+  'unifunc' => 'content_65a0272c312450_33359798',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fce7e5e16d7b36a0215ad6b6d90807c12162b8ee' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\gerer-annonces-user.tpl',
-      1 => 1704992027,
+      1 => 1704994419,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a021df1f9f49_56134386 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a0272c312450_33359798 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -30,7 +30,6 @@ function content_65a021df1f9f49_56134386 (Smarty_Internal_Template $_smarty_tpl)
     <title>Mes annonces - CID</title>
     <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
     <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
-    <link href="./style/index.css rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -79,10 +78,10 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
 </div>
                         </div>
                     </div>
-
-                    <button class="modifier-btn" type="button" onclick="openModifierPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+                    
+                        <button class="modifier-btn" type="button" onclick="openModifierPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
 )">Modifier</button>
-                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
+                        <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp(<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id_annonce'];?>
 )">Supprimer</button>
                 </div>
             <?php
@@ -91,7 +90,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="supprimer">
             <div>
-                <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
+                <button class="supprimer-btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
             </div>
         </div>
     </form>
