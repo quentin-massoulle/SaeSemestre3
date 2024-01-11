@@ -7,16 +7,15 @@
     <title>Mes annonces - CID</title>
     <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
     <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
-    <link href="./style/index.css rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
     <script src="./js/gerer-annonce.js"></script>
-    <script src="./js/notif.js"></script>
+    <script src="./js/pop-up.js"></script>
 
     <h1>Mes Annonces</h1>
-    <form action="./php/supprimer-liste-annonce-user.php" method="post" id="formSuppression">
+    <form action="./php/supprimer-annonce-user.php" method="post" id="formSuppression">
         <div class="container-item">
             {foreach $data_annonces as $annonce}
                 <div class="item">
@@ -37,7 +36,7 @@
                     </div>
 
                     <button class="modifier-btn" type="button" onclick="openModifierPopUp({$annonce.id_annonce})">Modifier</button>
-                    <button class="supprimer-btn" type="button" onclick="openSupprimerPopUp({$annonce.id_annonce})">Supprimer</button>
+                    <button class="supprimer-btn" type="button" onclick="call pop up supprimer id => {$annonce.id_annonce}">Supprimer</button>
                 </div>
             {/foreach}
         </div>
@@ -71,17 +70,7 @@
             <input type="file" name="file" id="file" accept="image/*">
 
             <button type="submit" id="submitBtn">Envoyer</button>
-            <button type="button" id="closeModifierPopupBtn">Fermer</button>
-        </form>
-    </div>
-
-    <div class="popup" id="supprimerPopup">
-        <h2>Supprimer l'annonce ?</h2>
-        <form id="supprimerForm" action="./php/supprimer-annonce.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" id="id-annonce-to-delete" name="id-annonce-to-delete" value="">
-
-            <button type="submit" id="submitBtn">Confirmer</button>
-            <button type="button" id="closeSupprimerPopupBtn">Fermer</button>
+            <button type="button" id="closePopupBtn">Fermer</button>
         </form>
     </div>
 

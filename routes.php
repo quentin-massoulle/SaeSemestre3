@@ -178,7 +178,16 @@ Flight::route('/gerer-photos', function(){
             include_once './templates/header.tpl';
         }
 
-        include_once './templates/gerer-photo.tpl';
+        if(isset($_SESSION['notif'])) {
+            $messageNotif = $_SESSION['notif'];
+            unset($_SESSION['notif']);
+            $data = array(
+                'message_notif' => $messageNotif
+            );
+            Flight::render('notif.tpl', $data);
+        }
+
+        include_once './templates/gerer-photos-user.tpl';
 
         include_once './templates/footer.tpl';
     } else {
@@ -195,6 +204,14 @@ Flight::route('/gerer-annonces', function(){
         }
         else {
             include_once './templates/header.tpl';
+        }
+        if(isset($_SESSION['notif'])) {
+            $messageNotif = $_SESSION['notif'];
+            unset($_SESSION['notif']);
+            $data = array(
+                'message_notif' => $messageNotif
+            );
+            Flight::render('notif.tpl', $data);
         }
 
         include './php/pdo.php';
