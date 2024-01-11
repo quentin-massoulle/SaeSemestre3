@@ -141,26 +141,68 @@ Flight::route('/liste-adherent', function(){
     }
 });
 
-
-Flight::route('/modifier-annoces', function(){
+// [ADMIN]
+Flight::route('/liste-annonces-admin', function(){
     if(isset($_SESSION['admin']) && isset($_SESSION['login']))
     {
         include_once './templates/header-admin.tpl';
-        include_once './templates/modifier-annonces.tpl';
+        include_once './templates/listes-annonces.tpl';
 
         include_once './templates/footer.tpl';
     } else {
         Flight::redirect('/');
     }
 });
-Flight::route('/modifier-photo', function(){
-    include_once 'templates/header.tpl';
-    $data = array(
-        'titre' => 'Titre de test',
-        'route' => 'Route de test'
-    );
-    Flight::render('modifier-photo.tpl',$data);
-    include_once 'templates/footer.tpl';
+
+// [ADMIN]
+Flight::route('/listes-photo-admin', function(){
+    if(isset($_SESSION['admin']) && isset($_SESSION['login']))
+    {
+        include_once './templates/header-admin.tpl';
+        include_once './templates/listes-photos.tpl';
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
+
+// [USER]
+Flight::route('/gerer-photo', function(){
+    if(isset($_SESSION['login'])) // if login -> true
+    {
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        }
+        else {
+            include_once './templates/header.tpl';
+        }
+
+        include_once './templates/gerer-photo.tpl';
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
+
+// [USER]
+Flight::route('/gerer-annonce', function(){
+    if(isset($_SESSION['login'])) // if login -> true
+    {
+        if(isset($_SESSION['admin'])) {
+            include_once './templates/header-admin.tpl';
+        }
+        else {
+            include_once './templates/header.tpl';
+        }
+
+        include_once './templates/annonce-photo.tpl';
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
 });
 
 Flight::route('/mon-profil', function(){
