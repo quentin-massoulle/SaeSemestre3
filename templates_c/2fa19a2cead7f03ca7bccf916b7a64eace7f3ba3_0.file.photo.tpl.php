@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 15:22:02
+/* Smarty version 4.2.1, created on 2024-01-11 10:05:32
   from 'C:\laragon\www\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659eb61a828495_75563787',
+  'unifunc' => 'content_659fbd6cb35db9_92239168',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fa19a2cead7f03ca7bccf916b7a64eace7f3ba3' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704898049,
+      1 => 1704961741,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659eb61a828495_75563787 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659fbd6cb35db9_92239168 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>    
@@ -68,32 +68,34 @@ function content_659eb61a828495_75563787 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   <div class="container-item">
     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['imageFiles']->value, 'image');
-$_smarty_tpl->tpl_vars['image']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['image']->value) {
-$_smarty_tpl->tpl_vars['image']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data_photo']->value, 'photo');
+$_smarty_tpl->tpl_vars['photo']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['photo']->value) {
+$_smarty_tpl->tpl_vars['photo']->do_else = false;
 ?>
-      <div class="ligne">
+    <div class="ligne">
         <div class="container-photo">
-          <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
 " alt="photo de profil" />
         </div>
         <div class="info">
-          <div class="photo-info">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['uploadDir']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['image']->value;?>
+            <div class="photo-info">
+                <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
 " alt="illustration" />
-          </div>
-          <div class="texte-info">
-            <p class="p1">jj/mm/aaaa à 00:00, promo diplome année</p>
-            <p class="p2">titre photo</p>
-            <p class="p3">utilisateur</p>
-            <p class="p4"></p>
-          </div>
+            </div>
+            <div class="texte-info">
+                <p class="p1"><?php echo $_smarty_tpl->tpl_vars['photo']->value['date_poste'];?>
+ promo diplome année</p>
+                <p class="p2"></p>
+                <p class="p3">Posté par <?php echo $_smarty_tpl->tpl_vars['photo']->value['nom'];?>
+ <?php echo $_smarty_tpl->tpl_vars['photo']->value['prenom'];?>
+</p>
+                <p class="p4"><?php echo $_smarty_tpl->tpl_vars['photo']->value['description_poste'];?>
+</p>
+            </div>
         </div>
-      </div>
-    <?php
+    </div>
+<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </div>
@@ -103,7 +105,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <div class="popup" id="importPopup">
   <h2>Importer de photo</h2>
-  <form id="uploadForm" action="./php/import.php" method="post" enctype="multipart/form-data">
+  <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
     <label for="titre-photo">Titre :</label>

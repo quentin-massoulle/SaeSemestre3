@@ -168,7 +168,7 @@ Flight::route('/listes-photo-admin', function(){
 });
 
 // [USER]
-Flight::route('/gerer-photo', function(){
+Flight::route('/gerer-photos', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
         if(isset($_SESSION['admin'])) {
@@ -187,7 +187,7 @@ Flight::route('/gerer-photo', function(){
 });
 
 // [USER]
-Flight::route('/gerer-annonce', function(){
+Flight::route('/gerer-annonces', function(){
     if(isset($_SESSION['login'])) // if login -> true
     {
         if(isset($_SESSION['admin'])) {
@@ -197,7 +197,56 @@ Flight::route('/gerer-annonce', function(){
             include_once './templates/header.tpl';
         }
 
-        include_once './templates/annonce-photo.tpl';
+        include './php/pdo.php';
+
+        $id_utilisateur = $_SESSION['id_utilisateur'];
+
+        $requete = $connexion->prepare("
+            SELECT id_annonce, titre_poste, contenue, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
+            FROM Annonce as A, Utilisateur as U 
+            WHERE A.id_utilisateur = ?
+        ");
+        $requete->bind_param("i", $id_utilisateur);
+        $requete->execute();
+
+        // Récupération des résultats
+        $resultatsAnnonces = $requete->get_result();
+
+        $dataAnnonces = array();
+
+        // Vérification de l'authentification
+        if ($resultatsAnnonces->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($annonce = $resultatsAnnonces->fetch_assoc()) {
+                if($annonce['valide'] = 1) {
+                    $text_valide = "Cette image est visible.";
+                }
+                else {
+                    $text_valide = "Cette image n'est pas visible.";
+                }
+
+                $dataAnnonces[] = array(
+                    'id_annonce' => $annonce['id_annonce'],
+                    'titre_poste' => $annonce['titre_poste'],
+                    'contenue' => $annonce['contenue'],
+                    'date_poste' => $annonce['date_poste'],
+                    'description_poste' => $annonce['description_poste'],
+                    'url_photo' => $annonce['url_photo'],
+                    'valide' => $text_valide,
+                    'id_utilisateur' => $annonce['id_utilisateur'],
+                    'nom' => $annonce['nom'],
+                    'prenom' => $annonce['prenom']
+                );
+            };
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_annonces' => $dataAnnonces
+        );
+
+        Flight::render('gerer-annonces-user.tpl', $data);
 
         include_once './templates/footer.tpl';
     } else {
@@ -229,23 +278,11 @@ Flight::route('/photos', function(){
             include_once './templates/header.tpl';
         }
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "BaseCID";
-
-        // Connexion à la base de données
-        $connexion = new mysqli($servername, $username, $password, $dbname);
-
-        // Vérification de la connexion
-        if ($connexion->connect_error) {
-            die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-        }
+        include './php/pdo.php';
 
         // Get info from annonces
         // ----------------------------------------
 
-        // If the annonce is mark OK by an admin, then we add it
         $requete = $connexion->prepare("
         SELECT P.id_photo, P.url_photo, P.date_poste, P.description_poste, U.id_utilisateur, U.nom, U.prenom
         FROM Photo AS P
@@ -299,18 +336,7 @@ Flight::route('/annonces', function(){
             include_once './templates/header.tpl';
         }
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "BaseCID";
-
-        // Connexion à la base de données
-        $connexion = new mysqli($servername, $username, $password, $dbname);
-
-        // Vérification de la connexion
-        if ($connexion->connect_error) {
-            die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-        }
+        include './php/pdo.php';
 
         // Get info from annonces
         // ----------------------------------------
@@ -363,22 +389,36 @@ Flight::route('/annonces', function(){
 
 
 Flight::route('/valider-photo', function(){
+    if(isset($_SESSION['admin'])) {
+        include_once './templates/header-admin.tpl';
+    } else {
+        include_once './templates/header.tpl';
+    }
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
     );
+    include_once 'templates/footer.tpl';
     Flight::render('valider-photo.tpl',$data);
 });
+
 Flight::route('/valider-annonces', function(){
+    if(isset($_SESSION['admin'])) {
+        include_once './templates/header-admin.tpl';
+    } else {
+        include_once './templates/header.tpl';
+    }
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
     );
+    include_once 'templates/footer.tpl';
+
     Flight::render('valider-annonces.tpl',$data);
 });
 
 Flight::map('notFound', function(){
-   echo "<p>404. la route spécifiée n'existe pas</p>";
+    Flight::redirect('/');
 });
 
 //

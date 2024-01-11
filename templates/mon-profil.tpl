@@ -12,14 +12,6 @@
 
   <script src="script.js"></script>
   
-  <?php
-  session_start();
-  {if isset($_SESSION['notif'])}
-    <div class="notification">
-      {$_SESSION['notif']}
-    </div>
-  {/if}
-  ?>
   <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>
@@ -27,8 +19,12 @@
         <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
         <button class="btn" type="button">modifier la photo de profil</button>
       </div>
-      <div><button class="btn" type="button">Gérer mes photos</button></div>
-        <div><button class="btn" type="button">Gérer mes annonces</button></div>        
+      <div>
+        <a href="gerer-photos" class="btn" type="button">Gérer mes photos</a>
+      </div>
+      <div>
+        <a href="gerer-annonces" class="btn" type="button">Gérer mes annonces</a>
+      </div>        
     </div>
     
     <div class="container">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 15:41:49
+/* Smarty version 4.2.1, created on 2024-01-11 10:09:40
   from 'C:\laragon\www\SaeSemestre3\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659ebabd271ee7_47791903',
+  'unifunc' => 'content_659fbe642a2711_88771368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f33ac2f07dce01f7df21424efdc1b4aee0bd619' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\mon-profil.tpl',
-      1 => 1704893460,
+      1 => 1704967778,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659ebabd271ee7_47791903 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659fbe642a2711_88771368 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -37,30 +37,34 @@ function content_659ebabd271ee7_47791903 (Smarty_Internal_Template $_smarty_tpl)
  src="script.js"><?php echo '</script'; ?>
 >
   
-  <h1>Modifier son profil</h1>
+  <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px>
+        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
         <button class="btn" type="button">modifier la photo de profil</button>
       </div>
-      <div><button class="btn" type="button">Gérer mes photos</button></div>
-        <div><button class="btn" type="button">Gérer mes annonces</button></div>        
+      <div>
+        <a href="gerer-photos" class="btn" type="button">Gérer mes photos</a>
+      </div>
+      <div>
+        <a href="gerer-annonces" class="btn" type="button">Gérer mes annonces</a>
+      </div>        
     </div>
     
     <div class="container">
-        <p>Changer de mot de passe</p>
+        <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">
             <div>
-                <label for="ancienMotDePasse">Ancien mot de passe :</label>
+                <label for="ancienMotDePasse">Ancien mot de passe :</label><br>
                 <input type="password" id="ancienMotDePasse" name="ancienMotDePasse" required>
             </div>
             <div>
-                <label for="nouveauMotDePasse">Nouveau mot de passe :</label>
+                <label for="nouveauMotDePasse">Nouveau mot de passe :</label><br>
                 <input type="password" id="nouveauMotDePasse" name="nouveauMotDePasse" required>
             </div>
             <div>
-                <label for="confirmation">Confirmation :</label>
+                <label for="confirmation">Confirmation :</label><br>
                 <input type="password" id="confirmation" name="confirmation" required>
             </div>
             <button class="btn" type="submit">Valider</button>

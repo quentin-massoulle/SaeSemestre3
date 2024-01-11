@@ -1,8 +1,6 @@
 <?php
 // supprimer-photo.php
 
-use PgSql\Lob;
-
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Rediriger ou afficher un message de confirmation
         $_SESSION["notif"] = "Annonces(s) supprimer.";
-        header('Location: ../gerer-annonce');
+        header('Location: ../gerer-annonces');
         exit();
     } else {
         $_SESSION["notif"] = "La suppression des/de la annonce(s) a échouer";
-        header('Location: ../gerer-annonce');
+        header('Location: ../gerer-annonces');
         exit();
     }
 }
 else {
     $_SESSION["notif"] = "La suppression des/de la annonce(s) a échouer";
-    header('Location: ../gerer-annonce');
+    header('Location: ../gerer-annonces');
     exit();
 }
 ?>
