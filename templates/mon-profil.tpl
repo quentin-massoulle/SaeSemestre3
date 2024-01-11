@@ -17,16 +17,21 @@
     <div>
       <div class="container">
         <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <button class="btn" type="button">modifier la photo de profil</button>
+        <a href="" class="gerer-btn" type="button">modifier la photo de profil</a>
+      <div>
+      
+        <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>
       </div>
       <div>
-        <a href="gerer-photos" class="btn" type="button">Gérer mes photos</a>
-      </div>
-      <div>
-        <a href="gerer-annonces" class="btn" type="button">Gérer mes annonces</a>
-      </div>        
+        <a href="gerer-annonces" class="gerer-btn" type="button">Gérer mes annonces</a>
+      </div> 
+      </div>       
     </div>
     
+
+
+
+
     <div class="container">
         <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">
