@@ -64,7 +64,7 @@
 <button class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
 <div class="popup" id="importPopup">
-  <h2>Importer de photo</h2>
+  <h2>Importer de photos</h2>
   <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
