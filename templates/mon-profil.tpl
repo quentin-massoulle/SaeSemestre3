@@ -12,7 +12,7 @@
 
   <script src="script.js"></script>
   
-  <h1 classe ="monprofil">Modifier son profil</h1>
+  <h1 classe ="monprofil">Modifier mon profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
