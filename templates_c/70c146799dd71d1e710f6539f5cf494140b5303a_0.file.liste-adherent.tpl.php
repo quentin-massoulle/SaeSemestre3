@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 08:13:24
+/* Smarty version 4.2.1, created on 2024-01-12 12:15:37
   from 'C:\laragon\www\cours\Sae3\templates\liste-adherent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659fa32455e502_50797394',
+  'unifunc' => 'content_65a12d69bc0fa1_79060553',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70c146799dd71d1e710f6539f5cf494140b5303a' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\Sae3\\templates\\liste-adherent.tpl',
-      1 => 1704960567,
+      1 => 1705060714,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659fa32455e502_50797394 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a12d69bc0fa1_79060553 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -38,7 +38,7 @@ function content_659fa32455e502_50797394 (Smarty_Internal_Template $_smarty_tpl)
 >
     <h1>Liste adhérents</h1>
     <h2>Admin</h2>
-    <form action="./php/supprimer-adherents.php" method="post" id="formSuppression">
+    <form action="./php/gestion-adherents.php" method="post" id="formSuppression">
         <div class="container-item">
 
             <?php
@@ -53,7 +53,8 @@ $_smarty_tpl->tpl_vars['adherent']->do_else = false;
 ">
                 <div class="info">
                     <div class="container-img-profil">
-                        <img src="" alt="image_profil">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['adherent']->value['photo_profil'];?>
+" alt="image_profil">
                     </div>
                     <div class="user-info">
                         <p><?php echo $_smarty_tpl->tpl_vars['adherent']->value['nom_adherent'];?>
@@ -70,7 +71,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="supprimer">
             <div>
-                <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+                <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
             </div>
         </div>
     </form>

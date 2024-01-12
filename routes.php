@@ -432,7 +432,8 @@ Flight::route('/gerer-photos', function(){
 
         $requete = $connexion->prepare("
             SELECT id_photo, titre_poste, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
-            FROM Photo as P, Utilisateur as U 
+            FROM Photo as P
+            JOIN Utilisateur U ON P.id_utilisateur = U.id_utilisateur
             WHERE U.id_utilisateur = ?
         ");
         $requete->bind_param("i", $id_utilisateur);
