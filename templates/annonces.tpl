@@ -12,7 +12,7 @@
 <body>
 
   <div class="main">
-    <h1>Annonces / Evènement</h1>
+    <h1>Annonces / Evènements</h1>
 
     <div class="container-item">
       {foreach $data_annonces as $annonce}
@@ -25,8 +25,8 @@
                 <div class="date-poste">{$annonce.date_poste}</div>
                 <div class="titre-poste">{$annonce.titre_poste}</div>
 
-                <div class="titre-poste">mail de contacte : {$annonce.mail}</div>
-                <div class="titre-poste">telephon  de contacte : {$annonce.tel}</div>
+                <div class="titre-poste">mail de contact : {$annonce.mail}</div>
+                <div class="titre-poste">telephone de contact : {$annonce.tel}</div>
                 <div class="auteur-poste">Posté par {$annonce.nom} {$annonce.prenom}</div>
                 <div class="description-poste">
                   {$annonce.description_poste}
@@ -57,15 +57,15 @@
       <input type="text" id="description" name="description" placeholder="Description de l'annonce..." maxlength="100" required>
 
       
-      <label for="file">Numéro de contacte :</label>
+      <label for="file">Numéro de contact :</label>
       <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
 
 
-      <label for="file"> Mail de contacte :</label>
+      <label for="file"> Mail de contact :</label>
       <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
 
 
-      <label for="contenue">Contenue :</label>
+      <label for="contenue">Contenu :</label>
       <textarea id="contenue" name="contenue" placeholder="Contenue de l'annonce..." maxlength="500" required></textarea>
 
       <label for="file">Sélectionnez une photo :</label>
