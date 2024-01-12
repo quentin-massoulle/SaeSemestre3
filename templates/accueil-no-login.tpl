@@ -104,12 +104,12 @@
   <div class="bottomfooter">
     <div class="elementfooter">
       <p>Pages légales</p>
-       <a href=""> Mentions légale</a> 
+       <a href=""> Mentions légales</a> 
        <a href="">Politique de confidentialité</a>
        <a href="">Préférence des cookies</a> 
     </div>
     <div class="elementfooter">
-      <p>reseau sociaux</p>
+      <p>reseaux sociaux</p>
       <div class="resau">
         <div class="logo">
           <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
