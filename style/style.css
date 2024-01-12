@@ -76,6 +76,13 @@ body {
   max-width: 3200px;
 }
 
+.container .content li {
+  color: white;
+  font-size: 14px;
+  word-wrap: break-word;
+  max-width: 3200px;
+}
+
 /* Barre de pied de page */
 .bottomfooter {
   margin-top: 20px;

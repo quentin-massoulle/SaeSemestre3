@@ -4,8 +4,8 @@
   <div class="bottomfooter">
     <div class="elementfooter">
       <p>Pages légales</p>
-       <a href=""> Mentions légale</a> 
-       <a href="">Politique de confidentialité</a>
+       <a href="mention-legale"> Mentions légale</a> 
+       <a href="politique-confidentialite">Politique de confidentialité</a>
        <a href="">Préférence des cookies</a> 
     </div>
     <div class="elementfooter">

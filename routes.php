@@ -23,6 +23,19 @@ Flight::route('/', function(){
 });
 
 
+Flight::route('/mention-legale', function(){
+    include_once './templates/header.tpl';
+    include_once './templates/mention-legale.tpl';
+    include_once './templates/footer.tpl';
+});
+
+Flight::route('/politique-confidentialite', function(){
+    include_once './templates/header.tpl';
+    include_once './templates/politique-confidentialite.tpl';
+    include_once './templates/footer.tpl';
+});
+
+
 Flight::route('/deconnexion', function(){
     session_destroy();
 
@@ -432,8 +445,7 @@ Flight::route('/gerer-photos', function(){
 
         $requete = $connexion->prepare("
             SELECT id_photo, titre_poste, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
-            FROM Photo as P
-            JOIN Utilisateur U ON P.id_utilisateur = U.id_utilisateur
+            FROM Photo as P, Utilisateur as U 
             WHERE U.id_utilisateur = ?
         ");
         $requete->bind_param("i", $id_utilisateur);
