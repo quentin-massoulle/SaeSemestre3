@@ -298,22 +298,7 @@ Flight::route('/liste-annonces-no-visible', function(){
     }
 });
 
-
 // [ADMIN]
-Flight::route('/liste-photos', function(){
-    if(isset($_SESSION['admin']) && isset($_SESSION['login']))
-    {
-        include_once './templates/header-admin.tpl';
-        include_once './templates/liste-photos.tpl';
-
-        include_once './templates/footer.tpl';
-    } else {
-        Flight::redirect('/');
-    }
-});
-// [ADMIN]
-
-
 Flight::route('/liste-photos-no-visible', function(){
     if(isset($_SESSION['admin']) && isset($_SESSION['login'])) {
         include_once './templates/header-admin.tpl';
@@ -368,10 +353,58 @@ Flight::route('/liste-photos-no-visible', function(){
     }
 });
 
+Flight::route('/liste-photos', function(){
+    if(isset($_SESSION['admin']) && isset($_SESSION['login'])) {
+        include_once './templates/header-admin.tpl';
+        include './php/pdo.php';
 
+        $id_utilisateur = $_SESSION['id_utilisateur'];
 
+        $requete = $connexion->prepare("
+            SELECT P.id_photo, P.titre_poste, P.date_poste, P.description_poste, P.url_photo, P.valide, U.id_utilisateur, U.nom, U.prenom  
+            FROM Photo as P
+            INNER JOIN Utilisateur as U ON P.id_utilisateur = U.id_utilisateur
+        ");
+        $requete->execute();
 
+        // Récupération des résultats
+        $resultatsPhotos = $requete->get_result();
 
+        $dataPhotos = array();
+
+        // Vérification de l'authentification
+        if ($resultatsPhotos->num_rows > 0) {
+            // Parcourir toutes les lignes de résultats
+            while ($photo = $resultatsPhotos->fetch_assoc()) {
+                $text_valide = ($photo['valide'] == 1) ? "Cette photo est validée." : "Cette photo n'est pas validée.";
+
+                $dataPhotos[] = array(
+                    'id_photo' => $photo['id_photo'],
+                    'titre_poste' => $photo['titre_poste'],
+                    'date_poste' => $photo['date_poste'],
+                    'description_poste' => $photo['description_poste'],
+                    'url_photo' => $photo['url_photo'],
+                    'valide' => $text_valide,
+                    'id_utilisateur' => $photo['id_utilisateur'],
+                    'nom' => $photo['nom'],
+                    'prenom' => $photo['prenom']
+                );
+            }
+        }
+
+        // ----------------------------------------
+
+        $data = array(
+            'data_photos' => $dataPhotos
+        );
+
+        Flight::render('liste-photos.tpl', $data);
+
+        include_once './templates/footer.tpl';
+    } else {
+        Flight::redirect('/');
+    }
+});
 
 
 // [USER]
