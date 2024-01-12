@@ -24,7 +24,7 @@
       <div><a href="liste-photos"><button class="btn" type="button">Liste photos</button></div>
     </div>
     <div class="container">
-      Gestion Annonce
+      Gestion Annonces
       <div><a href="liste-annonces-no-visible"><button class="btn" type="button">Approbation annonce</button></div>
       <div><a href="liste-annonces"><button class="btn" type="button">Liste annonces</button></div>
     </div>
