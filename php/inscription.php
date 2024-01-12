@@ -17,14 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
     include 'pdo.php'; // Utiliser la variable $connexion déclarée dans pdo.php
-
-<<<<<<< HEAD
     if (utilisateurExiste($email ,$prenom,$nom, $connexion)) {
         $_SESSION['notif'] = "Mail déjà utilisé.";
-=======
-    if (utilisateurExiste($email, $nom, $prenom)) {
-        $_SESSION['notif'] = "Compte déjà créé.";
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
         header('Location: ../');
         exit();
     } else {
@@ -107,30 +101,18 @@ function obtenirIdPromo($nompromo,) {
     return $idPromo;
 }
 
-<<<<<<< HEAD
-function utilisateurExiste($mail,$prenom,$nom) {
-    // Paramètres de connexion à la base de données
-  include 'pdo.php';
-=======
 function utilisateurExiste($mail ,$nom,$prenom) {
     // Paramètres de connexion à la base de données
     include 'pdo.php';
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
     // Vérifier la connexion
     if ($connexion->connect_error) {
         die("Échec de la connexion à la base de données : " . $connexion->connect_error);
     }
 
     // Requête pour vérifier si l'utilisateur existe
-<<<<<<< HEAD
-    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=? and prenom=? and nom=?");
-
-    $requete->bind_param("s", $email, $prenom, $nom);
-=======
     $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=? and nom =? and prenom=?");
 
     $requete->bind_param("sss", $mail, $nom,$prenom);
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
 
     // Exécution de la requête
     $requete->execute();

@@ -101,14 +101,8 @@ Flight::route('/liste-adherent', function(){
         include_once './templates/header-admin.tpl';
         include 'php/pdo.php';
 
-<<<<<<< HEAD
-        $requete = $connexion->prepare(
-            "
-            SELECT U.nom, U.prenom, U.id_utilisateur
-=======
         $requete = $connexion->prepare("
             SELECT U.nom, U.prenom, U.id_utilisateur, U.photo_profil
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
             FROM adherent AS A
             JOIN utilisateur AS U ON A.id_utilisateur = U.id_utilisateur
             WHERE A.visible = 1 and statut_admin != 1;
@@ -685,15 +679,7 @@ Flight::route('/annonces', function(){
 
 
 Flight::route('/valider-photo', function(){
-<<<<<<< HEAD
     include_once './templates/header-admin.tpl';
-=======
-    if(isset($_SESSION['admin'])) {
-        include_once './templates/header-admin.tpl';
-    } else {
-        include_once './templates/header.tpl';
-    }
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
@@ -704,15 +690,7 @@ Flight::route('/valider-photo', function(){
 });
 
 Flight::route('/valider-annonces', function(){
-<<<<<<< HEAD
     include_once './templates/header-admin.tpl';
-=======
-    if(isset($_SESSION['admin'])) {
-        include_once './templates/header-admin.tpl';
-    } else {
-        include_once './templates/header.tpl';
-    }
->>>>>>> 518dda631a265b6262c5783e1214a7e4e3e43733
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
