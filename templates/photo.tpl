@@ -72,7 +72,7 @@
     <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
-    <label for="file">Sélectionnez une photo :</label>
+    <label for="file">Sélectionner une photo :</label>
     <input type="file" name="file" id="file" accept="image/*">
     <button type="submit" id="submitBtn">Envoyer</button>
     <button type="button" id="closePopupBtn">Fermer</button>
