@@ -25,8 +25,8 @@
                 <div class="date-poste">{$annonce.date_poste}</div>
                 <div class="titre-poste">{$annonce.titre_poste}</div>
 
-                <div class="titre-poste">mail de contact : {$annonce.mail}</div>
-                <div class="titre-poste">telephone de contact : {$annonce.tel}</div>
+                <div class="annonce-mail">E-mail : {$annonce.mail}</div>
+                <div class="annonce-tel">Tel : {$annonce.tel}</div>
                 <div class="auteur-poste">Posté par {$annonce.nom} {$annonce.prenom}</div>
                 <div class="description-poste">
                   {$annonce.description_poste}
@@ -85,9 +85,7 @@
         <p><span id="annonceAuteur">-</span></p>
         <p><span id="annonceMail">-</span></p>
         <p><span id="annonceNumero">-</span></p>
-        <div class="container-img-profil">
-            <img id="annoncePhotoProfil" src="" alt="Photo de profil de l'annonce">
-        </div>
+ 
         <h3 id="annonceTitre">-</h3>
         <p id="annonceDescription">-</p>
         <p id="annonceContenue">-</p>

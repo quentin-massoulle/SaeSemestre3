@@ -33,6 +33,8 @@ function openPopupBtnClick(idAnnonce, idUtilisateur) {
   const annonceTitreElement = document.getElementById("annonceTitre");
   const annonceDescriptionElement = document.getElementById("annonceDescription");
   const annonceContenueElement = document.getElementById("annonceContenue");
+  const annonceMailElement = document.getElementById("annonceMail");
+  const annonceNumeroElement = document.getElementById("annonceNumero");
 
   const divParent = document.getElementById("id-annonce-" + idAnnonce);
 
@@ -41,10 +43,14 @@ function openPopupBtnClick(idAnnonce, idUtilisateur) {
   const auteurPoste = divParent.querySelector(".auteur-poste").textContent;
   const descriptionPoste = divParent.querySelector(".description-poste").textContent;
   const contenuePoste = divParent.querySelector(".contenue-poste").textContent;
+  const mailPoste = divParent.querySelector(".annonce-mail").textContent;
+  const telPoste = divParent.querySelector(".annonce-tel").textContent;
 
   annonceDateElement.textContent = datePoste;
   annonceAuteurElement.textContent = auteurPoste;
   annonceTitreElement.textContent = titrePoste;
+  annonceMailElement .textContent = mailPoste;
+  annonceNumeroElement.textContent = telPoste;
   annonceDescriptionElement.textContent = "Description :\n" + descriptionPoste;
   annonceContenueElement.textContent = "Contenu :\n" + contenuePoste;
 }

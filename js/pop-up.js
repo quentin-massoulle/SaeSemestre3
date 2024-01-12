@@ -88,3 +88,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   openErreurPopup(); // Lancement de la popup d'erreur
 });
+ 
