@@ -16,7 +16,7 @@
     </div>
     <div>
       <a class="active" href="mon_profil.html">Mon Profil</a>
-      <a class="active" href="annonce.html">Annonce</a>
+      <a class="active" href="annonce.html">Annonces</a>
       <a class="active" href="photo.html">Photos</a>
       <a class="active" href="accueil.html">Acceuil</a>
     </div>

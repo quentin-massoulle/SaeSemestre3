@@ -9,20 +9,20 @@
        <a href="">Préférence des cookies</a> 
     </div>
     <div class="elementfooter">
-      <p>reseau sociaux</p>
+      <p>Nos réseaux sociaux</p>
       <div class="resau">
         <div class="logo">
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
+          <a href="instagram.com"><img src="./images/logo-insta.png" alt="Logo"></a>
+          <a href="linkedin.com"><img src="./images/logo-linkedin.png" alt="Logo"></a>
         </div>
         <div class="logo">
-          <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
-          <a href="" class = "reseau"><img src="logo lorem ipsum.avif" alt="Logo"></a>
+          <a href="x.com"><img src="./images/logo-x.png" alt="Logo"></a> 
+          <a href="youtube.com" class = "reseau"><img src="./images/logo-youtube.png" alt="Logo"></a>
         </div>
       </div>
     </div>
     <div class="logo">
-      <img src="logo lorem ipsum.avif" alt="Logo">
+      <img src="./images/logo_CID.png" alt="Logo">
     </div>
   </div>
 </footer>
