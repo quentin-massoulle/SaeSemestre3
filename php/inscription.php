@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function inscriptionUtilisateur($email, $prenom, $nom, $nompromo, $datepromo) {
     global $connexion; // Utiliser la variable $connexion déclarée dans pdo.php
 
-    if (utilisateurExiste($email, $connexion)) {
+    if (utilisateurExiste($email ,$prenom,$nom, $connexion)) {
         $_SESSION['notif'] = "Mail déjà utilisé.";
         header('Location: ../');
         exit();
@@ -105,25 +105,18 @@ function obtenirIdPromo($nompromo, $connexion) {
     return $idPromo;
 }
 
-function utilisateurExiste($mail) {
+function utilisateurExiste($mail,$prenom,$nom) {
     // Paramètres de connexion à la base de données
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_de_passe = "";
-    $nomBaseDeDonnees = "BaseCID";
-
-    // Connexion à la base de données
-    $connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $nomBaseDeDonnees);
-
+  include 'pdo.php';
     // Vérifier la connexion
     if ($connexion->connect_error) {
         die("Échec de la connexion à la base de données : " . $connexion->connect_error);
     }
 
     // Requête pour vérifier si l'utilisateur existe
-    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=?");
+    $requete = $connexion->prepare("SELECT id_utilisateur FROM Utilisateur WHERE mail=? and prenom=? and nom=?");
 
-    $requete->bind_param("s", $email);
+    $requete->bind_param("s", $email, $prenom, $nom);
 
     // Exécution de la requête
     $requete->execute();

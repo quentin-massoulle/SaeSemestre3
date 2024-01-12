@@ -101,11 +101,12 @@ Flight::route('/liste-adherent', function(){
         include_once './templates/header-admin.tpl';
         include 'php/pdo.php';
 
-        $requete = $connexion->prepare("
+        $requete = $connexion->prepare(
+            "
             SELECT U.nom, U.prenom, U.id_utilisateur
             FROM adherent AS A
             JOIN utilisateur AS U ON A.id_utilisateur = U.id_utilisateur
-            WHERE A.visible = 1;
+            WHERE A.visible = 1 and statut_admin != 1;
         ");
 
         // Exécution de la requête
@@ -321,18 +322,22 @@ Flight::route('/annonces', function(){
 
 
 Flight::route('/valider-photo', function(){
+    include_once './templates/header-admin.tpl';
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
     );
     Flight::render('valider-photo.tpl',$data);
+    include_once './templates/footer.tpl';
 });
 Flight::route('/valider-annonces', function(){
+    include_once './templates/header-admin.tpl';
     $data = array(
         'titre' => 'Titre de test',
         'route' => 'Route de test'
     );
     Flight::render('valider-annonces.tpl',$data);
+    include_once './templates/footer.tpl';
 });
 
 Flight::map('notFound', function(){
