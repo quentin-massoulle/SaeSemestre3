@@ -13,6 +13,7 @@
 }
 
 .popup h2 {
+  background-color: transparent;
   text-align: center;
   color: #ffd700; /* Couleur jaune pour le titre "Importer une photo" */
 }

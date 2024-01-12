@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Mon Profil - CID</title>
   <link href="./style/mon-profil.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -12,25 +12,31 @@
 
   <script src="script.js"></script>
   
-  <?php
-  session_start();
-  {if isset($_SESSION['notif'])}
-    <div class="notification">
-      {$_SESSION['notif']}
-    </div>
-  {/if}
-  ?>
   <h1 classe ="monprofil">Modifier son profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <button class="btn" type="button">modifier la photo de profil</button>
+        <img src="{$pp}" alt="image_profile"width=100px height=100px><br>
+        <form action="php/changement-pp.php" method="post" enctype="multipart/form-data">
+                <label for="nouvelle_photo">Choisir une nouvelle photo :</label>
+                <input type="file" name="nouvelle_photo" id="nouvelle_photo" accept="image/*">
+                <br>
+                <button class="gerer-btn" type="submit">Modifier la photo de profil</button>
+            </form>
+      <div>
+      
+        <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>
       </div>
-      <div><button class="btn" type="button">Gérer mes photos</button></div>
-        <div><button class="btn" type="button">Gérer mes annonces</button></div>        
+      <div>
+        <a href="gerer-annonces" class="gerer-btn" type="button">Gérer mes annonces</a>
+      </div> 
+      </div>       
     </div>
     
+
+
+
+
     <div class="container">
         <h3>Changer de mot de passe</h3>
         <form action="./php/changement-mdp.php" method="post">

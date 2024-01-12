@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-10 20:16:54
+/* Smarty version 4.2.1, created on 2024-01-11 19:05:42
   from 'C:\laragon\www\cours\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_659efb3660d442_64611763',
+  'unifunc' => 'content_65a03c06a6f9c3_45473959',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '334470451f5d043c3058d1a3772af4a1efc019ee' => 
     array (
       0 => 'C:\\laragon\\www\\cours\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704917552,
+      1 => 1704999916,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_659efb3660d442_64611763 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a03c06a6f9c3_45473959 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>    
@@ -75,7 +75,7 @@ $_smarty_tpl->tpl_vars['photo']->do_else = false;
 ?>
     <div class="ligne">
         <div class="container-photo">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['photo_profil'];?>
 " alt="photo de profil" />
         </div>
         <div class="info">
@@ -108,8 +108,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
-    <label for="titre-photo">Titre :</label>
-    <input type="text" id="titre-photo" name="titre-photo" placeholder="Titre de la photo..;  " required>
+    <label for="titre">Titre :</label>
+    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionnez une photo :</label>

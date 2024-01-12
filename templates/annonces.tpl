@@ -24,11 +24,14 @@
               <div class="info-annonce" id="id-annonce-{$annonce.id_annonce}">
                 <div class="date-poste">{$annonce.date_poste}</div>
                 <div class="titre-poste">{$annonce.titre_poste}</div>
+
+                <div class="titre-poste">mail de contacte : {$annonce.mail}</div>
+                <div class="titre-poste">telephon  de contacte : {$annonce.tel}</div>
                 <div class="auteur-poste">Posté par {$annonce.nom} {$annonce.prenom}</div>
                 <div class="description-poste">
                   {$annonce.description_poste}
                 </div>
-                <div class="contenue-poste" style="display:none">{$annonce.contenue}</div>
+                <div class="contenue-poste" style="display:none">{$annonce.contenu}</div>
               </div>
               <button onclick="openPopupBtnClick({$annonce.id_annonce}, {$annonce.id_utilisateur})" class="see-more-poste">En savoir plus</button>
             </div>
@@ -53,11 +56,21 @@
       <label for="description">Description :</label>
       <input type="text" id="description" name="description" placeholder="Description de l'annonce..." maxlength="100" required>
 
+      
+      <label for="file">Numéro de contacte :</label>
+      <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
+
+
+      <label for="file"> Mail de contacte :</label>
+      <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
+
+
       <label for="contenue">Contenue :</label>
       <textarea id="contenue" name="contenue" placeholder="Contenue de l'annonce..." maxlength="500" required></textarea>
 
       <label for="file">Sélectionnez une photo :</label>
       <input type="file" name="file" id="file" accept="image/*">
+
 
       <button type="submit" id="submitBtn">Envoyer</button>
       <button type="button" id="closePopupBtn">Fermer</button>
@@ -66,17 +79,22 @@
 
   <div id="customPopupAnnonce" class="customPopupAnnonce">
     <div class="popupContentAnnonce">
-      <label for="popupToggle" id="closePopupBtn1" class="close">&times;</label>
-      <h2>Informations sur l'annonce</h2>
-      <p><span id="annonceDate">-</span></p>
-      <p><span id="annonceAuteur">-</span></p>
-
-      <h3 id="annonceTitre">-</h3>
-      <p id="annonceDescription">-</p>
-      <p id="annonceContenue">-</p>
-     <button id="closePopupBtn2" class="retour-btn">Retour</button>
-
+        <label for="popupToggle" id="closePopupBtn1" class="close">&times;</label>
+        <h2>Informations sur l'annonce</h2>
+        <p><span id="annonceDate">-</span></p>
+        <p><span id="annonceAuteur">-</span></p>
+        <p><span id="annonceMail">-</span></p>
+        <p><span id="annonceNumero">-</span></p>
+        <div class="container-img-profil">
+            <img id="annoncePhotoProfil" src="" alt="Photo de profil de l'annonce">
+        </div>
+        <h3 id="annonceTitre">-</h3>
+        <p id="annonceDescription">-</p>
+        <p id="annonceContenue">-</p>
+        <button id="closePopupBtn2" class="retour-btn">Retour</button>
     </div>
+</div>
+
   </div>
 
 </body>
