@@ -42,7 +42,6 @@
             {/foreach}
         </div>
         <div class="supprimer">
-            div>
             <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
         </div>
         </div>

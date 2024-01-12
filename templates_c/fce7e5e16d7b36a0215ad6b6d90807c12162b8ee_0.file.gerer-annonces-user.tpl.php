@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 17:36:44
+/* Smarty version 4.2.1, created on 2024-01-12 10:08:56
   from 'C:\laragon\www\SaeSemestre3\templates\gerer-annonces-user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a0272c312450_33359798',
+  'unifunc' => 'content_65a10fb844faa9_51994805',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fce7e5e16d7b36a0215ad6b6d90807c12162b8ee' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\gerer-annonces-user.tpl',
-      1 => 1704994419,
+      1 => 1705054133,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a0272c312450_33359798 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a10fb844faa9_51994805 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -42,7 +42,7 @@ function content_65a0272c312450_33359798 (Smarty_Internal_Template $_smarty_tpl)
 >
 
     <h1>Mes Annonces</h1>
-    <form action="./php/supprimer-liste-annonce-user.php" method="post" id="formSuppression">
+    <form action="./php/gerer-liste-annonce.php" method="post" id="formSuppression">
         <div class="container-item">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data_annonces']->value, 'annonce');
@@ -89,9 +89,8 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="supprimer">
-            <div>
-                <button class="supprimer-btn" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'/les annonces sélectionnés ?')">Supprimer annonces(s)</button>
-            </div>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+        </div>
         </div>
     </form>
 

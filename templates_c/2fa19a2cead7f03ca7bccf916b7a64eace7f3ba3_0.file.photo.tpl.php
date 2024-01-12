@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 16:32:36
+/* Smarty version 4.2.1, created on 2024-01-12 10:06:38
   from 'C:\laragon\www\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a01824e662b9_04349325',
+  'unifunc' => 'content_65a10f2e855bf4_39529931',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fa19a2cead7f03ca7bccf916b7a64eace7f3ba3' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1704990751,
+      1 => 1705053895,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a01824e662b9_04349325 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a10f2e855bf4_39529931 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>    
@@ -75,7 +75,7 @@ $_smarty_tpl->tpl_vars['photo']->do_else = false;
 ?>
     <div class="ligne">
         <div class="container-photo">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['url_photo'];?>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['photo']->value['photo_profil'];?>
 " alt="photo de profil" />
         </div>
         <div class="info">
