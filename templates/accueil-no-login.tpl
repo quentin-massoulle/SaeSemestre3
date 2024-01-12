@@ -109,7 +109,7 @@
        <a href="">Préférence des cookies</a> 
     </div>
     <div class="elementfooter">
-      <p>reseaux sociaux</p>
+      <p>Reseaux sociaux</p>
       <div class="resau">
         <div class="logo">
           <a href=""><img src="logo lorem ipsum.avif" alt="Logo"></a>
