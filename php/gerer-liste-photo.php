@@ -34,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['notif'] = "Opération non reconnue.";
         }
 
-        header('Location: ../aceuille');
+        header('Location: ../');
         exit();
     } else {
         $_SESSION['notif'] = "Action non spécifiée.";
-        header('Location: ../aceuille');
+        header('Location: ../');
         exit();
     }
 }
