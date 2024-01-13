@@ -33,10 +33,10 @@
     </div>
     <div class="supprimer">
         <div>
-            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérent(s)</button>
         </div>
         <div>
-            <button class="btn" type="submit" name="action" value="valider">Valider adhérents</button>
+            <button class="btn" type="submit" name="action" value="valider">Valider adhérent(s)</button>
         </div>
     </div>
 </form>

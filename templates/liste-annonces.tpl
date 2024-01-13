@@ -44,7 +44,7 @@
     </div>
     <div class="supprimer">
         <div>
-            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les annonces sélectionnées ?')">Supprimer annonce(s)</button>
         </div>
     </div>
 </form>

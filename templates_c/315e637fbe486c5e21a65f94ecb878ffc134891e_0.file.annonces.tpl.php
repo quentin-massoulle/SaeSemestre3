@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-12 10:06:37
+/* Smarty version 4.2.1, created on 2024-01-13 10:21:28
   from 'C:\laragon\www\SaeSemestre3\templates\annonces.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a10f2d45e974_08759911',
+  'unifunc' => 'content_65a26428de6849_74647859',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '315e637fbe486c5e21a65f94ecb878ffc134891e' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\annonces.tpl',
-      1 => 1705053895,
+      1 => 1705067007,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a10f2d45e974_08759911 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a26428de6849_74647859 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -35,7 +35,7 @@ function content_65a10f2d45e974_08759911 (Smarty_Internal_Template $_smarty_tpl)
 <body>
 
   <div class="main">
-    <h1>Annonces / Evènement</h1>
+    <h1>Annonces / Evènements</h1>
 
     <div class="container-item">
       <?php
@@ -58,9 +58,9 @@ $_smarty_tpl->tpl_vars['annonce']->do_else = false;
                 <div class="titre-poste"><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre_poste'];?>
 </div>
 
-                <div class="titre-poste">mail de contacte : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['mail'];?>
+                <div class="annonce-mail">E-mail : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['mail'];?>
 </div>
-                <div class="titre-poste">telephon  de contacte : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['tel'];?>
+                <div class="annonce-tel">Tel : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['tel'];?>
 </div>
                 <div class="auteur-poste">Posté par <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nom'];?>
  <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prenom'];?>
@@ -102,15 +102,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <input type="text" id="description" name="description" placeholder="Description de l'annonce..." maxlength="100" required>
 
       
-      <label for="file">Numéro de contacte :</label>
+      <label for="file">Numéro de contact :</label>
       <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
 
 
-      <label for="file"> Mail de contacte :</label>
+      <label for="file"> Mail de contact :</label>
       <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
 
 
-      <label for="contenue">Contenue :</label>
+      <label for="contenue">Contenu :</label>
       <textarea id="contenue" name="contenue" placeholder="Contenue de l'annonce..." maxlength="500" required></textarea>
 
       <label for="file">Sélectionnez une photo :</label>
@@ -130,9 +130,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <p><span id="annonceAuteur">-</span></p>
         <p><span id="annonceMail">-</span></p>
         <p><span id="annonceNumero">-</span></p>
-        <div class="container-img-profil">
-            <img id="annoncePhotoProfil" src="" alt="Photo de profil de l'annonce">
-        </div>
+ 
         <h3 id="annonceTitre">-</h3>
         <p id="annonceDescription">-</p>
         <p id="annonceContenue">-</p>
@@ -143,5 +141,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </div>
 
 </body>
-</html>  <?php }
+</html>  
+<?php }
 }

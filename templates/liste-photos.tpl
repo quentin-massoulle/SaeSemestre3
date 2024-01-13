@@ -14,7 +14,7 @@
     <script src="./js/gerer-photo.js"></script>
     <script src="./js/notif.js"></script>
 
-    <h1>Mes Photos</h1>
+    <h1>Gérer Photos</h1>
     <form action="./php/gerer-liste-photo.php" method="post" id="formSuppression">
         <div class="container-item">
             {foreach $data_photos as $photo}
@@ -42,7 +42,7 @@
         </div>
         <div class="supprimer">
         <div>
-            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer photo</button>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les photos sélectionnées ?')">Supprimer photo(s)</button>
         </div>
         </div>
     </form>

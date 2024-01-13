@@ -14,7 +14,7 @@
     <script src="./js/gerer-annonce.js"></script>
     <script src="./js/notif.js"></script>
 
-    <h1>Mes Annonces</h1>
+    <h1>Gérer les Annonces</h1>
     <form action="./php/gerer-liste-annonce.php" method="post" id="formSuppression">
     <div class="container-item">
         <!-- Une seule boucle foreach ici -->
@@ -44,10 +44,10 @@
     </div>
     <div class="supprimer">
         <div>
-            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">Supprimer adhérents</button>
+            <button class="btn" type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les annonces sélectionnées ?')">Supprimer annonce(s)</button>
         </div>
         <div>
-            <button class="btn" type="submit" name="action" value="valider">Valider adhérents</button>
+            <button class="btn" type="submit" name="action" value="valider">Valider annonce(s)</button>
         </div>
     </div>
 </form>
@@ -84,7 +84,7 @@
     </div>
     <div class="supprimer">
         <div>
-            <input type="submit" class="btn" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les adhérents sélectionnés ?')">
+            <input type="submit" class="btn" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les annonces sélectionnées ?')">
         </div>
         <div>
             <input type="submit" class="btn" name="action" value="valider">

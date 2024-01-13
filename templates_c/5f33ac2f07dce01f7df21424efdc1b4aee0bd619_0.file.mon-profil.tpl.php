@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-11 17:36:18
+/* Smarty version 4.2.1, created on 2024-01-12 13:22:50
   from 'C:\laragon\www\SaeSemestre3\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a0271292d995_28211478',
+  'unifunc' => 'content_65a13d2a175ca1_78549603',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f33ac2f07dce01f7df21424efdc1b4aee0bd619' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\mon-profil.tpl',
-      1 => 1704994577,
+      1 => 1705065764,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a0271292d995_28211478 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a13d2a175ca1_78549603 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -37,12 +37,18 @@ function content_65a0271292d995_28211478 (Smarty_Internal_Template $_smarty_tpl)
  src="script.js"><?php echo '</script'; ?>
 >
   
-  <h1 classe ="monprofil">Modifier son profil</h1>
+  <h1 classe ="monprofil">Modifier mon profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">
-        <img src="images/logo lorem ipsum.avif" alt="image_profile"width=100px height=100px><br>
-        <a href="" class="gerer-btn" type="button">modifier la photo de profil</a>
+        <img src="<?php echo $_smarty_tpl->tpl_vars['pp']->value;?>
+" alt="image_profile"width=100px height=100px><br>
+        <form action="php/changement-pp.php" method="post" enctype="multipart/form-data">
+                <label for="nouvelle_photo">Choisir une nouvelle photo :</label>
+                <input type="file" name="nouvelle_photo" id="nouvelle_photo" accept="image/*">
+                <br>
+                <button class="gerer-btn" type="submit">Modifier la photo de profil</button>
+            </form>
       <div>
       
         <a href="gerer-photos" class="gerer-btn" type="button">Gérer mes photos</a>
