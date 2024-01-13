@@ -12,7 +12,7 @@
     <header>
         <div class="topnav">
             <div class="logo">
-                <img src="images/logo_lorem_ipsum.avif" alt="Logo">
+                <img src="./images/logo_CID.png" alt="Logo">
             </div>
             <div>
                 <a class="active" href="deconnexion">Déconnexion</a>
