@@ -842,3 +842,41 @@ body {
 .importer-photo:hover {
   background-color: #3092c6;
 }
+
+
+
+.bottomfooter{
+  font-size: 14px;
+}
+
+.elementfooter {
+  text-align: left;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.resau {
+  display: flex;
+}
+
+.bottomfooter .logo img {
+  height: 30px; /* Ajustez la hauteur du logo selon vos besoins */
+  margin: 10px;
+}
+.bottomfooter {
+  margin-top: 5%;
+  background-color: #043550;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  bottom: auto;
+  width: 100%;
+  color: white; /* Couleur du texte du footer */
+  /*transition: bottom 0.5s;*/
+}
