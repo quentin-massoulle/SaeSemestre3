@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Mon Profil - CID</title>
   <link href="./style/mon-profil.css" rel="stylesheet" type="text/css"/>
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 
 <body>

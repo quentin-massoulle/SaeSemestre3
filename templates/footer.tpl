@@ -7,6 +7,7 @@
        <a href="mention-legale"> Mentions légale</a> 
        <a href="politique-confidentialite">Politique de confidentialité</a>
        <a href="">Préférence des cookies</a> 
+       <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
     </div>
     <div class="elementfooter">
       <p>Nos réseaux sociaux</p>

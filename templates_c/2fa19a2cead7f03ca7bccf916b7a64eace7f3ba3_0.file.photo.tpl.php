@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-12 10:06:38
+/* Smarty version 4.2.1, created on 2024-01-15 10:20:03
   from 'C:\laragon\www\SaeSemestre3\templates\photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a10f2e855bf4_39529931',
+  'unifunc' => 'content_65a506d3777951_05647166',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fa19a2cead7f03ca7bccf916b7a64eace7f3ba3' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\photo.tpl',
-      1 => 1705053895,
+      1 => 1705313993,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a10f2e855bf4_39529931 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a506d3777951_05647166 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr" translate="no">
 <head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/photos.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>Photo</title>
+    <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 <body>
   <?php echo '<script'; ?>
@@ -36,30 +37,6 @@ function content_65a10f2e855bf4_39529931 (Smarty_Internal_Template $_smarty_tpl)
 
     <div class="container-haut">
       <div class="titre">Photos</div>
-
-      <div class="search-container">
-        <div class="search-box">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Rechercher..."
-          />
-          <button class="search-button">
-            <img src="./search-button.png" alt="" />
-          </button>
-        </div>
-      </div>
-
-      <div class="filter-container">
-          <button class="dropdown-btn" id="dropdown-btn">Filtres</button>
-          <div class="dropdown-content" id="dropdown-content">
-              <a href="#">Promo</a>
-              <a href="#">Année</a>
-              <a href="#">Date</a>
-              <a href="#">Chronologique</a>
-              <a href="#">Par domaine <br> d'activité </a> 
-          </div>
-      </div>
 
       <?php echo '<script'; ?>
  src="script.js"><?php echo '</script'; ?>
@@ -104,15 +81,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 <button class="importer-photo" id="openPopupBtn">Importer une photo</button>
 
 <div class="popup" id="importPopup">
-  <h2>Importer de photo</h2>
+  <h2>Importer de photos</h2>
   <form id="uploadForm" action="./php/import-photo.php" method="post" enctype="multipart/form-data">
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
     <label for="titre">Titre :</label>
-    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
+    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..." required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
-    <label for="file">Sélectionnez une photo :</label>
+    <label for="file">Sélectionner une photo :</label>
     <input type="file" name="file" id="file" accept="image/*">
     <button type="submit" id="submitBtn">Envoyer</button>
     <button type="button" id="closePopupBtn">Fermer</button>

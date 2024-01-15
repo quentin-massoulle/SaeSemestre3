@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style/style-admin.css" />
+    <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
   </head>
   <body>
     <header></header>

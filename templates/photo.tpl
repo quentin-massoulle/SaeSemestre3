@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/photos.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>Photo</title>
+    <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 <body>
   <script src="./js/photo.js"></script>

@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>cercle des informaticiens dispersés</title>
+  <title>Accueil</title>
   <link href="style/index.css" rel="stylesheet" type="text/css" />
   <link href="style/header.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 
 <body>
@@ -100,6 +101,7 @@
     </div>
 </div>
 </body>
+
 
 <footer>
   <div class="bottomfooter">

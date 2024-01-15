@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-13 10:21:28
+/* Smarty version 4.2.1, created on 2024-01-15 10:20:04
   from 'C:\laragon\www\SaeSemestre3\templates\annonces.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a26428de6849_74647859',
+  'unifunc' => 'content_65a506d4774c90_40302696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '315e637fbe486c5e21a65f94ecb878ffc134891e' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3\\templates\\annonces.tpl',
-      1 => 1705067007,
+      1 => 1705313989,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a26428de6849_74647859 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a506d4774c90_40302696 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -30,6 +30,7 @@ function content_65a26428de6849_74647859 (Smarty_Internal_Template $_smarty_tpl)
   <title>Annonces - CID</title>
   <link href="./style/style.css" rel="stylesheet" type="text/css" />
   <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 
 <body>
@@ -103,11 +104,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       
       <label for="file">Numéro de contact :</label>
-      <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
+      <input type="texte" name="numero" id="numero"  placeholder="Numéro de contact" maxlength="20" required>
 
 
       <label for="file"> Mail de contact :</label>
-      <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
+      <input type="texte" name="mail" id="mail" placeholder="Mail de contact" maxlength="320" required">
 
 
       <label for="contenue">Contenu :</label>

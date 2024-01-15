@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Valider Photo</title>
   <link href="./style/valider-photo.css" rel="stylesheet" type="text/css" />
   <script src=./js/"modifier-annonces.js"></script>
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 
 </head>
 
