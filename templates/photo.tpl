@@ -45,7 +45,7 @@
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" placeholder="YYYY-MM-DD" required>
     <label for="titre">Titre :</label>
-    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..;  " required>
+    <input type="text" id="titre" name="titre" placeholder="Titre de la photo..." required>
     <label for="legende">Légende :</label>
     <textarea id="legende" name="legende" required></textarea>
     <label for="file">Sélectionner une photo :</label>

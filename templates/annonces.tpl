@@ -58,11 +58,11 @@
 
       
       <label for="file">Numéro de contact :</label>
-      <input type="texte" name="numero" id="numero"  placeholder="numero de contacte" maxlength="20" required>
+      <input type="texte" name="numero" id="numero"  placeholder="Numéro de contact" maxlength="20" required>
 
 
       <label for="file"> Mail de contact :</label>
-      <input type="texte" name="mail" id="mail" placeholder="mail de contacte" maxlength="320" required">
+      <input type="texte" name="mail" id="mail" placeholder="Mail de contact" maxlength="320" required">
 
 
       <label for="contenue">Contenu :</label>
