@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-12 11:36:53
+/* Smarty version 4.2.1, created on 2024-01-15 09:22:14
   from 'C:\laragon\www\SaeSemestre3-1\templates\mon-profil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a124558be8f4_91929092',
+  'unifunc' => 'content_65a4f946f08247_30256789',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b152387317b0f40ad0ca4ea6c17cc7b2d0b2d6dc' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3-1\\templates\\mon-profil.tpl',
-      1 => 1705059225,
+      1 => 1705310023,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a124558be8f4_91929092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a4f946f08247_30256789 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -37,7 +37,7 @@ function content_65a124558be8f4_91929092 (Smarty_Internal_Template $_smarty_tpl)
  src="script.js"><?php echo '</script'; ?>
 >
   
-  <h1 classe ="monprofil">Modifier son profil</h1>
+  <h1 classe ="monprofil">Modifier mon profil</h1>
   <div class="modifier_profil">
     <div>
       <div class="container">

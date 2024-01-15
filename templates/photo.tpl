@@ -12,30 +12,6 @@
     <div class="container-haut">
       <div class="titre">Photos</div>
 
-      <div class="search-container">
-        <div class="search-box">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Rechercher..."
-          />
-          <button class="search-button">
-            <img src="./search-button.png" alt="" />
-          </button>
-        </div>
-      </div>
-
-      <div class="filter-container">
-          <button class="dropdown-btn" id="dropdown-btn">Filtres</button>
-          <div class="dropdown-content" id="dropdown-content">
-              <a href="#">Promo</a>
-              <a href="#">Année</a>
-              <a href="#">Date</a>
-              <a href="#">Chronologique</a>
-              <a href="#">Par domaine <br> d'activité </a> 
-          </div>
-      </div>
-
       <script src="script.js"></script>
 
     </div>

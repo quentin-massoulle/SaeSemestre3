@@ -214,6 +214,7 @@ Flight::route('/liste-annonces', function(){
         SELECT A.id_annonce, A.titre_poste, A.contenu, A.date_poste, A.description_poste, A.url_photo, A.valide, U.id_utilisateur, U.nom, U.prenom
         FROM Annonce A
         JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
+        ORDER BY id_annonce DESC
         ");
 
         // Exécution de la requête
@@ -268,6 +269,7 @@ Flight::route('/liste-annonces-no-visible', function(){
         FROM Annonce A
         JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
         WHERE A.valide = 0
+        ORDER BY id_annonce DESC
         ");
 
         // Exécution de la requête
@@ -324,6 +326,7 @@ Flight::route('/liste-photos-no-visible', function(){
             FROM Photo as P
             INNER JOIN Utilisateur as U ON P.id_utilisateur = U.id_utilisateur
             WHERE P.valide = 0
+            ORDER BY id_photo DESC
         ");
         $requete->execute();
 
@@ -377,6 +380,7 @@ Flight::route('/liste-photos', function(){
             SELECT P.id_photo, P.titre_poste, P.date_poste, P.description_poste, P.url_photo, P.valide, U.id_utilisateur, U.nom, U.prenom  
             FROM Photo as P
             INNER JOIN Utilisateur as U ON P.id_utilisateur = U.id_utilisateur
+            ORDER BY id_photo DESC
         ");
         $requete->execute();
 
@@ -447,6 +451,7 @@ Flight::route('/gerer-photos', function(){
             SELECT id_photo, titre_poste, date_poste, description_poste, url_photo, valide, U.id_utilisateur, nom, prenom  
             FROM Photo as P, Utilisateur as U 
             WHERE U.id_utilisateur = ?
+            ORDER BY id_photo DESC
         ");
         $requete->bind_param("i", $id_utilisateur);
         $requete->execute();
@@ -517,6 +522,7 @@ Flight::route('/gerer-annonces', function(){
         FROM Annonce A
         JOIN Utilisateur U ON A.id_utilisateur = U.id_utilisateur
         WHERE A.id_utilisateur = ?
+        ORDER BY id_annonce DESC
         ");
 
         $requete->bind_param("i", $id_utilisateur);
@@ -619,7 +625,8 @@ Flight::route('/photos', function(){
         SELECT P.id_photo, P.url_photo, P.date_poste, P.description_poste, U.id_utilisateur, U.nom, U.prenom,U.photo_profil
         FROM Photo AS P
         JOIN Utilisateur AS U ON P.id_utilisateur = U.id_utilisateur
-        WHERE P.valide = 1;
+        WHERE P.valide = 1
+        ORDER BY id_photo DESC
         ");
 
     // Exécution de la requête
@@ -679,6 +686,7 @@ Flight::route('/annonces', function(){
             SELECT id_annonce, titre_poste, contenu, date_poste, description_poste, url_photo, U.id_utilisateur, nom, prenom , photo_profil , mail_annonce ,numero_telephone_annonce
             FROM Annonce as A, Utilisateur as U 
             WHERE valide = 1 AND A.id_utilisateur = U.id_utilisateur
+            ORDER BY id_annonce DESC
         ");
 
         // Exécution de la requête
@@ -721,30 +729,6 @@ Flight::route('/annonces', function(){
     } else {
         Flight::redirect('/');
     }
-});
-
-
-Flight::route('/valider-photo', function(){
-    include_once './templates/header-admin.tpl';
-    $data = array(
-        'titre' => 'Titre de test',
-        'route' => 'Route de test'
-    );
-    include_once 'templates/footer.tpl';
-    Flight::render('valider-photo.tpl',$data);
-    include_once './templates/footer.tpl';
-});
-
-Flight::route('/valider-annonces', function(){
-    include_once './templates/header-admin.tpl';
-    $data = array(
-        'titre' => 'Titre de test',
-        'route' => 'Route de test'
-    );
-    include_once 'templates/footer.tpl';
-
-    Flight::render('valider-annonces.tpl',$data);
-    include_once './templates/footer.tpl';
 });
 
 Flight::map('notFound', function(){
