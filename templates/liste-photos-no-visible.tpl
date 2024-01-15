@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Mes photos - CID</title>
+    <title>Liste Photos non Visible - CID</title>
     <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
     <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
     <link href="./style/index.css rel="stylesheet" type="text/css" />

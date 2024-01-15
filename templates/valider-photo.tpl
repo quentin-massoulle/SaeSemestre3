@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Validation photos - CID</title>
   <link href="./style/valider-photo.css" rel="stylesheet" type="text/css" />
   <script src=./js/"modifier-annonces.js"></script>
 

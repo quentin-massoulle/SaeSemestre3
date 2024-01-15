@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2024-01-15 09:23:02
+/* Smarty version 4.2.1, created on 2024-01-15 10:20:46
   from 'C:\laragon\www\SaeSemestre3-1\templates\gerer-annonces-user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_65a4f97644c0f6_70454295',
+  'unifunc' => 'content_65a506feb3b379_34996064',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '77e77e07461ccc717c450cc418794ee3c69672a1' => 
     array (
       0 => 'C:\\laragon\\www\\SaeSemestre3-1\\templates\\gerer-annonces-user.tpl',
-      1 => 1705310023,
+      1 => 1705314006,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a4f97644c0f6_70454295 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a506feb3b379_34996064 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 

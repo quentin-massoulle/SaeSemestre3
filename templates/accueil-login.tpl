@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Accueil - CID</title>
   <link href="style/index.css" rel="stylesheet" type="text/css" />
 </head>
 
