@@ -7,6 +7,7 @@
   <title>Accueil - CID</title>
   <link href="style/index.css" rel="stylesheet" type="text/css" />
   <link href="style/header.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 
 <body>
@@ -100,6 +101,7 @@
     </div>
 </div>
 </body>
+
 
 <footer>
   <div class="bottomfooter">

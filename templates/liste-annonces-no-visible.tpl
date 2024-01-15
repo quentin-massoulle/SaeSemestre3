@@ -7,6 +7,7 @@
     <title>Liste Annonces non Visible - CID</title>
     <link href="./style/liste-adherent.css" rel="stylesheet" type="text/css" />
     <link href="./style/annonce-pop-up.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 </head>
 
 <body>

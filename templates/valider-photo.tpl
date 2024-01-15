@@ -7,6 +7,7 @@
   <title>Validation photos - CID</title>
   <link href="./style/valider-photo.css" rel="stylesheet" type="text/css" />
   <script src=./js/"modifier-annonces.js"></script>
+  <link rel="icon" href="./images/logo-cid-carre.png" type="image/png">
 
 </head>
 
